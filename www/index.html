@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Volxbibel</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+    <!-- Statusbar overlay -->
+    <div class="statusbar"></div>
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+        <!-- Initial Page, "data-name" contains page name -->
+        <div data-name="home" class="page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="title">Die Volxbibel</div>
+                </div>
+            </div>
+
+            <!-- Scrollable page content -->
+            <div class="page-content">
+                <div class="list links-list">
+                    <label class="list-headline">Altes Testament</label>
+
+                    <ul>
+                        <li><a href="/detail/" data-book="1.Mose">1. Buch Mose</a></li>
+                        <li><a href="/detail/" data-book="2.Mose">2. Buch Mose</a></li>
+                        <li><a href="/detail/" data-book="3.Mose">3. Buch Mose</a></li>
+                        <li><a href="/detail/" data-book="4.Mose">4. Buch Mose</a></li>
+                        <li><a href="/detail/" data-book="5.Mose">5. Buch Mose</a></li>
+                        <li><a href="/detail/" data-book="Josua">Das Buch Josua</a></li>
+                        <li><a href="/detail/" data-book="Richter">Das Buch der Richter</a></li>
+                        <li><a href="/detail/" data-book="Rut">Das Buch Rut</a></li>
+                        <li><a href="/detail/" data-book="1.Samuel">1. Buch Samuel</a></li>
+                        <li><a href="/detail/" data-book="2.Samuel">2. Buch Samuel</a></li>
+                        <li><a href="/detail/" data-book="1.Könige">1. Buch über die Könige</a></li>
+                        <li><a href="/detail/" data-book="2.Könige">2. Buch über die Könige</a></li>
+                        <li><a href="/detail/" data-book="1.Chronik">1. Buch der Chronik</a></li>
+                        <li><a href="/detail/" data-book="2.Chronik">2. Buch der Chronik</a></li>
+                        <li><a href="/detail/" data-book="Esra">Das Buch Esra</a></li>
+                        <li><a href="/detail/" data-book="Nehemia">Das Buch Nehemia</a></li>
+                        <li><a href="/detail/" data-book="Ester">Das Buch Ester</a></li>
+                        <li><a href="/detail/" data-book="Hiob">Das Buch Hiob</a></li>
+                        <li><a href="/detail/" data-book="Psalmen">Das Buch der Psalmen</a></li>
+                    </ul>
+                </div>
+
+                <div class="list links-list">
+                    <label class="list-headline">Neues Testament</label>
+
+                    <ul>
+                        <li><a href="/detail/" data-book="Matthäus">Matthäus</a></li>
+                        <li><a href="/detail/" data-book="Markus">Markus</a></li>
+                        <li><a href="/detail/" data-book="Lukas">Lukas</a></li>
+                        <li><a href="/detail/" data-book="Johannes">Johannes</a></li>
+                        <li><a href="/detail/" data-book="Apostelgeschichte">Die Geschichte der Apostel</a></li>
+                        <li><a href="/detail/" data-book="Römer">Römerbrief</a></li>
+                        <li><a href="/detail/" data-book="1.Korinther">1. Korintherbrief</a></li>
+                        <li><a href="/detail/" data-book="2.Korinther">2. Korintherbrief</a></li>
+                        <li><a href="/detail/" data-book="Offenbarung">Offenbarung</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <!--<a href="#" class="link">Link</a>-->
+                    <!--<a href="/about/" class="link">Detail</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+<script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="lib/jquery-wikitext-0.3.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.andreassteiger.volxbibel" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Volxbibel</name>
+    <description>
+        Content of Volxbibel
+    </description>
+    <author email="hallo@andreassteiger.de" href="http://andreassteiger.de">
+        Andreas Steiger
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="DisallowOverscroll" value="true" />
+</widget>
