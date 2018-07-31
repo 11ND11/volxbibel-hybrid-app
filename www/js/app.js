@@ -32,10 +32,23 @@ var app = new Framework7({
                 $voxbibelContentContainer = $('.volxbibel-content');
                 console.log(currentBook);
 
-                $('.navbar-book-title').text(currentBook);
-
                 updateWikiText($voxbibelContentContainer, currentBook);
             }
+
+            $$('.links-list').find('a').on('click', function (e) {
+                currentBook = $(this).data('book');
+            });
+
+            $$('#toolbar-link-prev').on('click', function (e) {
+                currentChapter--;
+                updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
+            });
+
+            $$('#toolbar-link-next').on('click', function (e) {
+                console.log(currentBook);
+                currentChapter++;
+                updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
+            });
         },
         popupOpen: function (popup) {
             // do something on popup open
@@ -50,20 +63,7 @@ $$(document).on('deviceready', function () {
     console.log("Device is ready!");
 });
 
-$('.links-list').find('a').on('click', function (e) {
-    currentBook = $(this).data('book');
-});
 
-$('.link-chapter-prev').on('click', function (e) {
-    currentChapter--;
-    updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
-});
-
-$('.link-chapter-next').on('click', function (e) {
-    console.log(currentBook);
-    currentChapter++;
-    updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
-});
 
 // Now we need to run the code that will be executed only for About page.
 
@@ -76,10 +76,13 @@ function updateWikiText($contentContainer, book = '1.Mose', chapter = '1') {
     var url = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=',
         volxbibelContent;
 
+    $('.navbar-book-title').text(currentBook + ' ' + currentChapter);
+
     app.request.json(url + book + '_' + chapter, function (requestData) {
         console.log(requestData);
 
         volxbibelContent = getVolxbibelContent(requestData);
+        volxbibelContent = removeMetaInfoFromContent(volxbibelContent);
         // format wiki text an bring it to the template
         $contentContainer.wikiText(volxbibelContent);
     });
@@ -91,6 +94,6 @@ function getVolxbibelContent(data) {
     return data['query']['pages'][dataPage]['revisions'][0]['*'];
 }
 
-function removeMetaInfoFromContent (contentString) {
-    return contentString.substring( str.indexOf( "<h3>" ) +1, contentString.length );
+function removeMetaInfoFromContent(contentString) {
+    return contentString.substring(contentString.indexOf("==="), contentString.length);
 }

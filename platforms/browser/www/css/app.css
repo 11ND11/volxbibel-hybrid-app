@@ -9,7 +9,7 @@
 
    See https://github.com/apache/cordova-plugin-statusbar
 */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,700i,800,800i,900');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 .navbar {
@@ -29,15 +29,15 @@
 }
 
 .page-content .volxbibel-content {
-    padding : 0 20px;
+    padding   : 0 20px 50px;
     font-size : 17px;
 }
 
 .page-content .volxbibel-content h3 {
-    font-size: 18px;
-    line-height: 19px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    font-size   : 23px;
+    line-height : 28px;
+    font-weight : 700;
+    font-family : 'Montserrat', sans-serif;
 }
 
 .page-content > p:first-child {
@@ -51,17 +51,22 @@
     margin-bottom  : 5px;
     padding-left   : 20px;
     font-size      : 14px;
-    color: #9c9c9c;
+    color          : #9c9c9c;
     text-transform : uppercase;
 }
 
+.toolbar .link, .toolbar .link .icon {
+    color : #333;
+}
+
 .spinner {
+    position          : absolute;
+    left              : calc(50% - 20px);
+    bottom            : calc(50% - 20px);
     margin            : 30px auto;
     width             : 40px;
     height            : 40px;
-    position          : relative;
     text-align        : center;
-
     -webkit-animation : sk-rotate 2.0s infinite linear;
     animation         : sk-rotate 2.0s infinite linear;
 }
