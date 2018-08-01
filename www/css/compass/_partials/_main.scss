@@ -4,38 +4,60 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,700i,800,800i,900');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.navbar {
-    background  : #aecede;
-    font-family : 'Montserrat', sans-serif;
-    font-weight : 700;
-    font-style  : italic;
-}
+// ***************************************
+// app
+// ***************************************
 
 #app {
     color       : #333;
     font-family : 'Open Sans', sans-serif;
+
+    .statusbar {
+        background : $red;
+        transition : 400ms;
+    }
+
+    .navbar {
+        background  : $red;
+        color       : #fff;
+        font-family : 'Montserrat', sans-serif;
+        font-weight : 700;
+        font-style  : italic;
+    }
 }
+
+.toolbar {
+    .link {
+        .icon {
+            filter : brightness(1) saturate(0);
+        }
+        &.disable {
+            opacity : 0;
+        }
+    }
+}
+
+.icon-back {
+    filter : brightness() invert(1);
+}
+
+// ***************************************
+// ios
+// ***************************************
 
 .ios .page {
     background : #fff;
 }
 
-.page-content .volxbibel-content {
-    padding   : rem-calc(0 20 50);
-    font-size : rem-calc(17);
-}
+// ***************************************
+// content
+// ***************************************
 
-.page-content .volxbibel-content h3 {
+h3 {
     font-size   : rem-calc(23);
     line-height : rem-calc(28);
     font-weight : 700;
     font-family : 'Montserrat', sans-serif;
-}
-
-.page-content > p:first-child {
-    color       : #aecede;
-    font-family : 'Montserrat', sans-serif;
-    font-size   : rem-calc(18);
 }
 
 .list-headline {
@@ -47,14 +69,39 @@
     text-transform : uppercase;
 }
 
-.toolbar .link, .toolbar .link .icon {
-    color : #333;
+// ***************************************
+// page detail
+// ***************************************
+
+.page-content {
+    padding-bottom : rem-calc(50);
+
+    .volxbibel-content {
+        font-size : rem-calc(17);
+
+        a {
+            color : $red;
+        }
+    }
 }
+
+#picker-chapter {
+    text-align : center;
+    color      : #9c9c9c;
+
+    &::placeholder {
+        text-align : center;
+    }
+}
+
+// ***************************************
+// spinner
+// ***************************************
 
 .spinner {
     position   : absolute;
     left       : calc(50% - 20px);
-    bottom     : calc(50% - 20px);
+    top        : rem-calc(50);
     margin     : rem-calc(30) auto;
     width      : rem-calc(40);
     height     : rem-calc(40);
@@ -68,7 +115,7 @@
     display          : inline-block;
     position         : absolute;
     top              : 0;
-    background-color : #f68e5d;
+    background-color : $red;
     border-radius    : 100%;
     animation        : sk-bounce 2.0s infinite ease-in-out;
 }
