@@ -1,0 +1,98 @@
+// ***************************************
+// fonts
+// ***************************************
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,700i,800,800i,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.navbar {
+    background  : #aecede;
+    font-family : 'Montserrat', sans-serif;
+    font-weight : 700;
+    font-style  : italic;
+}
+
+#app {
+    color       : #333;
+    font-family : 'Open Sans', sans-serif;
+}
+
+.ios .page {
+    background : #fff;
+}
+
+.page-content .volxbibel-content {
+    padding   : rem-calc(0 20 50);
+    font-size : rem-calc(17);
+}
+
+.page-content .volxbibel-content h3 {
+    font-size   : rem-calc(23);
+    line-height : rem-calc(28);
+    font-weight : 700;
+    font-family : 'Montserrat', sans-serif;
+}
+
+.page-content > p:first-child {
+    color       : #aecede;
+    font-family : 'Montserrat', sans-serif;
+    font-size   : rem-calc(18);
+}
+
+.list-headline {
+    display        : inline-block;
+    margin-bottom  : rem-calc(5);
+    padding-left   : rem-calc(20);
+    font-size      : rem-calc(14);
+    color          : #9c9c9c;
+    text-transform : uppercase;
+}
+
+.toolbar .link, .toolbar .link .icon {
+    color : #333;
+}
+
+.spinner {
+    position   : absolute;
+    left       : calc(50% - 20px);
+    bottom     : calc(50% - 20px);
+    margin     : rem-calc(30) auto;
+    width      : rem-calc(40);
+    height     : rem-calc(40);
+    text-align : center;
+    animation  : sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+    width            : 60%;
+    height           : 60%;
+    display          : inline-block;
+    position         : absolute;
+    top              : 0;
+    background-color : #f68e5d;
+    border-radius    : 100%;
+    animation        : sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+    top             : auto;
+    bottom          : 0;
+    animation-delay : -1.0s;
+}
+
+@keyframes sk-rotate {
+    100% {
+        transform         : rotate(360deg);
+        -webkit-transform : rotate(360deg)
+    }
+}
+
+@keyframes sk-bounce {
+    0%, 100% {
+        transform         : scale(0.0);
+        -webkit-transform : scale(0.0);
+    }
+    50% {
+        transform         : scale(1.0);
+        -webkit-transform : scale(1.0);
+    }
+}
