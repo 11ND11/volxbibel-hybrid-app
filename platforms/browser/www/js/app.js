@@ -72,8 +72,33 @@ $$(document).on('page:beforeout', '.page[data-name="detail"]', function (e) {
 });
 
 $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
-    $voxbibelContentContainer = $('.volxbibel-content');
+   app.request.json("bibleChapterCount.json", function (data) {
+       var pickerValues = [];
 
+        for (var iterator = 1; iterator <= data[currentBook]; iterator++) {
+            pickerValues.push('Kapitel ' + iterator);
+        }
+
+        var pickerDevice = app.picker.create({
+            inputEl: '#picker-chapter',
+            cols: [
+                {
+                    textAlign: 'center',
+                    values: pickerValues,
+                }
+            ],
+            on: {
+                closed: function () {
+                    var selectedChapterString = this.value.toString();
+                    var selectedChapter = selectedChapterString.replace('Kapitel ', '');
+                    updateWikiText($voxbibelContentContainer, currentBook, selectedChapter);
+                }
+            }
+        });
+
+    });
+
+    $voxbibelContentContainer = $('.volxbibel-content');
     $$('.navbar-book-title').hide();
 
     updateWikiText($voxbibelContentContainer, currentBook);
@@ -94,23 +119,6 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
         console.log(currentBook);
         currentChapter++;
         updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
-    });
-
-    var pickerDevice = app.picker.create({
-        inputEl: '#picker-chapter',
-        cols: [
-            {
-                textAlign: 'center',
-                values: ['1', '2', '3', '4', '5', '6'],
-                displayValues: ['Kapitel 1', 'Kapitel 2', 'Kapitel  3', 'Kapitel 4', 'Kapitel 5', 'Kapitel 6']
-            }
-        ],
-        on: {
-            closed: function () {
-                console.log('Picker closed with ' + this.value);
-                updateWikiText($voxbibelContentContainer, currentBook, this.value);
-            }
-        }
     });
 });
 

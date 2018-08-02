@@ -57,7 +57,7 @@
 
 		// Regular expressions to match each kind of line level format mark-up.
 		var re_blank = /^([ \t]*)$/;
-		var re_heading = /^(={1,6})[ \t]+([^=]+)(={1,6})[ \t]*$/;
+		var re_heading = /^(={1,6})+([^=]+)(={1,6})[ \t]*$/;
 		var re_bullet = /^[ \t]+\*[ \t]+(.+)$/;
 		var re_numbered = /^[ \t]+#[ \t]+(.+)$/;
 		var re_mono_start = /^\{{3}$/;
@@ -78,13 +78,13 @@
 
 		// Individual mark-up regular expressions - also see the public ones
 		// near the bottom of the file.
-		var re_named_link = /^\[((((ftp|https?):\/\/)?[\-\w@:%_\+.~#?,&\/\/=]+)|((mailto:)?([_.\w\-]+@([\w][\w\-]+\.)+[a-zA-Z]{2,3})))([ \t]*([^\]]*))?\]$/;
+		var re_named_link = /^\[((((|ftp|https?):\/\/)?[\-\w@:%_\+.~#?,&\/\/=]+)|((mailto:)?([_.\w\-]+@([\w][\w\-]+\.)+[a-zA-Z]{2,3})))([ \t]*([^\]]*))?\]$/;
 		var tn_monospace = "{{{";
 		var tn_monospace_end = "}}}";
 		var tn_bolditalic = "'''''";
 		var tn_bold = "'''";
 		var tn_italic = "''";
-		var tn_superscript = "^";
+		var tn_superscript = "*";
 		var tn_subscript = ",,";
 		var tn_underline = "__";
 		var tn_strikethrough = "~~";
@@ -270,14 +270,14 @@
 					monospace = true;
 					formattedText += toggleFormatting( "monospace" );
 				}
-				else if( jQuery.wikiText.re_link.test( token ) )
-				{
-					formattedText += jQuery.wikiText.namedLink( token );
-				}
-				else if( jQuery.wikiText.re_mail.test( token ) )
-				{
-					formattedText += jQuery.wikiText.namedLink( token );
-				}
+				// else if( jQuery.wikiText.re_link.test( token ) )
+				// {
+				// 	formattedText += jQuery.wikiText.namedLink( token );
+				// }
+				// else if( jQuery.wikiText.re_mail.test( token ) )
+				// {
+				// 	formattedText += jQuery.wikiText.namedLink( token );
+				// }
 				else if( tn_bold === token )
 				{
 					formattedText += toggleFormatting( "bold" );
