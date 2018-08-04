@@ -73,8 +73,8 @@
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="Blackopaque" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
-
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
 </widget>

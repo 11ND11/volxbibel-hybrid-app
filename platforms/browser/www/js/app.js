@@ -5,9 +5,11 @@
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
-var currentBook = '';
-var currentChapter = 1;
-var $voxbibelContentContainer;
+var currentBook = '',
+    currentChapter = 1,
+    lastChapterOfCurrentBook,
+    pickerValues = [],
+    $voxbibelContentContainer;
 
 // Initialize app
 var app = new Framework7({
@@ -49,7 +51,6 @@ var app = new Framework7({
             $$('.links-list').find('a').on('click', function (e) {
                 currentBook = $(this).data('book');
                 currentChapter = 1;
-                $$('#toolbar-link-prev i').attr('disable', 'true');
             });
         }
     },
@@ -72,11 +73,14 @@ $$(document).on('page:beforeout', '.page[data-name="detail"]', function (e) {
 });
 
 $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
-   app.request.json("bibleChapterCount.json", function (data) {
-       var pickerValues = [];
+    app.request.json("bibleChapterCount.json", function (data) {
+        $$('#toolbar-link-prev').hide();
 
-        for (var iterator = 1; iterator <= data[currentBook]; iterator++) {
+        for (var iterator = 1;
+             iterator <= data[currentBook];
+             iterator++) {
             pickerValues.push('Kapitel ' + iterator);
+            lastChapterOfCurrentBook = iterator;
         }
 
         var pickerDevice = app.picker.create({
@@ -91,7 +95,7 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
                 closed: function () {
                     var selectedChapterString = this.value.toString();
                     var selectedChapter = selectedChapterString.replace('Kapitel ', '');
-                    updateWikiText($voxbibelContentContainer, currentBook, selectedChapter);
+                    updateDetailView($voxbibelContentContainer, currentBook, selectedChapter);
                 }
             }
         });
@@ -101,25 +105,37 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
     $voxbibelContentContainer = $('.volxbibel-content');
     $$('.navbar-book-title').hide();
 
-    updateWikiText($voxbibelContentContainer, currentBook);
+    updateDetailView($voxbibelContentContainer, currentBook);
 
     $$('#toolbar-link-prev').on('click', function (e) {
-        if(currentChapter <= 1) {
-            $$('#toolbar-link-prev i').removeAttr('disable');
-        } else {
-            currentChapter--;
-        }
-        updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
+        currentChapter--;
+        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
     });
 
     $$('#toolbar-link-next').on('click', function (e) {
-        if(currentChapter > 1) {
-            $$('#toolbar-link-prev i').removeAttr('disable');
-        }
-        console.log(currentBook);
         currentChapter++;
-        updateWikiText($voxbibelContentContainer, currentBook, currentChapter);
+        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
     });
+
+    function updateDetailView($contentContainer, book, chapter = '1') {
+        updateWikiText($contentContainer, book, chapter);
+
+        if (currentChapter > 1) {
+            $$('#toolbar-link-prev').show();
+
+            if (currentChapter >= lastChapterOfCurrentBook) {
+                console.log('ende!');
+                $$('#toolbar-link-next').hide();
+            } else {
+                $$('#toolbar-link-next').show();
+            }
+        }
+        if (currentChapter <= 1) {
+            $$('#toolbar-link-prev').hide();
+        }
+
+        // pickerDevice.setValue(currentChapter);
+    }
 });
 
 // Now we need to run the code that will be executed only for About page.
@@ -129,10 +145,11 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
 //
 // });
 
-function updateWikiText($contentContainer, book = '1.Mose', chapter = '1') {
+
+function updateWikiText($contentContainer, book, chapter = '1') {
     var url = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=',
         volxbibelContent;
-        $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
+    $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
     currentChapter = chapter;
 
@@ -152,7 +169,7 @@ function updateWikiText($contentContainer, book = '1.Mose', chapter = '1') {
 function getVolxbibelContent(data) {
     var dataPage = Object.keys(data['query']['pages'])[0];
     console.log('page: ' + dataPage);
-    if(dataPage < 0) {
+    if (dataPage < 0) {
         alert('Inhalt existiert nicht');
     }
     return data['query']['pages'][dataPage]['revisions'][0]['*'];
@@ -162,6 +179,6 @@ function removeMetaInfoFromContent(contentString) {
     return contentString.substring(contentString.indexOf("==="), contentString.length);
 }
 
-function setNavbarTitle (book, chapter) {
+function setNavbarTitle(book, chapter) {
     $('.navbar-book-title').text(book + ' ' + chapter);
 }

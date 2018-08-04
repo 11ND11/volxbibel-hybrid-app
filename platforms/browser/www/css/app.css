@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,700i,800,800i,900");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-#app { color: #333; font-family: 'Open Sans', sans-serif; }
+#app { color: #444; font-family: 'Open Sans', sans-serif; }
 #app .statusbar { background: #f68e5d; -webkit-transition: 400ms; transition: 400ms; }
 #app .navbar { background: #f68e5d; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-style: italic; }
 
@@ -11,19 +11,22 @@
 
 .ios .page { background: #fff; }
 
+.ios .toolbar-link-wrapper { min-width: 2.75rem; height: 2.75rem; line-height: 2.75rem; }
+
 h3 { font-size: 1.4375rem; line-height: 1.75rem; font-weight: 700; font-family: 'Montserrat', sans-serif; }
 
 .list-headline { display: inline-block; margin-bottom: 0.3125rem; padding-left: 1.25rem; font-size: 0.875rem; color: #9c9c9c; text-transform: uppercase; }
 
 .page-content { padding-bottom: 3.125rem; }
 .page-content .volxbibel-content { font-size: 1.0625rem; }
+.page-content .volxbibel-content p { color: #444; }
 .page-content .volxbibel-content a { color: #f68e5d; }
 
-#picker-chapter { text-align: center; color: #9c9c9c; }
-#picker-chapter::-webkit-input-placeholder { text-align: center; }
-#picker-chapter:-ms-input-placeholder { text-align: center; }
-#picker-chapter::-ms-input-placeholder { text-align: center; }
-#picker-chapter::placeholder { text-align: center; }
+#picker-chapter { text-align: center; color: #f68e5d; }
+#picker-chapter::-webkit-input-placeholder { color: #f68e5d; text-align: center; }
+#picker-chapter:-ms-input-placeholder { color: #f68e5d; text-align: center; }
+#picker-chapter::-ms-input-placeholder { color: #f68e5d; text-align: center; }
+#picker-chapter::placeholder { color: #f68e5d; text-align: center; }
 
 .spinner { position: absolute; left: calc(50% - 20px); top: 3.125rem; margin: 1.875rem auto; width: 2.5rem; height: 2.5rem; text-align: center; -webkit-animation: sk-rotate 2.0s infinite linear; animation: sk-rotate 2.0s infinite linear; }
 

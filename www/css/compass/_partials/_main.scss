@@ -9,7 +9,7 @@
 // ***************************************
 
 #app {
-    color       : #333;
+    color       : $text-color;
     font-family : 'Open Sans', sans-serif;
 
     .statusbar {
@@ -49,6 +49,14 @@
     background : #fff;
 }
 
+.ios {
+    .toolbar-link-wrapper {
+        min-width   : rem-calc(44);
+        height      : rem-calc(44);
+        line-height : rem-calc(44);
+    }
+}
+
 // ***************************************
 // content
 // ***************************************
@@ -79,6 +87,9 @@ h3 {
     .volxbibel-content {
         font-size : rem-calc(17);
 
+        p {
+            color : $text-color;
+        }
         a {
             color : $red;
         }
@@ -87,9 +98,10 @@ h3 {
 
 #picker-chapter {
     text-align : center;
-    color      : #9c9c9c;
+    color      : $red;
 
     &::placeholder {
+        color      : $red;
         text-align : center;
     }
 }

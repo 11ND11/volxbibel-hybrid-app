@@ -20,4 +20,6 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="Blackopaque" />
+    <preference name="StatusBarDefaultScrollToTop" value="true" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
 </widget>
