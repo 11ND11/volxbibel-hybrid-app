@@ -1,10 +1,4 @@
 // ***************************************
-// fonts
-// ***************************************
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,700i,800,800i,900');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-// ***************************************
 // app
 // ***************************************
 
@@ -34,6 +28,17 @@
         &.disable {
             opacity : 0;
         }
+        svg {
+            width               : rem-calc(20);
+            height              : rem-calc(20);
+            display             : inline-block;
+            vertical-align      : middle;
+            background-size     : 100% auto;
+            background-position : center;
+            background-repeat   : no-repeat;
+            font-style          : normal;
+            position            : relative;
+        }
     }
 }
 
@@ -54,6 +59,19 @@
         min-width   : rem-calc(44);
         height      : rem-calc(44);
         line-height : rem-calc(44);
+    }
+}
+
+// ***************************************
+// material design
+// ***************************************
+
+.md {
+    .toolbar {
+        background-color : $red;
+    }
+    #picker-chapter {
+        color : #000;
     }
 }
 

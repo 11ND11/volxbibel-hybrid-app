@@ -75,7 +75,7 @@ $$(document).on('page:beforeout', '.page[data-name="detail"]', function (e) {
 $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
     app.request.json("bibleChapterCount.json", function (data) {
         $$('#toolbar-link-prev').hide();
-
+        pickerValues = [];
         for (var iterator = 1;
              iterator <= data[currentBook];
              iterator++) {
@@ -169,9 +169,6 @@ function updateWikiText($contentContainer, book, chapter = '1') {
 function getVolxbibelContent(data) {
     var dataPage = Object.keys(data['query']['pages'])[0];
     console.log('page: ' + dataPage);
-    if (dataPage < 0) {
-        alert('Inhalt existiert nicht');
-    }
     return data['query']['pages'][dataPage]['revisions'][0]['*'];
 }
 
