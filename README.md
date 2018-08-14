@@ -1,29 +1,20 @@
-# Framework7 PhoneGap Application 
+# Die Volxbibel-App
 
-> [Framework7](http://www.idangero.us/framework7) is a Mobile UI framework that can be used to build hybrid apps with PhoneGap. This template allows you to get started using Framework7 
-  quickly. 
-  
-  For a more extensive Framework7 sample, see the [one included in their Github project](https://github.com/nolimits4web/Framework7/tree/master/dist)
-  or the [demo apps on their website](http://www.idangero.us/framework7/apps/#.VpQCc5MrKjQ).
+> Die Volxbibel ist eine Bibel-Bearbeitung des Neuen und Alten Testaments in einer Sprache, die von Jugendlichen verstanden werden soll und Bezügen zur Moderne herstellt. Die Volxbibel gilt als erste Bibel weltweit, die unter einer Creative-Commons-Lizenz im Internet in einem Wiki weiter bearbeitet wird, um sich dort sprachlich zu entwickeln.
+  (Quelle: Wikipedia) 
     
-  Also, for an intro to Framework7, check out [this post on the PhoneGap blog](http://phonegap.com/blog/2015/11/30/framework7/).   
+  Alle Bibeltexte der App werden aus dem[Volxbibel-Wiki](https://wiki.volxbibel.de/) der aktuellen Version geladen und formatiert angezeigt.   
 
 
-## Usage
+## Features
     
-### PhoneGap CLI
+### First
 
-    $ phonegap create my-app --template phonegap-template-framework7
+    Text
 
-### Cordova CLI
+### Second
 
-    $ cordova create my-app --template phonegap-template-framework7
-    
-### Desktop
-
-In your browser, open the file:
-
-    /www/index.html
+Text
 
 
   
