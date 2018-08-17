@@ -40,6 +40,9 @@
             position            : relative;
         }
     }
+    .about-icon svg {
+        fill : #656565;
+    }
 }
 
 .icon-back {
@@ -111,6 +114,20 @@ h3 {
         a {
             color : $red;
         }
+    }
+    .connection-error-icon {
+        width   : rem-calc(50);
+        display : block;
+        margin  : rem-calc(50) auto rem-calc(20);
+
+        svg {
+            fill : $red
+        }
+    }
+    .error-text {
+        color      : $red;
+        font-style : italic;
+        text-align : center;
     }
 }
 

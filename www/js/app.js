@@ -9,6 +9,7 @@ var currentBook = '',
     currentChapter = 1,
     lastChapterOfCurrentBook,
     pickerValues = [],
+    chapterPicker,
     $voxbibelContentContainer;
 
 // Initialize app
@@ -73,6 +74,9 @@ $$(document).on('page:beforeout', '.page[data-name="detail"]', function (e) {
 });
 
 $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
+    $voxbibelContentContainer = $('.volxbibel-content');
+    $$('.navbar-book-title').hide();
+
     app.request.json("bibleChapterCount.json", function (data) {
         $$('#toolbar-link-prev').hide();
         pickerValues = [];
@@ -83,7 +87,23 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
             lastChapterOfCurrentBook = iterator;
         }
 
-        var pickerDevice = app.picker.create({
+        chapterPicker = createChapterPicker();
+
+        updateDetailView($voxbibelContentContainer, currentBook);
+    });
+
+    $$('#toolbar-link-prev').on('click', function (e) {
+        currentChapter--;
+        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
+    });
+
+    $$('#toolbar-link-next').on('click', function (e) {
+        currentChapter++;
+        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
+    });
+
+    function createChapterPicker()  {
+        return app.picker.create({
             inputEl: '#picker-chapter',
             cols: [
                 {
@@ -99,27 +119,10 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
                 }
             }
         });
-
-    });
-
-    $voxbibelContentContainer = $('.volxbibel-content');
-    $$('.navbar-book-title').hide();
-
-    updateDetailView($voxbibelContentContainer, currentBook);
-
-    $$('#toolbar-link-prev').on('click', function (e) {
-        currentChapter--;
-        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
-    });
-
-    $$('#toolbar-link-next').on('click', function (e) {
-        currentChapter++;
-        updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
-    });
+    }
 
     function updateDetailView($contentContainer, book, chapter = '1') {
         updateWikiText($contentContainer, book, chapter);
-
         if (currentChapter > 1) {
             $$('#toolbar-link-prev').show();
 
@@ -132,19 +135,15 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
         }
         if (currentChapter <= 1) {
             $$('#toolbar-link-prev').hide();
+
+            if (currentChapter == lastChapterOfCurrentBook) {
+                $$('#toolbar-link-next').hide();
+            }
         }
 
         // pickerDevice.setValue(currentChapter);
     }
 });
-
-// Now we need to run the code that will be executed only for About page.
-
-// Option 1. Using page callback for page (for "about" page in this case) (recommended way):
-// app.on('PageInit', function (page) {
-//
-// });
-
 
 function updateWikiText($contentContainer, book, chapter = '1') {
     var url = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=',
@@ -159,10 +158,27 @@ function updateWikiText($contentContainer, book, chapter = '1') {
 
         volxbibelContent = getVolxbibelContent(requestData);
         volxbibelContent = removeMetaInfoFromContent(volxbibelContent);
-        // format wiki text an bring it to the template
+        // todo: hack to beautify "Apostelgeschichte"
+        if (book === 'Apostelgeschichte') {
+            volxbibelContent = volxbibelContent.replace('[[#fn1|<sup>*</sup>]]', '*');
+            volxbibelContent = volxbibelContent.replace('[[#fn2|<sup>**</sup>]]', '**');
+            volxbibelContent = volxbibelContent.replace('<sup id="fn1">', '');
+            volxbibelContent = volxbibelContent.replace('<sup id="fn2">', '');
+        }
+        // format wiki text and bring it to the template
         $contentContainer.wikiText(volxbibelContent);
-    }, function (error, status) {
-        alert(error + 'xxx' + status);
+    }, function (xhr, status) {
+        // alert(xhr.statusText + 'xxx' + status);
+        $contentContainer.html(
+            '<span class="connection-error-icon">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>\n' +
+            '<!--\n' +
+            'Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com\n' +
+            'License - https://fontawesome.com/license (Commercial License)\n' +
+            '-->' +
+            '</span>' +
+            '<span class="error-text">Die Texte konnten momentan leider nicht geladen werden.<br>Kann es sein, dass du keine Verbindung zum Internet hast?<br>Versuche es einfach noch einmal.</span>'
+        );
     });
 }
 

@@ -115,6 +115,7 @@ src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url
 .toolbar .link .icon { -webkit-filter: brightness(1) saturate(0); filter: brightness(1) saturate(0); }
 .toolbar .link.disable { opacity: 0; }
 .toolbar .link svg { width: 1.25rem; height: 1.25rem; display: inline-block; vertical-align: middle; background-size: 100% auto; background-position: center; background-repeat: no-repeat; font-style: normal; position: relative; }
+.toolbar .about-icon svg { fill: #656565; }
 
 .icon-back { -webkit-filter: brightness() invert(1); filter: brightness() invert(1); }
 
@@ -133,6 +134,9 @@ h3 { font-size: 1.4375rem; line-height: 1.75rem; font-weight: 700; font-family: 
 .page-content .volxbibel-content { font-size: 1.0625rem; }
 .page-content .volxbibel-content p { color: #444; }
 .page-content .volxbibel-content a { color: #f68e5d; }
+.page-content .connection-error-icon { width: 3.125rem; display: block; margin: 3.125rem auto 1.25rem; }
+.page-content .connection-error-icon svg { fill: #f68e5d; }
+.page-content .error-text { color: #f68e5d; font-style: italic; text-align: center; }
 
 #picker-chapter { text-align: center; color: #f68e5d; }
 #picker-chapter::-webkit-input-placeholder { color: #f68e5d; text-align: center; }
