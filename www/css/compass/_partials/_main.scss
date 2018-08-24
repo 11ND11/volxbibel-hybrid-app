@@ -83,10 +83,27 @@
 // ***************************************
 
 h3 {
-    font-size   : rem-calc(23);
-    line-height : rem-calc(28);
-    font-weight : 700;
-    font-family : 'Montserrat', sans-serif;
+    font-size      : rem-calc(19);
+    line-height    : rem-calc(24);
+    font-weight    : 700;
+    font-family    : 'Montserrat', sans-serif;
+
+    display        : block;
+    margin-top     : rem-calc(15);
+    margin-bottom  : rem-calc(2);
+    padding        : rem-calc(20);
+    border         : 4px solid $red;
+    color          : $red;
+    text-transform : uppercase;
+    letter-spacing : 1px;
+
+    @media (min-width : 1024px) {
+        margin-top  : rem-calc(8);
+        padding     : rem-calc(30);
+        border      : 5px solid $red;
+        font-size   : rem-calc(20);
+        line-height : rem-calc(25);
+    }
 }
 
 .list-headline {
@@ -98,6 +115,22 @@ h3 {
     text-transform : uppercase;
 }
 
+.verse {
+    display          : inline-block;
+    width            : rem-calc(25);
+    height           : rem-calc(25);
+    margin-right     : rem-calc(5);
+    position         : relative;
+    top              : rem-calc(-2);
+    line-height      : rem-calc(25);
+    font-size        : rem-calc(11);
+    text-align       : center;
+    font-weight      : 700;
+    color            : #fff;
+    background-color : $red;
+    border-radius    : 50%;
+}
+
 // ***************************************
 // page detail
 // ***************************************
@@ -106,10 +139,13 @@ h3 {
     padding-bottom : rem-calc(50);
 
     .volxbibel-content {
-        font-size : rem-calc(17);
+        font-size    : rem-calc(17);
+        column-count : 3;
+        column-width : rem-calc(300);
 
         p {
-            color : $text-color;
+            padding-top : rem-calc(2);
+            color       : $text-color;
         }
         a {
             color : $red;

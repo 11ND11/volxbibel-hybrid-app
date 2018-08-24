@@ -167,6 +167,27 @@ function updateWikiText($contentContainer, book, chapter = '1') {
         }
         // format wiki text and bring it to the template
         $contentContainer.wikiText(volxbibelContent);
+        // wrap verses with span
+        $contentContainer.find('p').each(function() {
+            var paragraph = $(this).html(),
+                index = paragraph.indexOf(' ');
+
+            if(index !== -1) {
+                var verse = paragraph.substring(0, index),
+                    hyphenIndex = verse.indexOf('–');
+
+                // check if it is verse range
+                if(hyphenIndex !== -1) {
+                    var verseStartNumber = verse.substring(0, hyphenIndex),
+                        verseEndNumber =  verse.substring(hyphenIndex + 1, verse.length);
+
+                    $(this).html('<span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span>' + paragraph.substring(index, paragraph.length));
+                } else {
+                    $(this).html('<span class="verse">' + verse + '</span>' + paragraph.substring(index, paragraph.length));
+                }
+            }
+        });
+
     }, function (xhr, status) {
         // alert(xhr.statusText + 'xxx' + status);
         $contentContainer.html(
