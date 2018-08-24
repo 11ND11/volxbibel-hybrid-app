@@ -111,6 +111,7 @@ src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url
 #app { color: #444; font-family: 'Open Sans', sans-serif; }
 #app .statusbar { background: #f68e5d; -webkit-transition: 400ms; transition: 400ms; }
 #app .navbar { background: #f68e5d; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-style: italic; }
+#app .navbar .navbar-inner .right { width: 2.75rem; }
 
 .toolbar .link .icon { -webkit-filter: brightness(1) saturate(0); filter: brightness(1) saturate(0); }
 .toolbar .link.disable { opacity: 0; }
@@ -126,8 +127,10 @@ src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url
 .md .toolbar { background-color: #f68e5d; }
 .md #picker-chapter { color: #000; }
 
-h3 { font-size: 1.1875rem; line-height: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; display: block; margin-top: 0.9375rem; margin-bottom: 0.125rem; padding: 1.25rem; border: 4px solid #f68e5d; color: #f68e5d; text-transform: uppercase; letter-spacing: 1px; }
-@media (min-width: 1024px) { h3 { margin-top: 0.5rem; padding: 1.875rem; border: 5px solid #f68e5d; font-size: 1.25rem; line-height: 1.5625rem; } }
+h3 { font-size: 1.1875rem; line-height: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; display: block; margin-top: 1.875rem; margin-bottom: 0.125rem; padding: 1.25rem; border: 4px solid #f68e5d; color: #f68e5d; text-transform: uppercase; letter-spacing: 1px; }
+@media (min-width: 1024px) { h3 { padding: 1.875rem; border: 5px solid #f68e5d; font-size: 1.25rem; line-height: 1.5625rem; } }
+h3:first-child { margin-top: 0; }
+@media (min-width: 1024px) { h3:first-child { margin-top: 0.5rem; } }
 
 .list-headline { display: inline-block; margin-bottom: 0.3125rem; padding-left: 1.25rem; font-size: 0.875rem; color: #9c9c9c; text-transform: uppercase; }
 
