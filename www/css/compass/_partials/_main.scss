@@ -158,15 +158,21 @@ h3 {
             animation : fadein .5s;
         }
         p {
+            position    : relative;
             padding-top : rem-calc(2);
             color       : $text-color;
 
             &.active {
-                color : $red;
+                color                     : lighten($red, 10%);
 
                 .verse {
-                    background-color : $blue;
+                    background : lighten($red, 10%);
                 }
+            }
+            &.animated {
+                animation-duration : 0.75s;
+                animation-name     : bounceIn;
+                animation-iteration-count : 1;
             }
         }
         a {
@@ -186,14 +192,23 @@ h3 {
             color            : #fff;
             background-color : $red;
             border-radius    : 50%;
+        }
+        .action-button {
+            position   : absolute;
+            top        : 50%;
+            right      : rem-calc(10);
+            transform  : translateY(-50%);
+            width      : rem-calc(40);
+            height     : rem-calc(40);
+            min-width  : 0;
+            padding    : 0;
+            box-shadow : -4px 4px 11px 0 #b9b9b9;
+            border     : none;
 
-            .action-button {
-                padding : 0;
-
-                svg {
-                    fill  : #fff;
-                    width : rem-calc(11);
-                }
+            svg {
+                fill   : #fff;
+                width  : rem-calc(15);
+                height : rem-calc(40);
             }
         }
     }
@@ -220,6 +235,40 @@ h3 {
     &::placeholder {
         color      : $red;
         text-align : center;
+    }
+}
+
+@keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function : cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function         : cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity           : 0;
+        -webkit-transform : scale3d(0.3, 0.3, 0.3);
+        transform         : scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        -webkit-transform : scale3d(1.1, 1.1, 1.1);
+        transform         : scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform : scale3d(0.9, 0.9, 0.9);
+        transform         : scale3d(0.9, 0.9, 0.9);
+    }
+
+    to {
+        opacity           : 1;
+        -webkit-transform : scale3d(1, 1, 1);
+        transform         : scale3d(1, 1, 1);
     }
 }
 

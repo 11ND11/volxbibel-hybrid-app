@@ -184,9 +184,9 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                     var verseStartNumber = verse.substring(0, hyphenIndex),
                         verseEndNumber =  verse.substring(hyphenIndex + 1, verse.length);
 
-                    $(this).html('\'<span class="verse-wrapper"><span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span></span>' + paragraph.substring(index, paragraph.length));
+                    $(this).html('<span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span>' + paragraph.substring(index, paragraph.length));
                 } else {
-                    $(this).html('<span class="verse-wrapper"><span class="verse">' + verse + '</span></span>' + paragraph.substring(index, paragraph.length));
+                    $(this).html('<span class="verse">' + verse + '</span>' + paragraph.substring(index, paragraph.length));
                 }
             }
         });
@@ -197,9 +197,26 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                 'Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com\n' +
                 'License - https://fontawesome.com/license (Commercial License)\n' +
                 '-->';
-            $contentContainer.find('p').removeClass('active');
-            $contentContainer.find('.action-button').remove();
-            $(this).addClass('active').find('.verse').append('<a class="action-button button button-circle">' + shareIcon + '</a><a class="action-button button">' + shareIcon + '</a>');
+            $(this).removeClass('animated');
+            $contentContainer.find('p').removeClass('animated');
+
+            if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $(this).addClass('animated');
+                setTimeout(function() {
+                    $(this).removeClass('animated');
+                    console.log('in');
+                }, 1000);
+                $contentContainer.find('.action-button').remove();
+            } else {
+                $contentContainer.find('p').removeClass('active');
+                $contentContainer.find('.action-button').remove();
+                $(this).addClass('animated');
+                setTimeout(function() {
+                    $(this).removeClass('animated');console.log('in');
+                }, 1000);
+                $(this).addClass('active').prepend('<a class="action-button button button-circle">' + shareIcon + '</a>');
+            }
         });
 
     }, function (xhr, status) {
