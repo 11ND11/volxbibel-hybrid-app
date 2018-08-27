@@ -148,11 +148,14 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
 function updateWikiText($contentContainer, book, chapter = '1') {
     var url = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=',
         volxbibelContent;
+
+    // $$('.volxbibel-content p').unbind("click");
+    // show loading spinner
     $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
     currentChapter = chapter;
-
     setNavbarTitle(book, chapter);
+
     app.request.json(url + book + '_' + chapter, function (requestData) {
         console.log(requestData);
 
@@ -181,11 +184,22 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                     var verseStartNumber = verse.substring(0, hyphenIndex),
                         verseEndNumber =  verse.substring(hyphenIndex + 1, verse.length);
 
-                    $(this).html('<span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span>' + paragraph.substring(index, paragraph.length));
+                    $(this).html('\'<span class="verse-wrapper"><span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span></span>' + paragraph.substring(index, paragraph.length));
                 } else {
-                    $(this).html('<span class="verse">' + verse + '</span>' + paragraph.substring(index, paragraph.length));
+                    $(this).html('<span class="verse-wrapper"><span class="verse">' + verse + '</span></span>' + paragraph.substring(index, paragraph.length));
                 }
             }
+        });
+        $contentContainer.addClass('content-is-ready');
+        $$('.volxbibel-content p').on("click", function() {
+            var shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"/></svg>\n' +
+                '<!--\n' +
+                'Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com\n' +
+                'License - https://fontawesome.com/license (Commercial License)\n' +
+                '-->';
+            $contentContainer.find('p').removeClass('active');
+            $contentContainer.find('.action-button').remove();
+            $(this).addClass('active').find('.verse').append('<a class="action-button button button-circle">' + shareIcon + '</a><a class="action-button button">' + shareIcon + '</a>');
         });
 
     }, function (xhr, status) {

@@ -119,28 +119,27 @@ h3 {
 }
 
 .list-headline {
-    display        : inline-block;
-    margin-bottom  : rem-calc(5);
-    padding-left   : rem-calc(20);
-    font-size      : rem-calc(14);
-    color          : #9c9c9c;
-    text-transform : uppercase;
+    display       : inline-block;
+    margin-bottom : rem-calc(5);
+    padding-left  : rem-calc(20);
+    font-size     : rem-calc(16);
 }
 
-.verse {
-    display          : inline-block;
-    width            : rem-calc(25);
-    height           : rem-calc(25);
-    margin-right     : rem-calc(5);
-    position         : relative;
-    top              : rem-calc(-2);
-    line-height      : rem-calc(25);
-    font-size        : rem-calc(11);
-    text-align       : center;
-    font-weight      : 700;
-    color            : #fff;
-    background-color : $red;
-    border-radius    : 50%;
+.links-list {
+    h3 {
+        border : none;
+    }
+    ul {
+        &:before, &:after {
+            margin-left : rem-calc(10);
+        }
+    }
+    li {
+        margin-bottom : rem-calc(5);
+        margin-left   : rem-calc(10);
+        border-left   : 3px solid $red;
+        box-shadow    : -4px 4px 15px -5px #b5b5b594;
+    }
 }
 
 // ***************************************
@@ -155,12 +154,47 @@ h3 {
         column-count : 3;
         column-width : rem-calc(300);
 
+        &.content-is-ready {
+            animation : fadein .5s;
+        }
         p {
             padding-top : rem-calc(2);
             color       : $text-color;
+
+            &.active {
+                color : $red;
+
+                .verse {
+                    background-color : $blue;
+                }
+            }
         }
         a {
             color : $red;
+        }
+        .verse, .action-button {
+            display          : inline-block;
+            width            : rem-calc(25);
+            height           : rem-calc(25);
+            margin-right     : rem-calc(5);
+            position         : relative;
+            top              : rem-calc(-1);
+            line-height      : rem-calc(25);
+            font-size        : rem-calc(11);
+            text-align       : center;
+            font-weight      : 700;
+            color            : #fff;
+            background-color : $red;
+            border-radius    : 50%;
+
+            .action-button {
+                padding : 0;
+
+                svg {
+                    fill  : #fff;
+                    width : rem-calc(11);
+                }
+            }
         }
     }
     .connection-error-icon {
@@ -186,6 +220,15 @@ h3 {
     &::placeholder {
         color      : $red;
         text-align : center;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity : 0;
+    }
+    to {
+        opacity : 1;
     }
 }
 
