@@ -115,13 +115,15 @@ src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url
 
 .navigation-buttons { z-index: 1; position: fixed; bottom: 1.25rem; width: 100%; }
 .navigation-buttons .navigation-buttons-inner { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 0 1.25rem; }
-.navigation-buttons .link { display: block; width: 2.5rem; height: 2.5rem; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; background-color: #fff; border-radius: 50%; text-align: center; line-height: 2.375rem; }
+.navigation-buttons .link { display: block; width: 2.5rem; height: 2.5rem; background-color: #fff; border-radius: 50%; text-align: center; line-height: 2.375rem; -webkit-box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3); box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3); }
+.navigation-buttons .link:hover { -webkit-box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.375); box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.375); }
 .navigation-buttons .link.left { float: left; }
 .navigation-buttons .link.right { float: right; }
 .navigation-buttons .link.left svg, .navigation-buttons .link.right svg { height: 1rem; fill: #f68e5d; }
 .navigation-buttons .link.disable { opacity: 0; }
 .navigation-buttons .link svg { width: 1.25rem; height: 1.25rem; display: inline-block; vertical-align: middle; background-size: 100% auto; background-position: center; background-repeat: no-repeat; font-style: normal; position: relative; }
-.navigation-buttons .chapter-navigation { position: relative; display: inline-block; background-color: #fff; border-radius: 30px; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; }
+.navigation-buttons .chapter-navigation { position: relative; display: inline-block; background-color: #fff; border-radius: 30px; -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225); box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225); }
+.navigation-buttons .chapter-navigation:hover { -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225); box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225); }
 .navigation-buttons .chapter-navigation svg { position: absolute; top: 0.875rem; left: 0.625rem; display: inline-block; width: 1.25rem; height: 0.875rem; fill: #f68e5d; }
 .navigation-buttons .chapter-navigation .picker-chapter-label { position: absolute; top: 0.6875rem; right: 0.75rem; color: #f68e5d; }
 .navigation-buttons .about-icon svg { fill: #656565; }
@@ -132,22 +134,27 @@ src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url
 
 .ios .toolbar-link-wrapper { min-width: 2.75rem; height: 2.75rem; line-height: 2.75rem; }
 
+.ios.device-pixel-ratio-2 .links-list a:before { -webkit-transform: scaleY(0.5); -ms-transform: scaleY(0.5); transform: scaleY(0.5); }
+
 .md .toolbar { background-color: #f68e5d; }
 .md #picker-chapter { color: #000; }
 
 h3 { font-size: 1.1875rem; line-height: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; display: block; margin-top: 1.875rem; margin-bottom: 0.125rem; padding: 1.25rem; border: 4px solid #f68e5d; color: #f68e5d; text-transform: uppercase; letter-spacing: 1px; }
 @media (min-width: 1024px) { h3 { padding: 1.875rem; border: 5px solid #f68e5d; font-size: 1.25rem; line-height: 1.5625rem; } }
 h3:first-child { margin-top: 0; }
-@media (min-width: 1024px) { h3:first-child { margin-top: 0.5rem; } }
+@media (min-width: 1024px) { h3:first-child { margin-top: 0.625rem; } }
 
 .list-headline { display: inline-block; margin-bottom: 0.3125rem; padding-left: 1.25rem; font-size: 1rem; }
 
 #app .links-list h3 { border: none; }
-#app .links-list ul { margin-left: 0.625rem; margin-right: 0.625rem; }
-#app .links-list li { margin-bottom: 0.3125rem; border-left: 3px solid #f68e5d; -webkit-box-shadow: -4px 4px 15px -5px rgba(200, 200, 200, 0.58); box-shadow: -4px 4px 15px -5px rgba(200, 200, 200, 0.58); }
+#app .links-list ul { margin-left: 0.625rem; }
+#app .links-list li { margin-bottom: 0.3125rem; border-left: 3px solid #f68e5d; -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225); box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225); }
+#app .links-list li:hover { -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225); box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225); }
 #app .links-list a:after { left: 0; }
+#app .links-list a:before { content: ''; position: absolute; background-color: #c8c7cc; display: block; z-index: 15; bottom: auto; right: auto; top: 0; left: 0; height: 1px; width: 100%; -webkit-transform-origin: 50% 100%; -ms-transform-origin: 50% 100%; transform-origin: 50% 100%; }
 
-.page-content { padding-bottom: 3.125rem; }
+.page-content > .links-list:first-child { margin-top: 1.25rem; }
+
 .page-content .volxbibel-content { font-size: 1.0625rem; -webkit-column-count: 3; column-count: 3; -webkit-column-width: 18.75rem; column-width: 18.75rem; }
 .page-content .volxbibel-content.content-is-ready { -webkit-animation: fadein .5s; animation: fadein .5s; }
 .page-content .volxbibel-content p { position: relative; padding-top: 0.125rem; color: #444; -webkit-transition: all .3s; transition: all .3s; }
@@ -155,7 +162,8 @@ h3:first-child { margin-top: 0; }
 .page-content .volxbibel-content p.active .verse { background: #f9b08d; }
 .page-content .volxbibel-content a { color: #f68e5d; }
 .page-content .volxbibel-content .verse, .page-content .volxbibel-content .action-button { display: inline-block; width: 1.5625rem; height: 1.5625rem; margin-right: 0.3125rem; position: relative; top: -0.0625rem; line-height: 1.5625rem; font-size: 0.6875rem; text-align: center; font-weight: 700; color: #fff; background-color: #f68e5d; border-radius: 50%; -webkit-transition: background-color .3s; transition: background-color .3s; }
-.page-content .volxbibel-content .action-button { position: absolute; top: 50%; right: 0.625rem; width: 2.5rem; height: 2.5rem; min-width: 0; padding: 0; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; border: none; -webkit-transform: translateY(-50%) scale(0); -ms-transform: translateY(-50%) scale(0); transform: translateY(-50%) scale(0); -webkit-transition: -webkit-transform .2s ease-in-out; transition: -webkit-transform .2s ease-in-out; transition: transform .2s ease-in-out; transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out; }
+.page-content .volxbibel-content .action-button { position: absolute; top: 50%; right: 0.625rem; width: 2.5rem; height: 2.5rem; min-width: 0; padding: 0; border: none; -webkit-transform: translateY(-50%) scale(0); -ms-transform: translateY(-50%) scale(0); transform: translateY(-50%) scale(0); -webkit-transition: -webkit-transform .2s ease-in-out; transition: -webkit-transform .2s ease-in-out; transition: transform .2s ease-in-out; transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out; -webkit-box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3); box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3); }
+.page-content .volxbibel-content .action-button:hover { -webkit-box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.375); box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.375); }
 .page-content .volxbibel-content .action-button.scale { -webkit-transform: translateY(-50%) scale(1); -ms-transform: translateY(-50%) scale(1); transform: translateY(-50%) scale(1); }
 .page-content .volxbibel-content .action-button svg { fill: #fff; width: 0.9375rem; height: 2.5rem; }
 .page-content .connection-error-icon { width: 3.125rem; display: block; margin: 3.125rem auto 1.25rem; }

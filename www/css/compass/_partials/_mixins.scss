@@ -1,0 +1,15 @@
+@mixin button-mini-shadow() {
+    box-shadow : 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        box-shadow : 0 4px 11px 0 rgba(0, 0, 0, 0.375);
+    }
+}
+
+@mixin button-long-shadow() {
+    box-shadow : 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+
+    &:hover {
+        box-shadow : 0 4px 10px 0 rgba(0, 0, 0, 0.225);
+    }
+}

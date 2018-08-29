@@ -43,11 +43,11 @@
         display          : block;
         width            : rem-calc(40);
         height           : rem-calc(40);
-        box-shadow       : -4px 4px 11px 0 #b9b9b9;
         background-color : #fff;
         border-radius    : 50%;
         text-align       : center;
         line-height      : rem-calc(38);
+        @include button-mini-shadow();
 
         &.left {
             float : left;
@@ -81,7 +81,7 @@
         display          : inline-block;
         background-color : #fff;
         border-radius    : 30px;
-        box-shadow       : -4px 4px 11px 0 #b9b9b9;
+        @include button-long-shadow();
 
         svg {
             position : absolute;
@@ -122,6 +122,10 @@
         height      : rem-calc(44);
         line-height : rem-calc(44);
     }
+}
+
+.ios.device-pixel-ratio-2 .links-list a:before {
+    transform : scaleY(0.5);
 }
 
 // ***************************************
@@ -166,7 +170,7 @@ h3 {
         margin-top : 0;
 
         @media (min-width : 1024px) {
-            margin-top : rem-calc(8);
+            margin-top : rem-calc(10);
         }
     }
 }
@@ -184,15 +188,34 @@ h3 {
     }
     ul {
         margin-left  : rem-calc(10);
-        margin-right : rem-calc(10);
     }
     li {
         margin-bottom : rem-calc(5);
         border-left   : 3px solid $red;
-        box-shadow    : -4px 4px 15px -5px rgba(200, 200, 200, 0.58);
+        @include button-long-shadow();
     }
     a:after {
         left : 0;
+    }
+    a:before {
+        content          : '';
+        position         : absolute;
+        background-color : #c8c7cc;
+        display          : block;
+        z-index          : 15;
+        bottom           : auto;
+        right            : auto;
+        top              : 0;
+        left             : 0;
+        height           : 1px;
+        width            : 100%;
+        transform-origin : 50% 100%;
+    }
+}
+
+.page-content {
+    > .links-list:first-child {
+        margin-top : rem-calc(20);
     }
 }
 
@@ -201,8 +224,6 @@ h3 {
 // ***************************************
 
 .page-content {
-    padding-bottom : rem-calc(50);
-
     .volxbibel-content {
         font-size    : rem-calc(17);
         column-count : 3;
@@ -260,10 +281,10 @@ h3 {
             height     : rem-calc(40);
             min-width  : 0;
             padding    : 0;
-            box-shadow : -4px 4px 11px 0 #b9b9b9;
             border     : none;
             transform  : translateY(-50%) scale(0);
             transition : transform .2s ease-in-out;
+            @include button-mini-shadow();
 
             &.scale {
                 transform : translateY(-50%) scale(1);
