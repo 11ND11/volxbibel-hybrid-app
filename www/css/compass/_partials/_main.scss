@@ -26,10 +26,40 @@
     }
 }
 
-.toolbar {
+.navigation-buttons {
+    z-index  : 1;
+    position : fixed;
+    bottom   : rem-calc(20);
+    width    : 100%;
+
+    .navigation-buttons-inner {
+        display         : flex;
+        flex-wrap       : nowrap;
+        flex-direction  : row;
+        justify-content : space-between;
+        margin          : rem-calc(0 20);
+    }
     .link {
-        .icon {
-            filter : brightness(1) saturate(0);
+        display          : block;
+        width            : rem-calc(40);
+        height           : rem-calc(40);
+        box-shadow       : -4px 4px 11px 0 #b9b9b9;
+        background-color : #fff;
+        border-radius    : 50%;
+        text-align       : center;
+        line-height      : rem-calc(38);
+
+        &.left {
+            float : left;
+        }
+        &.right {
+            float : right;
+        }
+        &.left, &.right {
+            svg {
+                height : rem-calc(16);
+                fill   : $red;
+            }
         }
         &.disable {
             opacity : 0;
@@ -44,6 +74,29 @@
             background-repeat   : no-repeat;
             font-style          : normal;
             position            : relative;
+        }
+    }
+    .chapter-navigation {
+        position         : relative;
+        display          : inline-block;
+        background-color : #fff;
+        border-radius    : 30px;
+        box-shadow       : -4px 4px 11px 0 #b9b9b9;
+
+        svg {
+            position : absolute;
+            top      : rem-calc(14);
+            left     : rem-calc(10);
+            display  : inline-block;
+            width    : rem-calc(20);
+            height   : rem-calc(14);
+            fill     : $red;
+        }
+        .picker-chapter-label {
+            position : absolute;
+            top      : rem-calc(11);
+            right    : rem-calc(12);
+            color    : $red;
         }
     }
     .about-icon svg {
@@ -125,20 +178,21 @@ h3 {
     font-size     : rem-calc(16);
 }
 
-.links-list {
+#app .links-list {
     h3 {
         border : none;
     }
     ul {
-        &:before, &:after {
-            margin-left : rem-calc(10);
-        }
+        margin-left  : rem-calc(10);
+        margin-right : rem-calc(10);
     }
     li {
         margin-bottom : rem-calc(5);
-        margin-left   : rem-calc(10);
         border-left   : 3px solid $red;
-        box-shadow    : -4px 4px 15px -5px #b5b5b594;
+        box-shadow    : -4px 4px 15px -5px rgba(200, 200, 200, 0.58);
+    }
+    a:after {
+        left : 0;
     }
 }
 
@@ -161,18 +215,22 @@ h3 {
             position    : relative;
             padding-top : rem-calc(2);
             color       : $text-color;
+            transition  : all .3s;
+            //animation-duration : 0.75s;
+            //animation-name     : bounceOut;
+            //animation-iteration-count : 1;
 
             &.active {
-                color                     : lighten($red, 10%);
+                color : lighten($red, 10%);
 
                 .verse {
                     background : lighten($red, 10%);
                 }
             }
             &.animated {
-                animation-duration : 0.75s;
-                animation-name     : bounceIn;
-                animation-iteration-count : 1;
+                //animation-duration : 0.75s;
+                //animation-name     : bounceIn;
+                //animation-iteration-count : 1;
             }
         }
         a {
@@ -192,19 +250,24 @@ h3 {
             color            : #fff;
             background-color : $red;
             border-radius    : 50%;
+            transition       : background-color .3s;
         }
         .action-button {
             position   : absolute;
             top        : 50%;
             right      : rem-calc(10);
-            transform  : translateY(-50%);
             width      : rem-calc(40);
             height     : rem-calc(40);
             min-width  : 0;
             padding    : 0;
             box-shadow : -4px 4px 11px 0 #b9b9b9;
             border     : none;
+            transform  : translateY(-50%) scale(0);
+            transition : transform .2s ease-in-out;
 
+            &.scale {
+                transform : translateY(-50%) scale(1);
+            }
             svg {
                 fill   : #fff;
                 width  : rem-calc(15);
@@ -229,16 +292,54 @@ h3 {
 }
 
 #picker-chapter {
-    text-align : center;
-    color      : $red;
+    width        : rem-calc(90);
+    height       : rem-calc(40);
+    padding-left : rem-calc(20);
+    display      : inline-block;
+    text-align   : center;
+    color        : #fff;
 
     &::placeholder {
-        color      : $red;
+        color      : #fff;
         text-align : center;
     }
 }
 
 @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function : cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function         : cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity           : 0;
+        -webkit-transform : scale3d(0.3, 0.3, 0.3);
+        transform         : scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        -webkit-transform : scale3d(1.1, 1.1, 1.1);
+        transform         : scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform : scale3d(0.9, 0.9, 0.9);
+        transform         : scale3d(0.9, 0.9, 0.9);
+    }
+
+    to {
+        opacity           : 1;
+        -webkit-transform : scale3d(1, 1, 1);
+        transform         : scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounceOut {
     from,
     20%,
     40%,

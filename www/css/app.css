@@ -1,124 +1,132 @@
 /* montserrat-regular - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 400; src: url("../fonts/montserrat-v12-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-v12-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-regular.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-regular.woff") format("woff"), url("../fonts/montserrat-v12-latin-regular.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-regular.svg#Montserrat") format("svg");
+src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-v12-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-regular.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-regular.woff") format("woff"), url("../fonts/montserrat-v12-latin-regular.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-regular.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 400; src: url("../fonts/montserrat-v12-latin-italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Italic"), local("Montserrat-Italic"), url("../fonts/montserrat-v12-latin-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-italic.svg#Montserrat") format("svg");
+src: local("Montserrat Italic"), local("Montserrat-Italic"), url("../fonts/montserrat-v12-latin-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-500 - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500; src: url("../fonts/montserrat-v12-latin-500.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Medium"), local("Montserrat-Medium"), url("../fonts/montserrat-v12-latin-500.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-500.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-500.woff") format("woff"), url("../fonts/montserrat-v12-latin-500.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-500.svg#Montserrat") format("svg");
+src: local("Montserrat Medium"), local("Montserrat-Medium"), url("../fonts/montserrat-v12-latin-500.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-500.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-500.woff") format("woff"), url("../fonts/montserrat-v12-latin-500.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-500.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-500italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 500; src: url("../fonts/montserrat-v12-latin-500italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Medium Italic"), local("Montserrat-MediumItalic"), url("../fonts/montserrat-v12-latin-500italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-500italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-500italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-500italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-500italic.svg#Montserrat") format("svg");
+src: local("Montserrat Medium Italic"), local("Montserrat-MediumItalic"), url("../fonts/montserrat-v12-latin-500italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-500italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-500italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-500italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-500italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-600 - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 600; src: url("../fonts/montserrat-v12-latin-600.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-v12-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-600.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-600.woff") format("woff"), url("../fonts/montserrat-v12-latin-600.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-600.svg#Montserrat") format("svg");
+src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-v12-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-600.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-600.woff") format("woff"), url("../fonts/montserrat-v12-latin-600.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-600.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-600italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 600; src: url("../fonts/montserrat-v12-latin-600italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat SemiBold Italic"), local("Montserrat-SemiBoldItalic"), url("../fonts/montserrat-v12-latin-600italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-600italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-600italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-600italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-600italic.svg#Montserrat") format("svg");
+src: local("Montserrat SemiBold Italic"), local("Montserrat-SemiBoldItalic"), url("../fonts/montserrat-v12-latin-600italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-600italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-600italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-600italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-600italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-700 - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 700; src: url("../fonts/montserrat-v12-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Bold"), local("Montserrat-Bold"), url("../fonts/montserrat-v12-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-700.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-700.woff") format("woff"), url("../fonts/montserrat-v12-latin-700.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-700.svg#Montserrat") format("svg");
+src: local("Montserrat Bold"), local("Montserrat-Bold"), url("../fonts/montserrat-v12-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-700.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-700.woff") format("woff"), url("../fonts/montserrat-v12-latin-700.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-700.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-700italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 700; src: url("../fonts/montserrat-v12-latin-700italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Bold Italic"), local("Montserrat-BoldItalic"), url("../fonts/montserrat-v12-latin-700italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-700italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-700italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-700italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-700italic.svg#Montserrat") format("svg");
+src: local("Montserrat Bold Italic"), local("Montserrat-BoldItalic"), url("../fonts/montserrat-v12-latin-700italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-700italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-700italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-700italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-700italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-800 - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 800; src: url("../fonts/montserrat-v12-latin-800.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"), url("../fonts/montserrat-v12-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-800.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-800.woff") format("woff"), url("../fonts/montserrat-v12-latin-800.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-800.svg#Montserrat") format("svg");
+src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"), url("../fonts/montserrat-v12-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-800.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-800.woff") format("woff"), url("../fonts/montserrat-v12-latin-800.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-800.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-800italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 800; src: url("../fonts/montserrat-v12-latin-800italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat ExtraBold Italic"), local("Montserrat-ExtraBoldItalic"), url("../fonts/montserrat-v12-latin-800italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-800italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-800italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-800italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-800italic.svg#Montserrat") format("svg");
+src: local("Montserrat ExtraBold Italic"), local("Montserrat-ExtraBoldItalic"), url("../fonts/montserrat-v12-latin-800italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-800italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-800italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-800italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-800italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-900 - latin */
 @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 900; src: url("../fonts/montserrat-v12-latin-900.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Black"), local("Montserrat-Black"), url("../fonts/montserrat-v12-latin-900.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-900.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-900.woff") format("woff"), url("../fonts/montserrat-v12-latin-900.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-900.svg#Montserrat") format("svg");
+src: local("Montserrat Black"), local("Montserrat-Black"), url("../fonts/montserrat-v12-latin-900.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-900.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-900.woff") format("woff"), url("../fonts/montserrat-v12-latin-900.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-900.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* montserrat-900italic - latin */
 @font-face { font-family: 'Montserrat'; font-style: italic; font-weight: 900; src: url("../fonts/montserrat-v12-latin-900italic.eot");
   /* IE9 Compat Modes */
-  src: local("Montserrat Black Italic"), local("Montserrat-BlackItalic"), url("../fonts/montserrat-v12-latin-900italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-900italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-900italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-900italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-900italic.svg#Montserrat") format("svg");
+src: local("Montserrat Black Italic"), local("Montserrat-BlackItalic"), url("../fonts/montserrat-v12-latin-900italic.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-v12-latin-900italic.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-900italic.woff") format("woff"), url("../fonts/montserrat-v12-latin-900italic.ttf") format("truetype"), url("../fonts/montserrat-v12-latin-900italic.svg#Montserrat") format("svg");
   /* Legacy iOS */ }
 /* open-sans-300 - latin */
 @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 300; src: url("../fonts/open-sans-v15-latin-300.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Light"), local("OpenSans-Light"), url("../fonts/open-sans-v15-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-300.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-300.woff") format("woff"), url("../fonts/open-sans-v15-latin-300.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-300.svg#OpenSans") format("svg");
+src: local("Open Sans Light"), local("OpenSans-Light"), url("../fonts/open-sans-v15-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-300.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-300.woff") format("woff"), url("../fonts/open-sans-v15-latin-300.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-300.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-300italic - latin */
 @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 300; src: url("../fonts/open-sans-v15-latin-300italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url("../fonts/open-sans-v15-latin-300italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-300italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-300italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-300italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-300italic.svg#OpenSans") format("svg");
+src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url("../fonts/open-sans-v15-latin-300italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-300italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-300italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-300italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-300italic.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-regular - latin */
 @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 400; src: url("../fonts/open-sans-v15-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url("../fonts/open-sans-v15-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-regular.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-regular.woff") format("woff"), url("../fonts/open-sans-v15-latin-regular.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-regular.svg#OpenSans") format("svg");
+src: local("Open Sans Regular"), local("OpenSans-Regular"), url("../fonts/open-sans-v15-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-regular.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-regular.woff") format("woff"), url("../fonts/open-sans-v15-latin-regular.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-regular.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-italic - latin */
 @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 400; src: url("../fonts/open-sans-v15-latin-italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Italic"), local("OpenSans-Italic"), url("../fonts/open-sans-v15-latin-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-italic.svg#OpenSans") format("svg");
+src: local("Open Sans Italic"), local("OpenSans-Italic"), url("../fonts/open-sans-v15-latin-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-italic.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-600 - latin */
 @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 600; src: url("../fonts/open-sans-v15-latin-600.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("../fonts/open-sans-v15-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-600.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-600.woff") format("woff"), url("../fonts/open-sans-v15-latin-600.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-600.svg#OpenSans") format("svg");
+src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("../fonts/open-sans-v15-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-600.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-600.woff") format("woff"), url("../fonts/open-sans-v15-latin-600.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-600.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-600italic - latin */
 @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 600; src: url("../fonts/open-sans-v15-latin-600italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic"), url("../fonts/open-sans-v15-latin-600italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-600italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-600italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-600italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-600italic.svg#OpenSans") format("svg");
+src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic"), url("../fonts/open-sans-v15-latin-600italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-600italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-600italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-600italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-600italic.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-700 - latin */
 @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 700; src: url("../fonts/open-sans-v15-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url("../fonts/open-sans-v15-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-700.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-700.woff") format("woff"), url("../fonts/open-sans-v15-latin-700.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-700.svg#OpenSans") format("svg");
+src: local("Open Sans Bold"), local("OpenSans-Bold"), url("../fonts/open-sans-v15-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-700.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-700.woff") format("woff"), url("../fonts/open-sans-v15-latin-700.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-700.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-700italic - latin */
 @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 700; src: url("../fonts/open-sans-v15-latin-700italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("../fonts/open-sans-v15-latin-700italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-700italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-700italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-700italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-700italic.svg#OpenSans") format("svg");
+src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("../fonts/open-sans-v15-latin-700italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-700italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-700italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-700italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-700italic.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-800 - latin */
 @font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 800; src: url("../fonts/open-sans-v15-latin-800.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans ExtraBold"), local("OpenSans-ExtraBold"), url("../fonts/open-sans-v15-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-800.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-800.woff") format("woff"), url("../fonts/open-sans-v15-latin-800.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-800.svg#OpenSans") format("svg");
+src: local("Open Sans ExtraBold"), local("OpenSans-ExtraBold"), url("../fonts/open-sans-v15-latin-800.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-800.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-800.woff") format("woff"), url("../fonts/open-sans-v15-latin-800.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-800.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 /* open-sans-800italic - latin */
 @font-face { font-family: 'Open Sans'; font-style: italic; font-weight: 800; src: url("../fonts/open-sans-v15-latin-800italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url("../fonts/open-sans-v15-latin-800italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-800italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-800italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-800italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-800italic.svg#OpenSans") format("svg");
+src: local("Open Sans ExtraBold Italic"), local("OpenSans-ExtraBoldItalic"), url("../fonts/open-sans-v15-latin-800italic.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v15-latin-800italic.woff2") format("woff2"), url("../fonts/open-sans-v15-latin-800italic.woff") format("woff"), url("../fonts/open-sans-v15-latin-800italic.ttf") format("truetype"), url("../fonts/open-sans-v15-latin-800italic.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 #app { color: #444; font-family: 'Open Sans', sans-serif; }
-#app .statusbar { background: #f68e5d; transition: 400ms; }
+#app .statusbar { background: #f68e5d; -webkit-transition: 400ms; transition: 400ms; }
 #app .navbar { background: #f68e5d; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-style: italic; }
 #app .navbar .navbar-inner .right { width: 2.75rem; }
 
-.toolbar .link .icon { filter: brightness(1) saturate(0); }
-.toolbar .link.disable { opacity: 0; }
-.toolbar .link svg { width: 1.25rem; height: 1.25rem; display: inline-block; vertical-align: middle; background-size: 100% auto; background-position: center; background-repeat: no-repeat; font-style: normal; position: relative; }
-.toolbar .about-icon svg { fill: #656565; }
+.navigation-buttons { z-index: 1; position: fixed; bottom: 1.25rem; width: 100%; }
+.navigation-buttons .navigation-buttons-inner { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 0 1.25rem; }
+.navigation-buttons .link { display: block; width: 2.5rem; height: 2.5rem; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; background-color: #fff; border-radius: 50%; text-align: center; line-height: 2.375rem; }
+.navigation-buttons .link.left { float: left; }
+.navigation-buttons .link.right { float: right; }
+.navigation-buttons .link.left svg, .navigation-buttons .link.right svg { height: 1rem; fill: #f68e5d; }
+.navigation-buttons .link.disable { opacity: 0; }
+.navigation-buttons .link svg { width: 1.25rem; height: 1.25rem; display: inline-block; vertical-align: middle; background-size: 100% auto; background-position: center; background-repeat: no-repeat; font-style: normal; position: relative; }
+.navigation-buttons .chapter-navigation { position: relative; display: inline-block; background-color: #fff; border-radius: 30px; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; }
+.navigation-buttons .chapter-navigation svg { position: absolute; top: 0.875rem; left: 0.625rem; display: inline-block; width: 1.25rem; height: 0.875rem; fill: #f68e5d; }
+.navigation-buttons .chapter-navigation .picker-chapter-label { position: absolute; top: 0.6875rem; right: 0.75rem; color: #f68e5d; }
+.navigation-buttons .about-icon svg { fill: #656565; }
 
-.icon-back { filter: brightness() invert(1); }
+.icon-back { -webkit-filter: brightness() invert(1); filter: brightness() invert(1); }
 
 .ios .page { background: #fff; }
 
@@ -134,27 +142,42 @@ h3:first-child { margin-top: 0; }
 
 .list-headline { display: inline-block; margin-bottom: 0.3125rem; padding-left: 1.25rem; font-size: 1rem; }
 
-.links-list h3 { border: none; }
-.links-list ul:before, .links-list ul:after { margin-left: 0.625rem; }
-.links-list li { margin-bottom: 0.3125rem; margin-left: 0.625rem; border-left: 3px solid #f68e5d; box-shadow: -4px 4px 15px -5px #b5b5b594; }
+#app .links-list h3 { border: none; }
+#app .links-list ul { margin-left: 0.625rem; margin-right: 0.625rem; }
+#app .links-list li { margin-bottom: 0.3125rem; border-left: 3px solid #f68e5d; -webkit-box-shadow: -4px 4px 15px -5px rgba(200, 200, 200, 0.58); box-shadow: -4px 4px 15px -5px rgba(200, 200, 200, 0.58); }
+#app .links-list a:after { left: 0; }
 
 .page-content { padding-bottom: 3.125rem; }
-.page-content .volxbibel-content { font-size: 1.0625rem; column-count: 3; column-width: 18.75rem; }
-.page-content .volxbibel-content.content-is-ready { animation: fadein .5s; }
-.page-content .volxbibel-content p { position: relative; padding-top: 0.125rem; color: #444; }
+.page-content .volxbibel-content { font-size: 1.0625rem; -webkit-column-count: 3; column-count: 3; -webkit-column-width: 18.75rem; column-width: 18.75rem; }
+.page-content .volxbibel-content.content-is-ready { -webkit-animation: fadein .5s; animation: fadein .5s; }
+.page-content .volxbibel-content p { position: relative; padding-top: 0.125rem; color: #444; -webkit-transition: all .3s; transition: all .3s; }
 .page-content .volxbibel-content p.active { color: #f9b08d; }
 .page-content .volxbibel-content p.active .verse { background: #f9b08d; }
-.page-content .volxbibel-content p.animated { animation-duration: 0.75s; animation-name: bounceIn; animation-iteration-count: 1; }
 .page-content .volxbibel-content a { color: #f68e5d; }
-.page-content .volxbibel-content .verse, .page-content .volxbibel-content .action-button { display: inline-block; width: 1.5625rem; height: 1.5625rem; margin-right: 0.3125rem; position: relative; top: -0.0625rem; line-height: 1.5625rem; font-size: 0.6875rem; text-align: center; font-weight: 700; color: #fff; background-color: #f68e5d; border-radius: 50%; }
-.page-content .volxbibel-content .action-button { position: absolute; top: 50%; right: 0.625rem; transform: translateY(-50%); width: 2.5rem; height: 2.5rem; min-width: 0; padding: 0; box-shadow: -4px 4px 11px 0 #b9b9b9; border: none; }
+.page-content .volxbibel-content .verse, .page-content .volxbibel-content .action-button { display: inline-block; width: 1.5625rem; height: 1.5625rem; margin-right: 0.3125rem; position: relative; top: -0.0625rem; line-height: 1.5625rem; font-size: 0.6875rem; text-align: center; font-weight: 700; color: #fff; background-color: #f68e5d; border-radius: 50%; -webkit-transition: background-color .3s; transition: background-color .3s; }
+.page-content .volxbibel-content .action-button { position: absolute; top: 50%; right: 0.625rem; width: 2.5rem; height: 2.5rem; min-width: 0; padding: 0; -webkit-box-shadow: -4px 4px 11px 0 #b9b9b9; box-shadow: -4px 4px 11px 0 #b9b9b9; border: none; -webkit-transform: translateY(-50%) scale(0); -ms-transform: translateY(-50%) scale(0); transform: translateY(-50%) scale(0); -webkit-transition: -webkit-transform .2s ease-in-out; transition: -webkit-transform .2s ease-in-out; transition: transform .2s ease-in-out; transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out; }
+.page-content .volxbibel-content .action-button.scale { -webkit-transform: translateY(-50%) scale(1); -ms-transform: translateY(-50%) scale(1); transform: translateY(-50%) scale(1); }
 .page-content .volxbibel-content .action-button svg { fill: #fff; width: 0.9375rem; height: 2.5rem; }
 .page-content .connection-error-icon { width: 3.125rem; display: block; margin: 3.125rem auto 1.25rem; }
 .page-content .connection-error-icon svg { fill: #f68e5d; }
 .page-content .error-text { color: #f68e5d; font-style: italic; text-align: center; }
 
-#picker-chapter { text-align: center; color: #f68e5d; }
-#picker-chapter::placeholder { color: #f68e5d; text-align: center; }
+#picker-chapter { width: 5.625rem; height: 2.5rem; padding-left: 1.25rem; display: inline-block; text-align: center; color: #fff; }
+#picker-chapter::-webkit-input-placeholder { color: #fff; text-align: center; }
+#picker-chapter:-ms-input-placeholder { color: #fff; text-align: center; }
+#picker-chapter::-ms-input-placeholder { color: #fff; text-align: center; }
+#picker-chapter::placeholder { color: #fff; text-align: center; }
+
+@-webkit-keyframes bounceIn { from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to { -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0; -webkit-transform: scale3d(0.3, 0.3, 0.3); transform: scale3d(0.3, 0.3, 0.3); }
+  20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
+  to { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
 
 @keyframes bounceIn { from,
     20%,
@@ -166,15 +189,41 @@ h3:first-child { margin-top: 0; }
   20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
   40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
   to { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@-webkit-keyframes bounceOut { from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to { -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0; -webkit-transform: scale3d(0.3, 0.3, 0.3); transform: scale3d(0.3, 0.3, 0.3); }
+  20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
+  to { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@keyframes bounceOut { from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to { -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { opacity: 0; -webkit-transform: scale3d(0.3, 0.3, 0.3); transform: scale3d(0.3, 0.3, 0.3); }
+  20% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+  40% { -webkit-transform: scale3d(0.9, 0.9, 0.9); transform: scale3d(0.9, 0.9, 0.9); }
+  to { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@-webkit-keyframes fadein { from { opacity: 0; }
+  to { opacity: 1; } }
 @keyframes fadein { from { opacity: 0; }
   to { opacity: 1; } }
-.spinner { position: absolute; left: calc(50% - 20px); top: 3.125rem; margin: 1.875rem auto; width: 2.5rem; height: 2.5rem; text-align: center; animation: sk-rotate 2.0s infinite linear; }
+.spinner { position: absolute; left: calc(50% - 20px); top: 3.125rem; margin: 1.875rem auto; width: 2.5rem; height: 2.5rem; text-align: center; -webkit-animation: sk-rotate 2.0s infinite linear; animation: sk-rotate 2.0s infinite linear; }
 
-.dot1, .dot2 { width: 60%; height: 60%; display: inline-block; position: absolute; top: 0; background-color: #f68e5d; border-radius: 100%; animation: sk-bounce 2.0s infinite ease-in-out; }
+.dot1, .dot2 { width: 60%; height: 60%; display: inline-block; position: absolute; top: 0; background-color: #f68e5d; border-radius: 100%; -webkit-animation: sk-bounce 2.0s infinite ease-in-out; animation: sk-bounce 2.0s infinite ease-in-out; }
 
-.dot2 { top: auto; bottom: 0; animation-delay: -1.0s; }
+.dot2 { top: auto; bottom: 0; -webkit-animation-delay: -1.0s; animation-delay: -1.0s; }
+
+@-webkit-keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
 
 @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes sk-bounce { 0%, 100% { transform: scale(0); -webkit-transform: scale(0); }
+  50% { transform: scale(1); -webkit-transform: scale(1); } }
 @keyframes sk-bounce { 0%, 100% { transform: scale(0); -webkit-transform: scale(0); }
   50% { transform: scale(1); -webkit-transform: scale(1); } }
 

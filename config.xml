@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.andreassteiger.volxbibel" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="de.andreassteiger.volxbibel" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Volxbibel</name>
     <description>
         Content of Volxbibel
     </description>
-    <author email="hallo@andreassteiger.de" href="http://andreassteiger.de">
+    <author email="hallo@andreassteiger.de" href="http://www.andreassteiger.de">
         Andreas Steiger
     </author>
     <content src="index.html" />
@@ -15,7 +15,7 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+
     <platform name="android">
         <preference name="android-minSdkVersion" value="14" />
         <allow-intent href="market:*" />
@@ -68,13 +68,19 @@
         <splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
+
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#ffffff" />
-    <preference name="StatusBarStyle" value="Blackopaque" />
+    <preference name="StatusBarBackgroundColor" value="#f68e5d" />
+    <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
+
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
-    <preference name="phonegap-version" value="cli-7.0.1" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
+
+    <engine name="ios" spec="~4.5.5" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
