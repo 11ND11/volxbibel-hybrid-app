@@ -1,17 +1,13 @@
 # Die Volxbibel-App
 
-> Die Volxbibel ist eine Bibel-Bearbeitung des Neuen und Alten Testaments in einer Sprache, die von Jugendlichen verstanden werden soll und Bezügen zur Moderne herstellt. Die Volxbibel gilt als erste Bibel weltweit, die unter einer Creative-Commons-Lizenz im Internet in einem Wiki weiter bearbeitet wird, um sich dort sprachlich zu entwickeln.
-  (Quelle: Wikipedia) 
+> The Volxbible is a Bible adaptation of the New and Old Testament in a language that is meant to be understood by young people and makes references to the modern age. The Volxbibel is considered the first bible in the world to be further edited on the internet in a wiki under the Creative Commons license for linguistic development.
+  (Source: Wikipedia)
     
-  Alle Bibeltexte der App werden aus dem[Volxbibel-Wiki](https://wiki.volxbibel.de/) der aktuellen Version geladen und formatiert angezeigt.   
+  All Bible verses of the app are loaded from the [Volxbibel-Wiki](https://wiki.volxbibel.de/) of the current version.   
 
 
 ## Features
-    
-### First
 
-    Text
-
-### Second
-
-Text
+- Bible verse sharing
+- show verse of the day (Volxbibel Losung)
+- Filter book list

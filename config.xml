@@ -70,15 +70,17 @@
     </platform>
 
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#f68e5d" />
-    <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
+
+    <preference name="FadeSplashScreenDuration" value="750"/>
+    <preference name="ShowSplashScreenSpinner" value="false"/>
+
     <preference name="phonegap-version" value="cli-7.0.1" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
 
     <engine name="ios" spec="~4.5.5" />

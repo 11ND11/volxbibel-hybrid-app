@@ -33,9 +33,41 @@
                 </div>
             </div>
 
+            <!-- Text of the Day -->
+            <div class="text-of-the-day" style="display: none">
+                <a class="button-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/></svg>
+                    <!--
+                    Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com
+                    License - https://fontawesome.com/license (Commercial License)
+                    -->
+                </a>
+                <div class="text-of-the-day-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm123.5 272.3L260.9 394.5c-7.1 7.4-18.7 7.4-25.9 0L124.5 280.3c-32.1-33.2-30.2-88.2 5.7-118.8 31.3-26.7 77.9-21.9 106.6 7.7l11.3 11.6 11.3-11.6c28.7-29.6 75.3-34.4 106.6-7.7 35.8 30.6 37.7 85.6 5.5 118.8z"/></svg>
+                    <!--
+                    Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com
+                    License - https://fontawesome.com/license (Commercial License)
+                    -->
+                    <h1>Text des Tages</h1>
+                    <div class="text-of-the-day-content"></div>
+                </div>
+            </div>
+
             <!-- Scrollable page content -->
             <div class="page-content">
-                <div class="list links-list">
+                <div class="searchbar-backdrop"></div>
+                <form class="searchbar">
+                    <div class="searchbar-inner">
+                        <div class="searchbar-input-wrap">
+                            <input type="search" placeholder="Suchen">
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                        <span class="searchbar-disable-button">Abbrechen</span>
+                    </div>
+                </form>
+
+                <div class="list links-list searchbar-found">
                     <h3 class="list-headline">Altes Testament</h3>
 
                     <ul>
@@ -81,7 +113,7 @@
                     </ul>
                 </div>
 
-                <div class="list links-list">
+                <div class="list links-list searchbar-found">
                     <h3 class="list-headline">Neues Testament</h3>
 
                     <ul>
@@ -114,6 +146,12 @@
                         <li><a href="/detail/" data-book="Offenbarung">Offenbarung</a></li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="list links-list searchbar-not-found">
+                <ul>
+                    <li>Nichts</li>
+                </ul>
             </div>
 
             <!-- Toolbar -->
