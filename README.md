@@ -15,9 +15,9 @@
 
 ## Support
 
-Many Kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.
-
 ![logo of browserstack](https://d98b8t1nnulk5.cloudfront.net/production/images/static/header/header-logo.svg)
+
+Many Kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.
 
 
 ## Licence
