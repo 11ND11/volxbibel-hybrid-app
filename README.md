@@ -19,6 +19,7 @@
 
 Many Kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.
 
+With their amazing support we can test this hybrid app with many different mobile devices to increase the UX and compatibility.  
 
 ## Licence
 ![badge of CC licence](www/assets/somerights20.png)
