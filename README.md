@@ -13,7 +13,7 @@
 - Filter book list
 
 
-## Lizenzinformation
+## Licence
 ![Alt text](www/assets/somerights20.png)!
 
 The Volxbibel content downloaded here is licensed under the Creative Commons license (cc-by-nc-sa-2.0).
