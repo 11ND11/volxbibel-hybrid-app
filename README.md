@@ -11,3 +11,16 @@
 - Bible verse sharing
 - show verse of the day (Volxbibel Losung)
 - Filter book list
+
+
+## Lizenzinformation
+![Alt text](www/assets/somerights20.png)!
+
+The Volxbibel content downloaded here is licensed under the Creative Commons license (cc-by-nc-sa-2.0).
+Copyright Martin Dreyer (NT)
+Copyright 2009 Pattloch Verlag GmbH & Co. KG, München.(AT)
+
+The terms of the license are summarized here:
+http://creativecommons.org/licenses/by-nc-sa/2.0/de/
+And here in full text:
+http://creativecommons.org/licenses/by-nc-sa/2.0/de/legalcode
