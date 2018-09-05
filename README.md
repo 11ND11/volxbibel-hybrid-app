@@ -13,15 +13,23 @@
 - show verse of the day (Volxbibel Losung)
 - book list filter
 
+## Support
+
+Many Kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.
+
+![logo of browserstack](https://d98b8t1nnulk5.cloudfront.net/production/images/static/header/header-logo.svg)
+
 
 ## Licence
-![Alt text](www/assets/somerights20.png)!
+![badge of CC licence](www/assets/somerights20.png)
 
 The Volxbibel content downloaded here is licensed under the Creative Commons license (cc-by-nc-sa-2.0).
+
 Copyright Martin Dreyer (NT)
+
 Copyright 2009 Pattloch Verlag GmbH & Co. KG, München.(AT)
 
 The terms of the license are summarized here:
 http://creativecommons.org/licenses/by-nc-sa/2.0/de/
-And here in full text:
-http://creativecommons.org/licenses/by-nc-sa/2.0/de/legalcode
+
+And here in full text: http://creativecommons.org/licenses/by-nc-sa/2.0/de/legalcode
