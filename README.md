@@ -8,9 +8,10 @@
 
 ## Features
 
+- load and show the Bible text of https://wiki.volxbibel.de/
 - Bible verse sharing
 - show verse of the day (Volxbibel Losung)
-- Filter book list
+- book list filter
 
 
 ## Licence
