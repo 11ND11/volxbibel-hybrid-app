@@ -12,7 +12,8 @@ var currentBook = '',
     pickerValues = [],
     chapterPicker,
     $voxbibelContentContainer,
-    touchTapWithoutMove = false;
+    touchTapWithoutMove = false,
+    today = new Date();
 
 // Initialize app
 var app = new Framework7({
@@ -51,6 +52,7 @@ var app = new Framework7({
     on: {
         // each object key means same name event handler
         pageInit: function (page) {
+            $('.ios .page-content').scrollTop(40);
             $$('.links-list').find('a').on('click', function (e) {
                 currentBook = $(this).data('book');
                 currentChapter = 1;
@@ -68,7 +70,10 @@ var app = new Framework7({
             });
 
             $$('[data-action="textoftheday"]').on('click', function () {
-                $('.text-of-the-day').fadeIn();
+                showTextOfTheDay();
+            });
+            $('.text-of-the-day .button-close').on('click', function(){
+                $('.text-of-the-day').fadeOut();
             });
         }
     },
@@ -82,7 +87,10 @@ $$(document).on('deviceready', function () {
     StatusBar.backgroundColorByHexString('#f68e5d');
     StatusBar.styleLightContent();
 
-    showTextOfTheDay();
+    if(window.localStorage.lastAppRun != getTodaysDate()) {
+        showTextOfTheDay();
+    }
+    window.localStorage.setItem('lastAppRun', getTodaysDate());
 
     navigator.splashscreen.hide();
 });
@@ -100,9 +108,9 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
     $voxbibelContentContainer = $('.volxbibel-content');
     $$('.navbar-book-title').hide();
 
-    if(!localStorage.hideTutorial) {
+    if(!window.localStorage.hideTutorial) {
         showTutorial();
-        localStorage.setItem('hideTutorial', 'true');
+        window.localStorage.setItem('hideTutorial', 'true');
     }
 
     app.request.json("bibleChapterCount.json", function (data) {
@@ -136,7 +144,7 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
             cols: [
                 {
                     textAlign: 'center',
-                    values: pickerValues,
+                    values: pickerValues
                 }
             ],
             on: {
@@ -255,6 +263,7 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                     setTimeout(function () {
                         $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
                             var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
+                            alert($message);
                             console.log($message);
                             startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
                         });
@@ -306,7 +315,6 @@ function getVolxbibelContent(data) {
 
 function getVerseOfCurrentDay(data) {
     var today = getTodaysDate();
-
     return data[1]['dates'][today]['text'] + '<span class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'] + '</span>';
 }
 
@@ -319,8 +327,7 @@ function setNavbarTitle(book, chapter) {
 }
 
 function getTodaysDate() {
-    var today = new Date(),
-        dd = today.getDate(),
+    var dd = today.getDate(),
         mm = today.getMonth()+1, // January is 0!
         yyyy = today.getFullYear();
 
@@ -350,8 +357,5 @@ function showTextOfTheDay () {
 
         $('.text-of-the-day').fadeIn();
         $('.text-of-the-day svg').addClass('animate');
-        $('.text-of-the-day .button-close').on('click', function(){
-            $('.text-of-the-day').fadeOut();
-        });
     });
 }

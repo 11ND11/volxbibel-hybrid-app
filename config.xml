@@ -69,6 +69,7 @@
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
 
+    <preference name="fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
 

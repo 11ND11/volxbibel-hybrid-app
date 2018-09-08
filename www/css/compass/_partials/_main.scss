@@ -23,6 +23,18 @@
                 width : rem-calc(44);
             }
         }
+        svg {
+            fill                : #fff;
+            width               : rem-calc(20);
+            height              : rem-calc(20);
+            display             : inline-block;
+            vertical-align      : middle;
+            background-size     : 100% auto;
+            background-position : center;
+            background-repeat   : no-repeat;
+            font-style          : normal;
+            position            : relative;
+        }
     }
 }
 
@@ -63,6 +75,19 @@
         }
         &.disable {
             opacity : 0;
+        }
+        &[data-action="textoftheday"] {
+            position    : absolute;
+            right       : rem-calc(20);
+            bottom      : 0;
+            width       : rem-calc(55);
+            height      : rem-calc(55);
+            background  : $red;
+            line-height : rem-calc(53);
+
+            svg {
+                fill : #fff !important;
+            }
         }
         svg {
             width               : rem-calc(20);
@@ -136,6 +161,7 @@
         letter-spacing : 1px;
     }
     .button-close {
+        z-index  : 1000;
         position : absolute;
         right    : rem-calc(30);
         top      : rem-calc(70);
@@ -147,6 +173,10 @@
             height : rem-calc(40);
         }
     }
+}
+
+.searchbar-inner {
+    overflow : hidden;
 }
 
 // ***************************************
@@ -166,6 +196,12 @@
         min-width   : rem-calc(44);
         height      : rem-calc(44);
         line-height : rem-calc(44);
+    }
+
+    .searchbar {
+        &:after {
+            content : none;
+        }
     }
 }
 
@@ -242,7 +278,7 @@ h3 {
         margin-left : rem-calc(10);
         background  : #f8f8f8;
 
-        &:before {
+        &:before, &:after {
             content : none;
         }
     }
@@ -275,8 +311,8 @@ h3 {
 }
 
 .page-content {
-    > .links-list:first-child {
-        margin-top : rem-calc(20);
+    .first-list {
+        margin-top : rem-calc(5);
     }
 }
 
@@ -425,18 +461,21 @@ h3 {
 }
 
 .chapter-navigation {
-    position         : relative;
+    position         : absolute;
+    left             : 50%;
+    bottom           : rem-calc(0);
+    transform        : translateX(-50%);
     display          : inline-block;
-    width            : rem-calc(60);
-    height           : rem-calc(60);
+    width            : rem-calc(55);
+    height           : rem-calc(55);
     background-color : $blue;
     border-radius    : 30px;
     @include button-mini-shadow();
 
     svg {
         position : absolute;
-        top      : rem-calc(25);
-        left     : rem-calc(19);
+        top      : rem-calc(22);
+        left     : rem-calc(17);
         display  : inline-block;
         width    : rem-calc(20);
         height   : rem-calc(14);
