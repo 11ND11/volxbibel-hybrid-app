@@ -66,6 +66,10 @@ var app = new Framework7({
                     }
                 }
             });
+
+            $$('[data-action="textoftheday"]').on('click', function () {
+                $('.text-of-the-day').fadeIn();
+            });
         }
     },
 });
@@ -79,6 +83,8 @@ $$(document).on('deviceready', function () {
     StatusBar.styleLightContent();
 
     showTextOfTheDay();
+
+    navigator.splashscreen.hide();
 });
 
 // Detail page
@@ -94,7 +100,10 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
     $voxbibelContentContainer = $('.volxbibel-content');
     $$('.navbar-book-title').hide();
 
-    showTutorial();
+    if(!localStorage.hideTutorial) {
+        showTutorial();
+        localStorage.setItem('hideTutorial', 'true');
+    }
 
     app.request.json("bibleChapterCount.json", function (data) {
         $$('#toolbar-link-prev').hide();
@@ -241,11 +250,12 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                 } else {
                     $contentContainer.find('p').removeClass('active');
                     $contentContainer.find('.action-button').remove();
-                    $(this).parent().addClass('active').prepend('<a data-action="share" class="action-button button button-circle">' + shareIcon + '</a>');
+                    $(this).parent().addClass('active').prepend('<a href="" data-action="share" class="action-button button button-circle">' + shareIcon + '</a>');
 
                     setTimeout(function () {
                         $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
-                            var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + currentVerse + ' | Die Volxbibel)\n' + currentWikiUrl + ')';
+                            var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
+                            console.log($message);
                             startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
                         });
                     }, 100);

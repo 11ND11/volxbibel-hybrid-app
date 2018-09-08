@@ -90,14 +90,22 @@
     position   : absolute;
     width      : 100vw;
     height     : 100vh;
-    background : linear-gradient(to top right, rgba(255, 82, 99, 0.9) 10%, rgba(darken(#f68e5d, 10%), 0.9) 65%, rgba(#f68e5d, 0.9) 125%);
-    color      : #fff;
-    transition : background .7s;
+    background : #fff;
 
+    .bg-gradient {
+        width      : 100%;
+        height     : 100%;
+        background : linear-gradient(to top right, rgba(255, 82, 99, 0.9) 10%, rgba(darken(#f68e5d, 10%), 0.9) 65%, rgba(#f68e5d, 0.9) 125%);
+        color      : #fff;
+    }
     svg {
         width  : rem-calc(50);
         height : rem-calc(50);
         fill   : #fff;
+    }
+    h1 {
+        color      : #f67847;
+        background : #fff;
     }
     .text-of-the-day-inner {
         position    : absolute;
@@ -131,6 +139,8 @@
         position : absolute;
         right    : rem-calc(30);
         top      : rem-calc(70);
+        width    : rem-calc(40);
+        height   : rem-calc(40);
 
         svg {
             width  : rem-calc(40);
@@ -182,9 +192,9 @@
 
 h1 {
     text-transform : uppercase;
-    font-size      : rem-calc(25);
+    font-size      : rem-calc(21);
     font-weight    : 900;
-    letter-spacing : 4px;
+    letter-spacing : 3px;
 }
 
 h3 {
