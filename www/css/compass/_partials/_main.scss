@@ -18,11 +18,6 @@
         font-weight : 700;
         font-style  : italic;
 
-        .navbar-inner {
-            .right {
-                width : rem-calc(44);
-            }
-        }
         svg {
             fill                : #fff;
             width               : rem-calc(20);
@@ -210,15 +205,26 @@
 }
 
 // ***************************************
-// material design
+// material design / android
 // ***************************************
 
 .md {
+    .page {
+        padding-top : rem-calc(15);
+
+        .navbar {
+            top : rem-calc(15);
+        }
+    }
     .toolbar {
         background-color : $red;
     }
     #picker-chapter {
         color : #000;
+    }
+    .picker-popover {
+        margin-left : rem-calc(125);
+        margin-top  : rem-calc(-40);
     }
 }
 
@@ -346,6 +352,13 @@ h3 {
 
 .tutorial-step-text {
     margin-top : rem-calc(25);
+}
+
+.page[data-name="about"] {
+    h3 {
+        padding : 0;
+        border  : none;
+    }
 }
 
 // ***************************************

@@ -13,7 +13,8 @@ var currentBook = '',
     chapterPicker,
     $voxbibelContentContainer,
     touchTapWithoutMove = false,
-    today = new Date();
+    today = new Date(),
+    firstPageInit = true;
 
 // Initialize app
 var app = new Framework7({
@@ -52,7 +53,10 @@ var app = new Framework7({
     on: {
         // each object key means same name event handler
         pageInit: function (page) {
-            $('.ios .page-content').scrollTop(40);
+            if (firstPageInit) {
+                $('.ios .page-content').scrollTop(40);
+                firstPageInit = false;
+            }
             $$('.links-list').find('a').on('click', function (e) {
                 currentBook = $(this).data('book');
                 currentChapter = 1;
@@ -72,7 +76,7 @@ var app = new Framework7({
             $$('[data-action="textoftheday"]').on('click', function () {
                 showTextOfTheDay();
             });
-            $('.text-of-the-day .button-close').on('click', function(){
+            $('.text-of-the-day .button-close').on('click', function () {
                 $('.text-of-the-day').fadeOut();
             });
         }
@@ -87,7 +91,7 @@ $$(document).on('deviceready', function () {
     StatusBar.backgroundColorByHexString('#f68e5d');
     StatusBar.styleLightContent();
 
-    if(window.localStorage.lastAppRun != getTodaysDate()) {
+    if (window.localStorage.lastAppRun != getTodaysDate()) {
         showTextOfTheDay();
     }
     window.localStorage.setItem('lastAppRun', getTodaysDate());
@@ -108,7 +112,7 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
     $voxbibelContentContainer = $('.volxbibel-content');
     $$('.navbar-book-title').hide();
 
-    if(!window.localStorage.hideTutorial) {
+    if (!window.localStorage.hideTutorial) {
         showTutorial();
         window.localStorage.setItem('hideTutorial', 'true');
     }
@@ -185,14 +189,14 @@ function updateWikiText($contentContainer, book, chapter = '1') {
     var currentWikiUrlJson = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=' + book + '_' + chapter;
     currentWikiUrl = 'https://wiki.volxbibel.com/' + book + '_' + chapter;
 
-        // $$('.volxbibel-content p').unbind("click");
-        // show loading spinner
-        $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
+    // $$('.volxbibel-content p').unbind("click");
+    // show loading spinner
+    $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
     currentChapter = chapter;
     setNavbarTitle(book, chapter);
 
-    app.request.json(currentWikiUrlJson , function (requestData) {
+    app.request.json(currentWikiUrlJson, function (requestData) {
         volxbibelContent = getVolxbibelContent(requestData);
         volxbibelContent = removeMetaInfoFromContent(volxbibelContent);
         // todo: hack to beautify "Apostelgeschichte"
@@ -232,7 +236,7 @@ function updateWikiText($contentContainer, book, chapter = '1') {
             touchTapWithoutMove = false;
         });
         $$('.volxbibel-content .vb-text').on("touchend", function () {
-            if(touchTapWithoutMove === true) {
+            if (touchTapWithoutMove === true) {
                 var shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"/></svg>\n' +
                     '<!--\n' +
                     'Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com\n' +
@@ -263,8 +267,8 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                     setTimeout(function () {
                         $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
                             var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
-                            alert($message);
-                            console.log($message);
+                            // alert($message);
+                            // console.log($message);
                             startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
                         });
                     }, 100);
@@ -291,17 +295,19 @@ function updateWikiText($contentContainer, book, chapter = '1') {
         var options = {
             message: $message, // not supported on some apps (Facebook, Instagram)
             subject: $subject, // fi. for email
-            chooserTitle: $title, // Android only, you can override the default share sheet title,
-            appPackageName: 'de.andreassteiger.volxbibel' // Android only, you can provide id of the App you want to share with
+            files: null,
+            url: null
+            // chooserTitle: $title, // Android only, you can override the default share sheet title,
+            // appPackageName: 'de.andreassteiger.volxbibel' // Android only, you can provide id of the App you want to share with
         };
 
         var onSuccess = function (result) {
-            // console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+            // alert("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
             // console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
         };
 
         var onError = function (msg) {
-            // console.log("Sharing failed with message: " + msg);
+            // alert("Sharing failed with message: " + msg);
         };
 
         window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
@@ -328,14 +334,14 @@ function setNavbarTitle(book, chapter) {
 
 function getTodaysDate() {
     var dd = today.getDate(),
-        mm = today.getMonth()+1, // January is 0!
+        mm = today.getMonth() + 1, // January is 0!
         yyyy = today.getFullYear();
 
-    if(dd<10) {
-        dd = '0'+dd
+    if (dd < 10) {
+        dd = '0' + dd
     }
-    if(mm<10) {
-        mm = '0'+mm
+    if (mm < 10) {
+        mm = '0' + mm
     }
     console.log(yyyy + '-' + mm + '-' + dd);
     return yyyy + '-' + mm + '-' + dd;
@@ -343,13 +349,13 @@ function getTodaysDate() {
 
 function showTutorial() {
     $('.tutorial-overlay').fadeIn();
-    $('.tutorial-overlay .button').on('click', function(){
+    $('.tutorial-overlay .button').on('click', function () {
         $('.tutorial-overlay').fadeOut();
     });
 }
 
-function showTextOfTheDay () {
-    app.request.json('https://admin.citychurch.de/twitturgie/volxbibel/json/volxbibellosung.json' , function (requestData) {
+function showTextOfTheDay() {
+    app.request.json('https://admin.citychurch.de/twitturgie/volxbibel/json/volxbibellosung.json', function (requestData) {
         console.log(requestData);
         console.log(getVerseOfCurrentDay(requestData));
 
