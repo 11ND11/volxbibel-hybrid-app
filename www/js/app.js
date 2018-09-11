@@ -96,7 +96,7 @@ $$(document).on('deviceready', function () {
     }
     window.localStorage.setItem('lastAppRun', getTodaysDate());
 
-    navigator.splashscreen.hide();
+    // navigator.splashscreen.hide();
 });
 
 // Detail page

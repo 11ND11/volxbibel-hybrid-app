@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.andreassteiger.volxbibel" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="de.andreassteiger.volxbibel" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Volxbibel</name>
     <description>
         Content of Volxbibel
@@ -18,6 +18,7 @@
 
     <platform name="android">
         <preference name="android-minSdkVersion" value="16" />
+        <preference name="fullscreen" value="false" />
         <allow-intent href="market:*" />
         <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
@@ -39,6 +40,9 @@
         <splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
+        <preference name="FadeSplashScreenDuration" value="750"/>
+        <preference name="ShowSplashScreenSpinner" value="false"/>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
@@ -69,14 +73,10 @@
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
 
-    <preference name="fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
 
-    <preference name="FadeSplashScreenDuration" value="750"/>
-    <preference name="ShowSplashScreenSpinner" value="false"/>
-
-    <preference name="phonegap-version" value="cli-8.0.0" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
