@@ -17,7 +17,7 @@
     <allow-intent href="mailto:*" />
 
     <platform name="android">
-        <preference name="android-minSdkVersion" value="14" />
+        <preference name="android-minSdkVersion" value="16" />
         <allow-intent href="market:*" />
         <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
@@ -76,14 +76,12 @@
     <preference name="FadeSplashScreenDuration" value="750"/>
     <preference name="ShowSplashScreenSpinner" value="false"/>
 
-    <preference name="phonegap-version" value="cli-7.0.1" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
 
-    <engine name="ios" spec="~4.5.5" />
-    <engine name="android" spec="~7.0.0" />
+
 </widget>
