@@ -1,4 +1,7 @@
-# Volxbibel App
+# The Volxbibel App
+
+![logo of Volxbibel](res/icons/ios/icon-60@3x.png)
+
 
 > The Volxbible is a Bible adaptation of the New and Old Testament in a language that is meant to be understood by young people and makes references to the modern age. The Volxbibel is considered the first bible in the world to be further edited on the internet in a wiki under the Creative Commons license for linguistic development.
   (Source: Wikipedia)
