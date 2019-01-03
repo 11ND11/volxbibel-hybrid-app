@@ -2,7 +2,6 @@
  * @author Andreas Steiger <hallo@andreassteiger.de>
  */
 
-// If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
 var currentBook = '',
@@ -16,19 +15,19 @@ var currentBook = '',
     today = new Date(),
     firstPageInit = true;
 
-// Initialize app
+// initialize app
 var app = new Framework7({
-    // App root element
+    // app root element
     root: '#app',
-    // App Name
+    // app Name
     name: 'My App',
-    // App id
+    // app id
     id: 'com.myapp.test',
-    // Enable swipe panel
+    // enable swipe panel
     panel: {
         swipe: 'left',
     },
-    // Configure status bar
+    // configure status bar
     statusbar: {
         iosBackgroundColor: '#f68e5d',
         iosTextColor: 'black',
@@ -37,7 +36,7 @@ var app = new Framework7({
         rotateEffect: true,
         openIn: 'popover',
     },
-    // Add default routes
+    // add default routes
     routes: [
         {
             name: 'detail',
@@ -85,7 +84,7 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
-// Handle Cordova Device Ready Event
+// handle Cordova device ready event
 $$(document).on('deviceready', function () {
     StatusBar.overlaysWebView(true);
     StatusBar.backgroundColorByHexString('#f68e5d');
@@ -95,11 +94,9 @@ $$(document).on('deviceready', function () {
         showTextOfTheDay();
     }
     window.localStorage.setItem('lastAppRun', getTodaysDate());
-
-    // navigator.splashscreen.hide();
 });
 
-// Detail page
+// detail page
 $$(document).on('page:afterin', '.page[data-name="detail"]', function (e) {
     $$('.navbar-book-title').show();
 });
@@ -179,8 +176,6 @@ $$(document).on('page:init', '.page[data-name="detail"]', function (e) {
                 $$('#toolbar-link-next').hide();
             }
         }
-
-        // pickerDevice.setValue(currentChapter);
     }
 });
 
@@ -189,7 +184,6 @@ function updateWikiText($contentContainer, book, chapter = '1') {
     var currentWikiUrlJson = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=' + book + '_' + chapter;
     currentWikiUrl = 'https://wiki.volxbibel.com/' + book + '_' + chapter;
 
-    // $$('.volxbibel-content p').unbind("click");
     // show loading spinner
     $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
@@ -208,6 +202,7 @@ function updateWikiText($contentContainer, book, chapter = '1') {
         }
         // format wiki text and bring it to the template
         $contentContainer.wikiText(volxbibelContent);
+
         // wrap verses with span
         $contentContainer.find('p').each(function () {
             var paragraph = $(this).html(),
@@ -267,8 +262,6 @@ function updateWikiText($contentContainer, book, chapter = '1') {
                     setTimeout(function () {
                         $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
                             var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
-                            // alert($message);
-                            // console.log($message);
                             startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
                         });
                     }, 100);
@@ -277,7 +270,6 @@ function updateWikiText($contentContainer, book, chapter = '1') {
         });
 
     }, function (xhr, status) {
-        // alert(xhr.statusText + 'xxx' + status);
         $contentContainer.html(
             '<span class="connection-error-icon">' +
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>\n' +
@@ -343,7 +335,6 @@ function getTodaysDate() {
     if (mm < 10) {
         mm = '0' + mm
     }
-    console.log(yyyy + '-' + mm + '-' + dd);
     return yyyy + '-' + mm + '-' + dd;
 }
 
@@ -356,9 +347,6 @@ function showTutorial() {
 
 function showTextOfTheDay() {
     app.request.json('https://admin.citychurch.de/twitturgie/volxbibel/json/volxbibellosung.json', function (requestData) {
-        console.log(requestData);
-        console.log(getVerseOfCurrentDay(requestData));
-
         $$('.text-of-the-day-content').html(getVerseOfCurrentDay(requestData));
 
         $('.text-of-the-day').fadeIn();
