@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.andreassteiger.volxbibel" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="de.andreassteiger.volxbibel" version="2.0.0 DEV" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Volxbibel</name>
     <description>
         Content of Volxbibel
     </description>
-    <author email="hallo@andreassteiger.de" href="http://andreassteiger.de">
+    <author email="hallo@andreassteiger.de" href="http://www.andreassteiger.de">
         Andreas Steiger
     </author>
     <content src="index.html" />
@@ -15,11 +15,7 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#ffffff" />
-    <preference name="StatusBarStyle" value="Blackopaque" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
     <preference name="phonegap-version" value="cli-7.0.1" />
 </widget>
