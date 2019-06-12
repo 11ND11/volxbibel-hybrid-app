@@ -210,10 +210,10 @@
 
 .md {
     .page {
-        padding-top : rem-calc(15);
+        border-top : rem-calc(15) solid $red;
 
         .navbar {
-            top : rem-calc(15);
+            border-top : rem-calc(15) solid $red;
         }
     }
     .toolbar {
