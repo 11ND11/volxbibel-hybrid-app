@@ -17,7 +17,7 @@
     <allow-intent href="mailto:*" />
 
     <platform name="android">
-        <preference name="android-minSdkVersion" value="16" />
+        <preference name="android-minSdkVersion" value="20" />
         <preference name="fullscreen" value="false" />
         <allow-intent href="market:*" />
         <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
@@ -82,6 +82,7 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
 
 
 </widget>
