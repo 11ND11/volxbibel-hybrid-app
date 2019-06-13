@@ -2,7 +2,7 @@
 <widget id="de.andreassteiger.volxbibel" version="2.0.0 DEV" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Volxbibel</name>
     <description>
-        Content of Volxbibel
+        Volxbibel App
     </description>
     <author email="hallo@andreassteiger.de" href="http://www.andreassteiger.de">
         Andreas Steiger
@@ -83,6 +83,5 @@
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
-
 
 </widget>
