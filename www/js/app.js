@@ -39,9 +39,19 @@ var app = new Framework7({
             url: 'detail.html',
         },
         {
-            name: 'about',
-            path: '/about/',
-            url: 'about.html',
+            name: 'settings',
+            path: '/settings/',
+            url: 'settings.html',
+        },
+        {
+            name: 'videos',
+            path: '/videos/',
+            url: 'videos.html',
+        },
+        {
+            name: 'bookmarks',
+            path: '/bookmarks/',
+            url: 'bookmarks.html',
         },
     ],
     on: {

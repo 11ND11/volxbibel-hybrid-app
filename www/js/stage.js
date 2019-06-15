@@ -5,32 +5,14 @@
 var stage = (function () {
 
     // cache DOM
-    var $$navbarBookTitle = $$('.navbar-book-title');
+    var $$navbarBookTitle = $$('.navbar-book-title'),
+        $$openPanelButton = $$('.panel-open');
 
     // bind events
 
     // bind page events
-    $$(document).on('page:afterin', '.page[data-name="detail"]', detailPageAfterSwipeIn);
-    $$(document).on('page:beforeout', '.page[data-name="detail"]', detailPageBeforeSwipeIn);
     $$(document).on('page:init', '.page[data-name="detail"]', detailPageInit);
 
-    /**
-     * @private
-     *
-     * @return void
-     */
-    function detailPageAfterSwipeIn() {
-        $$navbarBookTitle.show();
-    }
-
-    /**
-     * @private
-     *
-     * @return void
-     */
-    function detailPageBeforeSwipeIn() {
-        $$navbarBookTitle.hide();
-    }
 
     /**
      * @private

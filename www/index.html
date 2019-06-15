@@ -17,25 +17,28 @@
     <!-- Statusbar overlay -->
     <div class="statusbar"></div>
 
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <ul>
+                <li><a href="/bookmarks/" class="panel-close link">Meine Sprüche</a></li>
+                <li><a href="/videos/" class="panel-close link">Videos</a></li>
+                <li><a href="/settings/" class="panel-close link">Einstellungen</a></li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Your main view, should have "view-main" class -->
     <div class="view view-main">
+
         <!-- Initial Page, "data-name" contains page name -->
         <div data-name="home" class="page">
 
-            <div class="panel panel-left panel-reveal">
-                <div class="content-block">
-                    <ul>
-                        <li><a href="/about/" class="panel-close">Meine Sprüche</a></li>
-                        <li><a href="/about/" class="panel-close">Videos</a></li>
-                        <li><a href="/about/" class="panel-close">Einstellungen</a></li>
-                    </ul>
-                </div>
-            </div>
-
             <!-- Top Navbar -->
             <div class="navbar">
-                <div class="navbar-inner">
-                    <a href="#" class="panel-open link">Menu</a>
+                <div class="navbar-inner sliding">
+                    <div class="left">
+                        <a href="#" class="panel-open link">Menu</a>
+                    </div>
                 </div>
             </div>
 

@@ -390,6 +390,15 @@ h3 {
 // page detail
 // ***************************************
 
+.navbar-book-title {
+    display          : inline-block;
+    padding          : rem-calc(10);
+    background-color : $black;
+    color            : #fff;
+    text-transform   : uppercase;
+    font-weight      : 600;
+}
+
 .page-content {
     padding-bottom : rem-calc(50);
 
@@ -698,5 +707,22 @@ h3 {
     50% {
         transform         : scale(1.0);
         -webkit-transform : scale(1.0);
+    }
+}
+
+// ***************************************
+// spinner
+// ***************************************
+
+.panel {
+    ul, li {
+        list-style     : none;
+        line-height    : 2;
+        font-size      : rem-calc(18);
+        text-transform : uppercase;
+    }
+
+    .link {
+        color : $black;
     }
 }
