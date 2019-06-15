@@ -5,8 +5,7 @@
 var stage = (function () {
 
     // cache DOM
-    var $navbarBookTitle = $$('.navbar-book-title'),
-        storage = window.localStorage;
+    var $$navbarBookTitle = $$('.navbar-book-title');
 
     // bind events
 
@@ -21,7 +20,7 @@ var stage = (function () {
      * @return void
      */
     function detailPageAfterSwipeIn() {
-        $navbarBookTitle.show();
+        $$navbarBookTitle.show();
     }
 
     /**
@@ -30,7 +29,7 @@ var stage = (function () {
      * @return void
      */
     function detailPageBeforeSwipeIn() {
-        $navbarBookTitle.hide();
+        $$navbarBookTitle.hide();
     }
 
     /**
@@ -39,16 +38,19 @@ var stage = (function () {
      * @return void
      */
     function detailPageInit() {
-        $voxbibelContentContainer = $('.volxbibel-content');
-        $navbarBookTitle.hide();
+        var $voxbibelContentContainer = $('.volxbibel-content'),
+            $$prevButton = $$('#toolbar-link-prev'),
+            $$nextButton = $$('#toolbar-link-next');
 
-        if (!window.localStorage.hideTutorial) {
+        $$navbarBookTitle.hide();
+
+        if (!storage.hideTutorial) {
             showTutorial();
-            window.localStorage.setItem('hideTutorial', 'true');
+            storage.setItem('hideTutorial', 'true');
         }
 
         app.request.json("bibleChapterCount.json", function (data) {
-            $$('#toolbar-link-prev').hide();
+            $$prevButton.hide();
             pickerValues = [];
             for (var iterator = 1;
                  iterator <= data[currentBook];
@@ -57,63 +59,74 @@ var stage = (function () {
                 lastChapterOfCurrentBook = iterator;
             }
 
-            chapterPicker = createChapterPicker();
-
-            updateDetailView($voxbibelContentContainer, currentBook);
+            chapterPicker = createChapterPicker($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton);
+            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
         });
 
-        $$('#toolbar-link-prev').on('click', function (e) {
+        $$prevButton.on('click', function (e) {
             currentChapter--;
-            updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
+            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
-        $$('#toolbar-link-next').on('click', function (e) {
+        $$nextButton.on('click', function (e) {
             currentChapter++;
-            updateDetailView($voxbibelContentContainer, currentBook, currentChapter);
+            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
+    }
 
-        function createChapterPicker() {
-            return app.picker.create({
-                inputEl: '#picker-chapter',
-                cols: [
-                    {
-                        textAlign: 'center',
-                        values: pickerValues
-                    }
-                ],
-                on: {
-                    closed: function () {
-                        var selectedChapterString = this.value.toString();
-                        var selectedChapter = selectedChapterString.replace('Kapitel ', '');
-                        updateDetailView($voxbibelContentContainer, currentBook, selectedChapter);
-                    }
-                }
-            });
+    /**
+     * @private
+     *
+     * @return void
+     */
+    function updateDetailView($contentContainer, book, lastChapter, chapter = '1', $$prevButton, $$nextButton) {
+        updateWikiText($contentContainer, book, chapter);
+
+        if (chapter > 1) {
+            $$prevButton.show();
+
+            if (chapter >= lastChapter) {
+                $$nextButton.hide();
+            } else {
+                $$nextButton.show();
+            }
         }
 
-        function updateDetailView($contentContainer, book, chapter = '1') {
-            updateWikiText($contentContainer, book, chapter);
-            if (currentChapter > 1) {
-                $$('#toolbar-link-prev').show();
+        if (chapter <= 1) {
+            $$prevButton.hide();
 
-                if (currentChapter >= lastChapterOfCurrentBook) {
-                    $$('#toolbar-link-next').hide();
-                } else {
-                    $$('#toolbar-link-next').show();
-                }
-            }
-            if (currentChapter <= 1) {
-                $$('#toolbar-link-prev').hide();
-
-                if (currentChapter == lastChapterOfCurrentBook) {
-                    $$('#toolbar-link-next').hide();
-                }
+            if (chapter === lastChapter) {
+                $$nextButton.hide();
             }
         }
     }
 
     /**
-     * @public
+     * @private
+     *
+     * @return void
+     */
+    function createChapterPicker($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton) {
+        return app.picker.create({
+            inputEl: '#picker-chapter',
+            cols: [
+                {
+                    textAlign: 'center',
+                    values: pickerValues
+                }
+            ],
+            on: {
+                closed: function () {
+                    var selectedChapterString = this.value.toString();
+                    var selectedChapter = selectedChapterString.replace('Kapitel ', '');
+                    updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, selectedChapter, $$prevButton, $$nextButton);
+                }
+            }
+        });
+    }
+
+    /**
+     * @private
      *
      * @return void
      */
@@ -121,7 +134,7 @@ var stage = (function () {
         var volxbibelContent;
         var currentWikiUrlJson = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=' + book + '_' + chapter;
         currentWikiUrl = 'https://wiki.volxbibel.com/' + book + '_' + chapter;
-
+        
         // show loading spinner
         $contentContainer.html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
@@ -250,7 +263,7 @@ var stage = (function () {
     }
 
     /**
-     * @public
+     * @private
      *
      * @return string
      */
@@ -260,7 +273,7 @@ var stage = (function () {
     }
 
     /**
-     * @public
+     * @private
      *
      * @return string
      */
@@ -270,7 +283,7 @@ var stage = (function () {
     }
 
     /**
-     * @public
+     * @private
      *
      * @return void
      */
@@ -279,7 +292,7 @@ var stage = (function () {
     }
 
     /**
-     * @public
+     * @private
      *
      * @return void
      */
@@ -290,20 +303,37 @@ var stage = (function () {
     /**
      * @public
      *
-     * @return string
+     * @return void
      */
-    function getTodaysDate() {
-        var dd = today.getDate(),
-            mm = today.getMonth() + 1, // January is 0!
-            yyyy = today.getFullYear();
+    function init() {
+        if (firstStageInit) {
+            $('.ios .page-content').scrollTop(40);
+            firstStageInit = false;
+        }
 
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-        return yyyy + '-' + mm + '-' + dd;
+        $$('.links-list').find('a').on('click', function (e) {
+            currentBook = $(this).data('book');
+            currentChapter = 1;
+        });
+
+        app.searchbar.create({
+            el: '.searchbar',
+            searchContainer: '.list',
+            searchIn: 'a',
+            on: {
+                search(sb, query, previousQuery) {
+                    // ...
+                }
+            }
+        });
+
+        $$('[data-action="textoftheday"]').on('click', function () {
+            showTextOfTheDay();
+        });
+
+        $('.text-of-the-day .button-close').on('click', function () {
+            $('.text-of-the-day').fadeOut();
+        });
     }
 
     /**
@@ -333,6 +363,8 @@ var stage = (function () {
     }
 
     return {
+        init: init,
         showTutorial: showTutorial,
+        showTextOfTheDay: showTextOfTheDay
     }
 });

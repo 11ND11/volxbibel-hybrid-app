@@ -76,7 +76,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
 
-    <preference name="phonegap-version" value="cli-7.0.1" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
