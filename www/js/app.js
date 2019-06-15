@@ -15,19 +15,13 @@ var currentBook = '',
     today = new Date(),
     firstPageInit = true;
 
-// initialize app
 var app = new Framework7({
-    // app root element
     root: '#app',
-    // app Name
     name: 'Volxbibel',
-    // app id
     id: 'de.andreassteiger.volxbibel',
-    // enable swipe panel
     panel: {
         swipe: 'left',
     },
-    // configure status bar
     statusbar: {
         iosBackgroundColor: '#f68e5d',
         iosTextColor: 'black',
@@ -36,7 +30,6 @@ var app = new Framework7({
         rotateEffect: true,
         openIn: 'popover',
     },
-    // add default routes
     routes: [
         {
             name: 'detail',
@@ -82,6 +75,7 @@ var app = new Framework7({
     },
 });
 
+// create view
 var mainView = app.views.create('.view-main');
 
 // handle Cordova device ready event
