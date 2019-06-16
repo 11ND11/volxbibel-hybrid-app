@@ -5,12 +5,23 @@
 // Downcome
 @font-face {
     font-family: 'Downcome';
-    src: url('../fonts/downcome-webfont.eot');
-    src: url('../fonts/downcome-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/downcome-webfont.woff2') format('woff2'),
-    url('../fonts/downcome-webfont.woff') format('woff'),
-    url('../fonts/downcome-webfont.ttf') format('truetype'),
-    url('../fonts/downcome-webfont.svg#downcomeregular') format('svg');
+    src: url('../fonts/downcome.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Trashbox
+@font-face {
+    font-family: 'Trashbox';
+    src: url('../fonts/trashbox.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Dirty Ego
+@font-face {
+    font-family: 'Dirty Ego';
+    src: url('../fonts/dirtyego.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

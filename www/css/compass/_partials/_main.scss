@@ -143,7 +143,7 @@
         transform   : translate(-50%, -50%);
         width       : rem-calc(300);
         text-align  : center;
-        font-family : 'Downcome', sans-serif;
+        font-family : 'Dirty Ego', sans-serif;
         font-size   : rem-calc(18);
         font-weight : 700;
 
@@ -262,8 +262,7 @@ h1 {
 h3 {
     font-size        : rem-calc(19);
     line-height      : rem-calc(24);
-    font-weight      : 700;
-    font-family      : 'Downcome', sans-serif;
+    font-family      : 'Dirty Ego', sans-serif;
     display          : block;
     margin-top       : rem-calc(30);
     margin-bottom    : rem-calc(2);
@@ -391,11 +390,12 @@ h3 {
 
 .navbar-book-title {
     display          : inline-block;
-    padding          : rem-calc(10);
+    padding          : rem-calc(5 10 5 30);
     background-color : $black;
+    font-size        : rem-calc(30);
+    font-family      : 'Dirty Ego', sans-serif;
     color            : #fff;
     text-transform   : uppercase;
-    font-weight      : 600;
 }
 
 .page-content {

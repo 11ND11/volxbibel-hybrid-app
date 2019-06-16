@@ -5,8 +5,6 @@
 var stage = (function () {
 
     // cache DOM
-    var $$navbarBookTitle = $$('.navbar-book-title'),
-        $$openPanelButton = $$('.panel-open');
 
     // bind events
 
@@ -23,8 +21,6 @@ var stage = (function () {
         var $voxbibelContentContainer = $('.volxbibel-content'),
             $$prevButton = $$('#toolbar-link-prev'),
             $$nextButton = $$('#toolbar-link-next');
-
-        $$navbarBookTitle.hide();
 
         if (!storage.hideTutorial) {
             showTutorial();
