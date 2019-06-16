@@ -260,22 +260,29 @@ h1 {
 }
 
 h3 {
-    font-size        : rem-calc(19);
-    line-height      : rem-calc(24);
-    font-family      : 'Dirty Ego', sans-serif;
-    display          : block;
-    margin-top       : rem-calc(30);
-    margin-bottom    : rem-calc(2);
-    padding          : rem-calc(20);
-    background-color : $red;
-    color            : #fff;
-    text-transform   : uppercase;
-    letter-spacing   : 1px;
+    font-size      : rem-calc(22);
+    line-height    : rem-calc(24);
+    font-family    : 'Dirty Ego', sans-serif;
+    display        : block;
+    margin-top     : rem-calc(30);
+    margin-bottom  : rem-calc(2);
+    padding        : rem-calc(20);
+    text-transform : uppercase;
+    letter-spacing : 1px;
+    color: #000;
 
     @media (min-width : 1024px) {
         padding     : rem-calc(30);
         font-size   : rem-calc(20);
         line-height : rem-calc(25);
+    }
+
+    &:after {
+        content    : '';
+        display    : block;
+        width      : 100%;
+        height     : rem-calc(3);
+        background : $red;
     }
 
     &:first-child {

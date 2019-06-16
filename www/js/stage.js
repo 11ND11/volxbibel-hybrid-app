@@ -18,7 +18,7 @@ var stage = (function () {
      * @return void
      */
     function detailPageInit() {
-        var $voxbibelContentContainer = $('.volxbibel-content'),
+        var $volxbibelContentContainer = $('.volxbibel-content'),
             $$prevButton = $$('#toolbar-link-prev'),
             $$nextButton = $$('#toolbar-link-next');
 
@@ -37,18 +37,18 @@ var stage = (function () {
                 lastChapterOfCurrentBook = iterator;
             }
 
-            chapterPicker = createChapterPicker($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton);
-            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
+            chapterPicker = createChapterPicker($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton);
+            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
         });
 
         $$prevButton.on('click', function (e) {
             currentChapter--;
-            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
+            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
         $$nextButton.on('click', function (e) {
             currentChapter++;
-            updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
+            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
     }
 
