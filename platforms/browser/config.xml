@@ -17,5 +17,5 @@
     <allow-intent href="mailto:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
-    <preference name="phonegap-version" value="cli-7.0.1" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
 </widget>

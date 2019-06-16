@@ -19,8 +19,6 @@
  *
 */
 
-/* global cordova */
-
 var exec = require('cordova/exec');
 
 var namedColors = {
@@ -97,17 +95,15 @@ var StatusBar = {
 
 };
 
-// prime it. setTimeout so that proxy gets time to init
-window.setTimeout(function () {
-    exec(function (res) {
-        if (typeof res == 'object') {
-            if (res.type == 'tap') {
-                cordova.fireWindowEvent('statusTap');
-            }
-        } else {
-            StatusBar.isVisible = res;
+// prime it
+exec(function (res) {
+    if (typeof res == 'object') {
+        if (res.type == 'tap') {
+            cordova.fireWindowEvent('statusTap');
         }
-    }, null, "StatusBar", "_ready", []);
-}, 0);
+    } else {
+        StatusBar.isVisible = res;
+    }
+}, null, "StatusBar", "_ready", []);
 
 module.exports = StatusBar;

@@ -18,18 +18,16 @@
  *
  */
 
-/* global Windows */
+ var _supported = null; // set to null so we can check first time
 
-var _supported = null; // set to null so we can check first time
-
-function isSupported() {
-    // if not checked before, run check
-    if (_supported === null) {
+ function isSupported() {
+	// if not checked before, run check
+    if (_supported == null) {
         var viewMan = Windows.UI.ViewManagement; 
         _supported = (viewMan.StatusBar && viewMan.StatusBar.getForCurrentView);
     }
     return _supported;
-}
+ }
 
 function getViewStatusBar() {
     if (!isSupported()) {
@@ -55,11 +53,9 @@ function hexToRgb(hex) {
 
 module.exports = {
     _ready: function(win, fail) {
-        if(isSupported()) {
-            var statusBar = getViewStatusBar();
-            win(statusBar.occludedRect.height !== 0);
-        }
+        win(statusBar.occludedRect.height !== 0);
     },
+
     overlaysWebView: function () {
         // not supported
     },
@@ -98,14 +94,14 @@ module.exports = {
     },
 
     show: function (win, fail) {
-        // added support check so no error thrown, when calling this method
+		// added support check so no error thrown, when calling this method
         if (isSupported()) {
             getViewStatusBar().showAsync().done(win, fail);
         }
     },
 
     hide: function (win, fail) {
-        // added support check so no error thrown, when calling this method
+		// added support check so no error thrown, when calling this method
         if (isSupported()) {
             getViewStatusBar().hideAsync().done(win, fail);
         }

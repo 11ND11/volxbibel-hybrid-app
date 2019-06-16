@@ -16,6 +16,9 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "de.andreassteiger.volxbibel"
         },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "de.andreassteiger.volxbibel"
+        },
         "cordova-plugin-x-socialsharing": {
             "PACKAGE_NAME": "de.andreassteiger.volxbibel"
         }

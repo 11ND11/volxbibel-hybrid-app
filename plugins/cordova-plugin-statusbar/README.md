@@ -1,7 +1,3 @@
----
-title: Statusbar
-description: Control the device status bar.
----
 <!---
 # license: Licensed to the Apache Software Foundation (ASF) under one
 #         or more contributor license agreements.  See the NOTICE file
@@ -21,32 +17,19 @@ description: Control the device status bar.
 #         under the License.
 -->
 
-|AppVeyor|Travis CI|
-|:-:|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-statusbar?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-statusbar)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-statusbar.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-statusbar)|
-
 # cordova-plugin-statusbar
+
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-statusbar.svg)](https://travis-ci.org/apache/cordova-plugin-statusbar)
 
 StatusBar
 ======
 
 > The `StatusBar` object provides some functions to customize the iOS and Android StatusBar.
 
-:warning: Report issues on the [Apache Cordova issue tracker](https://issues.apache.org/jira/issues/?jql=project%20%3D%20CB%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20resolution%20%3D%20Unresolved%20AND%20component%20%3D%20%22cordova-plugin-statusbar%22%20ORDER%20BY%20priority%20DESC%2C%20summary%20ASC%2C%20updatedDate%20DESC)
-
 
 ## Installation
 
-This installation method requires cordova 5.0+
-
     cordova plugin add cordova-plugin-statusbar
-Older versions of cordova can still install via the __deprecated__ id
-
-    cordova plugin add org.apache.cordova.statusbar
-It is also possible to install via repo url directly ( unstable )
-
-    cordova plugin add https://github.com/apache/cordova-plugin-statusbar.git
-
 
 Preferences
 -----------
@@ -57,17 +40,13 @@ Preferences
 
         <preference name="StatusBarOverlaysWebView" value="true" />
 
-- __StatusBarBackgroundColor__ (color hex string, no default value). On iOS 7, set the background color of the statusbar by a hex string (#RRGGBB) at startup. If this value is not set, the background color will be transparent.
+- __StatusBarBackgroundColor__ (color hex string, defaults to #000000). On iOS 7 and Android 5, set the background color of the statusbar by a hex string (#RRGGBB) at startup.
 
         <preference name="StatusBarBackgroundColor" value="#000000" />
 
 - __StatusBarStyle__ (status bar style, defaults to lightcontent). On iOS 7, set the status bar style. Available options default, lightcontent, blacktranslucent, blackopaque.
 
         <preference name="StatusBarStyle" value="lightcontent" />
-
-- __StatusBarDefaultScrollToTop__ (boolean, defaults to false). On iOS 7, allows the Cordova WebView to use default scroll-to-top behavior. Defaults to false so you can listen to the "statusTap" event (described below) and customize the behavior instead.
-
-        <preference name="StatusBarDefaultScrollToTop" value="false" />
 
 ### Android Quirks
 The Android 5+ guidelines specify using a different color for the statusbar than your main app color (unlike the uniform statusbar color of many iOS 7+ apps), so you may want to set the statusbar color at runtime instead via `StatusBar.backgroundColorByHexString` or `StatusBar.backgroundColorByName`. One way to do that would be:
@@ -117,10 +96,14 @@ Properties
 
 - StatusBar.isVisible
 
-Events
-------
+Permissions
+-----------
 
-- statusTap
+#### config.xml
+
+            <feature name="StatusBar">
+                <param name="ios-package" value="CDVStatusBar" onload="true" />
+            </feature>
 
 StatusBar.overlaysWebView
 =================
@@ -158,7 +141,6 @@ Supported Platforms
 -------------------
 
 - iOS
-- Android 6+ 
 - Windows Phone 7
 - Windows Phone 8
 - Windows Phone 8.1
@@ -175,7 +157,6 @@ Supported Platforms
 -------------------
 
 - iOS
-- Android 6+ 
 - Windows Phone 7
 - Windows Phone 8
 - Windows Phone 8.1
@@ -192,7 +173,6 @@ Supported Platforms
 -------------------
 
 - iOS
-- Android 6+ 
 - Windows Phone 7
 - Windows Phone 8
 - Windows Phone 8.1
@@ -209,7 +189,6 @@ Supported Platforms
 -------------------
 
 - iOS
-- Android 6+ 
 - Windows Phone 7
 - Windows Phone 8
 - Windows Phone 8.1
@@ -316,17 +295,3 @@ Supported Platforms
 - Windows Phone 8.1
 
 
-statusTap
-=========
-
-Listen for this event to know if the statusbar was tapped.
-
-    window.addEventListener('statusTap', function() {
-        // scroll-up with document.body.scrollTop = 0; or do whatever you want
-    });
-
-
-Supported Platforms
--------------------
-
-- iOS
