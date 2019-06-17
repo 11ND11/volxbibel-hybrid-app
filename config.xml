@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="de.andreassteiger.volxbibel" version="2.0.0 DEV" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Volxbibel</name>
+    <name>VOLXBIBEL</name>
     <description>
         Volxbibel App
     </description>
@@ -47,10 +47,10 @@
         <allow-intent href="itms-apps:*" />
         <icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
         <icon height="114" platform="ios" src="res/icons/ios/icon@2x.png" width="114" />
-        <icon height="40" platform="ios" src="res/icons/ios/icon-40.png" width="40" />
-        <icon height="80" platform="ios" src="res/icons/ios/icon-40@2x.png" width="80" />
-        <icon height="50" platform="ios" src="res/icons/ios/icon-50.png" width="50" />
-        <icon height="100" platform="ios" src="res/icons/ios/icon-50@2x.png" width="100" />
+<!--        <icon height="40" platform="ios" src="res/icons/ios/icon-40.png" width="40" />-->
+<!--        <icon height="80" platform="ios" src="res/icons/ios/icon-40@2x.png" width="80" />-->
+<!--        <icon height="50" platform="ios" src="res/icons/ios/icon-50.png" width="50" />-->
+<!--        <icon height="100" platform="ios" src="res/icons/ios/icon-50@2x.png" width="100" />-->
         <icon height="60" platform="ios" src="res/icons/ios/icon-60.png" width="60" />
         <icon height="120" platform="ios" src="res/icons/ios/icon-60@2x.png" width="120" />
         <icon height="180" platform="ios" src="res/icons/ios/icon-60@3x.png" width="180" />

@@ -49,6 +49,11 @@ var app = new Framework7({
             url: 'videos.html',
         },
         {
+            name: 'podcasts',
+            path: '/podcasts/',
+            url: 'podcasts.html',
+        },
+        {
             name: 'bookmarks',
             path: '/bookmarks/',
             url: 'bookmarks.html',
