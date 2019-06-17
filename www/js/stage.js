@@ -4,12 +4,17 @@
 
 var stage = (function () {
 
-    // cache DOM
+    // settings
+
+    var _defaultConfiguration = {
+
+    };
 
     // bind events
-
-    // bind page events
     $$(document).on('page:init', '.page[data-name="detail"]', detailPageInit);
+    $$('[data-toggle-button]').on ('change', function () {
+        console.log($(this));
+    });
 
 
     /**

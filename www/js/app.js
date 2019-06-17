@@ -74,7 +74,7 @@ $$(document).on('deviceready', function () {
     StatusBar.backgroundColorByHexString('#ffffff');
     StatusBar.styleLightContent();
 
-    if (window.localStorage.lastAppRun != getTodaysDate()) {
+    if (storage.lastAppRun != getTodaysDate()) {
         stage.showTextOfTheDay();
     }
     storage.setItem('lastAppRun', getTodaysDate());

@@ -9,9 +9,9 @@
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="left">
-                    <a href="#" class="back link icon-only">
+                    <a href="#" class="back link">
                         <i class="icon icon-back"></i>
-                        <span></span>
+                        <span class="if-not-md">Liste</span>
                     </a>
                 </div>
             </div>
@@ -21,6 +21,34 @@
 
             <div class="block">
                 <h2>Einstellungen</h2>
+
+                <h3>Ansicht</h3>
+
+                <div class="list simple-list">
+                    <ul>
+                        <li>
+                            <span>Weiterlesen beim Start</span>
+                            <label class="toggle toggle-init color-green">
+                                <input type="checkbox" checked data-toggle-button="">
+                                <span class="toggle-icon"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list simple-list">
+                    <ul>
+                        <li>
+                            <span>Tutorial</span>
+                            <label class="toggle toggle-init color-green">
+                                <input type="checkbox" data-toggle-button="">
+                                <span class="toggle-icon"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <p>Beim Start dort weiterlesen, wo du aufgehört hast</p>
 
                 <h3>Über diese App</h3>
                 <!--<a href="#" class="button show-tutorial" onclick="window.localStorage.removeItem('hideTutorial');">zeige Tutorial</a>-->
