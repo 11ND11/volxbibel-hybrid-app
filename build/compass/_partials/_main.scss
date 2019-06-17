@@ -259,17 +259,17 @@ h1 {
     letter-spacing : 3px;
 }
 
-h3 {
-    font-size      : rem-calc(22);
+h3, .links-list h3 {
+    font-size      : rem-calc(31);
     line-height    : rem-calc(24);
     font-family    : 'Dirty Ego', sans-serif;
-    display        : block;
-    margin-top     : rem-calc(30);
-    margin-bottom  : rem-calc(2);
-    padding        : rem-calc(20);
+    display        : inline;
+    padding        : rem-calc(2 4 1);
     text-transform : uppercase;
     letter-spacing : 1px;
-    color: #000;
+    color          : #000;
+    background     : $red;
+    background     : linear-gradient(0deg, rgba($red, 1) 20%, rgba($red, 0) 20%, rgba($red, 0) 100%);
 
     @media (min-width : 1024px) {
         padding     : rem-calc(30);
@@ -277,12 +277,21 @@ h3 {
         line-height : rem-calc(25);
     }
 
+    &:before {
+        content : '';
+        display : block;
+        width   : 0;
+        height  : rem-calc(30);
+        opacity : 0;
+    }
+
     &:after {
-        content    : '';
-        display    : block;
-        width      : 100%;
-        height     : rem-calc(3);
-        background : $red;
+        content : '';
+        display : block;
+        width   : 0;
+        height  : rem-calc(5);
+        opacity : 0;
+
     }
 
     &:first-child {
@@ -384,13 +393,6 @@ h3 {
     margin-top : rem-calc(25);
 }
 
-.page[data-name="about"] {
-    h3 {
-        padding : 0;
-        border  : none;
-    }
-}
-
 // ***************************************
 // page detail
 // ***************************************
@@ -399,7 +401,7 @@ h3 {
     display          : inline-block;
     padding          : rem-calc(5 10 5 30);
     background-color : $black;
-    font-size        : rem-calc(30);
+    font-size        : rem-calc(34);
     font-family      : 'Dirty Ego', sans-serif;
     color            : #fff;
     text-transform   : uppercase;

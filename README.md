@@ -37,3 +37,11 @@ The terms of the license are summarized here:
 http://creativecommons.org/licenses/by-nc-sa/2.0/de/
 
 And complete terms are here: http://creativecommons.org/licenses/by-nc-sa/2.0/de/legalcode
+
+## CSS Grunt Build
+
+run 
+
+_npm install_
+
+_grunt watcher_
