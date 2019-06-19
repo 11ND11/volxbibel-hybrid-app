@@ -32,7 +32,9 @@ var textCollection = (function () {
             book: book,
             chapter: chapter,
             verse: verse,
-            creationDate: creationDate
+            creationDate: creationDate,
+            highlightColor: '',
+            note: ''
         });
 
         console.log(storedTextCollection);
@@ -56,7 +58,12 @@ var textCollection = (function () {
     function getTextCollectionList($$listContainer) {
         console.log('get collection');
         var storedTextCollection = JSON.parse(storage.getItem('textCollection')),
-            textList = '';
+            textList = '',
+            textlistItemMarkupBefore = '<a class="link item-link item-content swipeout-delete" href="/detail/" data-book="Hiob">' +
+                '<div class="item-inner swipeout-content">' +
+                '<div class="item-title-row">',
+            textlistItemMarkupAfter = '</div></div></a>';
+
 
         if (storedTextCollection === null) {
             storedTextCollection = {
@@ -66,7 +73,7 @@ var textCollection = (function () {
 
         for(var i = 0; i < storedTextCollection.text.length; i++)
         {
-            textList += '<li id="my-vers-' + i + '">' + storedTextCollection.text[i].book + ' ' + storedTextCollection.text[i].chapter + ', ' + storedTextCollection.text[i].verse + ':'+storedTextCollection.text[i].content + '</li>';
+            textList += '<li id="my-vers-' + i + '" class="">' + textlistItemMarkupBefore + '<div class="item-title">' + storedTextCollection.text[i].book + ' ' + storedTextCollection.text[i].chapter + ', ' + storedTextCollection.text[i].verse + '</div></div><div class="item-text">' + storedTextCollection.text[i].content + textlistItemMarkupAfter + '</li>';
         }
 
         $$listContainer.html(textList);

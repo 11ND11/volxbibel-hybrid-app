@@ -91,6 +91,7 @@
         <splash src="res/screens/ios/Default@2x~universal~anyany.png" />
     </platform>
 
+    <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarDefaultScrollToTop" value="true" />
 

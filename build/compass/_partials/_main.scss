@@ -85,7 +85,7 @@ img {
         &.left, &.right {
             svg {
                 height : rem-calc(16);
-                fill   : $red;
+                fill   : $black;
             }
         }
 
@@ -99,7 +99,7 @@ img {
             bottom      : 0;
             width       : rem-calc(55);
             height      : rem-calc(55);
-            background  : $red;
+            background  : $blue;
             line-height : rem-calc(53);
 
             svg {
@@ -499,10 +499,15 @@ h2 {
             -webkit-user-select : none;
             position            : relative;
             color               : $text-color;
+            background          : linear-gradient(0deg, rgba($white, 0.1) 30%, rgba($white, 0) 30%, rgba($white, 0) 100%);
             transition          : all .3s;
 
             &.active {
-                background : linear-gradient(0deg, rgba($blue, 0.5) 20%, rgba($blue, 0) 20%, rgba($blue, 0) 100%);
+                background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 0.3) 5%, rgba($red, 0.3) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
+            }
+
+            &.highlight {
+                background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 1) 5%, rgba($red, 1) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
             }
         }
 
@@ -511,43 +516,43 @@ h2 {
         }
 
         .action-button {
+
+        }
+
+        .action-button {
             display          : inline-block;
-            width            : rem-calc(25);
-            height           : rem-calc(25);
             margin-right     : rem-calc(5);
-            position         : relative;
-            top              : rem-calc(-1);
-            line-height      : rem-calc(25);
+            line-height      : rem-calc(55);
             font-size        : rem-calc(11);
             text-align       : center;
             font-weight      : 700;
             color            : #fff;
-            background-color : $red;
+            background-color : $blue;
             border-radius    : 50%;
-            transition       : background-color .3s;
-        }
-
-        .action-button {
-            position   : absolute;
-            top        : 50%;
-            right      : rem-calc(10);
-            width      : rem-calc(40);
-            height     : rem-calc(40);
-            min-width  : 0;
-            padding    : 0;
-            border     : none;
-            transform  : translateY(-50%) scale(0);
-            transition : transform .2s ease-in-out;
+            position         : absolute;
+            top              : 50%;
+            right            : rem-calc(10);
+            width            : rem-calc(55);
+            height           : rem-calc(55);
+            min-width        : 0;
+            padding          : 0;
+            border           : none;
+            transform        : translateY(-50%) scale(0);
+            transition       : transform .2s ease-in-out;
             @include button-mini-shadow();
 
             &.scale {
                 transform : translateY(-50%) scale(1);
+
+                & + .scale {
+                    transform : translateY(60%) scale(1);
+                }
             }
 
             svg {
                 fill   : #fff;
                 width  : rem-calc(15);
-                height : rem-calc(40);
+                height : rem-calc(55);
             }
         }
     }

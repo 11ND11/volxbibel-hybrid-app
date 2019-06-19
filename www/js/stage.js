@@ -21,6 +21,7 @@ var stage = (function () {
      * @return void
      */
     function detailPageInit() {
+        console.log('detail init');
         var $volxbibelContentContainer = $('.volxbibel-content'),
             $$prevButton = $$('#toolbar-link-prev'),
             $$nextButton = $$('#toolbar-link-next');
@@ -61,6 +62,7 @@ var stage = (function () {
      * @return void
      */
     function settingsPageInit() {
+        console.log('settings init');
         $$('[data-toggle-button]').on ('change', function () {
             console.log($(this));
         });
@@ -72,7 +74,7 @@ var stage = (function () {
      * @return void
      */
     function bookmarksPageInit() {
-        console.log('bookmarks');
+        console.log('bookmarks init');
         textCollection.getTextCollectionList($$('[data-render-text-collection]'));
     }
 
@@ -170,9 +172,9 @@ var stage = (function () {
                         var verseStartNumber = verse.substring(0, hyphenIndex),
                             verseEndNumber = verse.substring(hyphenIndex + 1, verse.length);
 
-                        $(this).html('<span class="verse">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
+                        $(this).html('<span class="verse" data-verse-number="' + verseStartNumber + '">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
                     } else {
-                        $(this).html('<span class="verse">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
+                        $(this).html('<span class="verse" data-verse-number="' + verse + '">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
                     }
                 }
             });
@@ -185,13 +187,12 @@ var stage = (function () {
             });
             $$('.volxbibel-content .vb-text').on("touchend", function () {
                 if (touchTapWithoutMove === true) {
-                    var shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"/></svg>\n' +
-                        '<!--\n' +
-                        'Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com\n' +
-                        'License - https://fontawesome.com/license (Commercial License)\n' +
-                        '-->';
-                    var verseText = $(this).text().substring(1, $(this).text().length);
-                    var currentVerse = $(this).siblings('.verse').text();
+                    var shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>',
+                        likeIcon = '<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg>';
+                        likeIconActive = '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>',
+                        verseText = $(this).text().substring(1, $(this).text().length),
+                        currentVerse = $(this).siblings('.verse').text();
+
                     if ($(this).siblings('.verse').length > 1) {
                         currentVerse = '';
                         $(this).siblings('.verse').each(function () {
@@ -210,12 +211,19 @@ var stage = (function () {
                     } else {
                         $contentContainer.find('p').removeClass('active');
                         $contentContainer.find('.action-button').remove();
-                        $(this).parent().addClass('active').prepend('<a href="" data-action="share" class="action-button button button-circle">' + shareIcon + '</a>');
+                        $(this).parent().addClass('active').prepend('<a href="" data-action="share" class="link action-button button button-circle">' + shareIcon + '</a><a href="" data-action="like" class="link action-button button button-circle">' + likeIcon + '</a>');
 
                         setTimeout(function () {
                             $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
-                                // var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
-                                // startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
+                                var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
+                                startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
+                            });
+                            $('.action-button[data-action="like"]').addClass('scale').on('click', function (e) {
+                                if($(this).parents('p').hasClass('highlight')) {
+                                    $(this).html(likeIcon).parents('p').removeClass('highlight');
+                                } else {
+                                    $(this).html(likeIconActive).parents('p').addClass('highlight');
+                                }
                                 textCollection.addText(verseText, currentBook, currentChapter, Number.parseInt(currentVerse));
                             });
                         }, 100);
@@ -309,6 +317,7 @@ var stage = (function () {
      * @return void
      */
     function init() {
+        console.log('stage init');
         if (firstStageInit) {
             $('.ios .page-content').scrollTop(40);
             firstStageInit = false;

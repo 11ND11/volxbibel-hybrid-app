@@ -23,7 +23,7 @@ var app = new Framework7({
     name: 'Volxbibel',
     id: 'de.andreassteiger.volxbibel',
     panel: {
-        swipe: 'right',
+        swipe: '',
     },
     navbar: {
         hideOnPageScroll: true,
