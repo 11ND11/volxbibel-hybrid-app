@@ -15,14 +15,18 @@ var currentBook = '',
     firstStageInit = true,
     storage = window.localStorage;
 
-var stage = new stage();
+var textCollection = new textCollection;
+var stage = new stage;
 
 var app = new Framework7({
     root: '#app',
     name: 'Volxbibel',
     id: 'de.andreassteiger.volxbibel',
     panel: {
-        swipe: 'left',
+        swipe: 'right',
+    },
+    navbar: {
+        hideOnPageScroll: true,
     },
     statusbar: {
         iosBackgroundColor: '#ffffff',
@@ -34,29 +38,34 @@ var app = new Framework7({
     },
     routes: [
         {
+            name: 'home',
+            path: '/',
+            url: './index.html',
+        },
+        {
             name: 'detail',
             path: '/detail/',
-            url: 'detail.html',
+            url: 'pages/detail.html',
         },
         {
             name: 'settings',
             path: '/settings/',
-            url: 'settings.html',
+            url: 'pages/settings.html',
         },
         {
             name: 'videos',
             path: '/videos/',
-            url: 'videos.html',
+            url: 'pages/videos.html',
         },
         {
             name: 'podcasts',
             path: '/podcasts/',
-            url: 'podcasts.html',
+            url: 'pages/podcasts.html',
         },
         {
             name: 'bookmarks',
             path: '/bookmarks/',
-            url: 'bookmarks.html',
+            url: 'pages/bookmarks.html',
         },
     ],
     on: {
@@ -72,7 +81,6 @@ var mainView = app.views.create('.view-main');
 $$(document).on('deviceready', function () {
     StatusBar.overlaysWebView(true);
     StatusBar.backgroundColorByHexString('#ffffff');
-    StatusBar.styleLightContent();
 
     if (storage.lastAppRun != getTodaysDate()) {
         stage.showTextOfTheDay();

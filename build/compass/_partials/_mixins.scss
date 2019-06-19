@@ -21,3 +21,29 @@
         box-shadow : 2px 4px 10px 0 rgba(0, 0, 0, 0.1);
     }
 }
+
+@mixin ratio-box($ratio) {
+    // e.g. 100 / 16*9 = 56.25%
+    height      : 0;
+    overflow    : hidden;
+    padding-top : $ratio;
+    position    : relative;
+}
+
+@mixin ratio-image-box($ratio) {
+    @include ratio-box($ratio);
+
+    img {
+        position   : absolute;
+        left       : -10000%;
+        right      : -10000%;
+        top        : -10000%;
+        bottom     : -10000%;
+        margin     : auto auto;
+        min-width  : 1000%;
+        min-height : 1000%;
+        transform  : scale(0.1);
+        max-width  : none;
+        width      : auto;
+    }
+}

@@ -1,4 +1,18 @@
 // ***************************************
+// general
+// ***************************************
+
+iframe {
+    z-index   : 10;
+    position  : relative;
+    max-width : 100%;
+}
+
+img {
+    max-width : 100%;
+}
+
+// ***************************************
 // app
 // ***************************************
 
@@ -30,26 +44,16 @@
             position            : relative;
         }
 
-        .link {
-            color : $red;
+        a {
+            color : $black;
         }
-    }
-
-    iframe {
-        z-index   : 10;
-        position  : relative;
-        max-width : 100%;
-    }
-
-    img {
-        max-width : 100%;
     }
 }
 
 .navigation-buttons {
     z-index  : 1;
     position : fixed;
-    bottom   : rem-calc(20);
+    bottom   : rem-calc(30);
     width    : 100%;
 
     .navigation-buttons-inner {
@@ -143,8 +147,8 @@
 
     h1 {
         color       : $red;
-        background  : #fff;
         font-family : 'Dirty Ego', sans-serif;
+        font-size   : rem-calc(51);
     }
 
     .text-of-the-day-inner {
@@ -201,6 +205,16 @@
 // ios
 // ***************************************
 
+body {
+    padding-top : constant(safe-area-inset-top); /* iOS 11.0 */
+    padding-top : env(safe-area-inset-top); /* iOS 11.2 */
+}
+
+.navigation-buttons-inner {
+    margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
+    margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
+}
+
 .ios .page {
     background : #fff;
 }
@@ -227,21 +241,23 @@
     transform : scaleY(0.5);
 }
 
+.ios .icon-back,
+.ios .icon-prev {
+    background-image : url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'12'%20height%3D'20'%20viewBox%3D'0%200%2012%2020'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M.18261596%209.4221638c.0352203-.05148305.07573462-.10050698.1215468-.14631917L9.1425872.4374202c.5830904-.58309038%201.52656832-.5849888%202.11643872.00488163.5857864.58578644.591222%201.53009836.0048816%202.11643873L3.82594417%209.9967039l7.43188553%207.4318855c.5830904.5830904.5849888%201.5265683-.0048817%202.1164387-.5857864.5857865-1.5300983.591222-2.11643868.0048816L.2980849%2010.7114853c-.3526746-.3526746-.3939974-.89699-.11546894-1.2893215z'%20fill%3D'%23282828'%20fill-rule%3D'evenodd'%2F%3E%3C%2Fsvg%3E");
+}
+
+.ios .icon-forward,
+.ios .icon-next {
+    background-image : url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'12'%20height%3D'20'%20viewBox%3D'0%200%2012%2020'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M11.51840604%2010.5648622c-.0352203.05148305-.07573462.10050698-.1215468.14631917L2.5584348%2019.5496058c-.5830904.58309038-1.52656832.5849888-2.11643872-.00488163-.5857864-.58578644-.591222-1.53009836-.0048816-2.11643873L7.87507783%209.9903221.4431923%202.5584366C-.1398981%201.9753462-.1417965%201.0318683.448074.4419979c.5857864-.5857865%201.5300983-.591222%202.11643868-.0048816l8.83842442%208.8384244c.3526746.3526746.3939974.89699.11546894%201.2893215z'%20fill%3D'%23282828'%20fill-rule%3D'evenodd'%2F%3E%3C%2Fsvg%3E");
+}
+
 // ***************************************
 // material design / android
 // ***************************************
 
 .md {
-    .page {
-        border-top : rem-calc(15) solid $red;
-
-        .navbar {
-            border-top : rem-calc(15) solid $red;
-        }
-    }
-
     .toolbar {
-        background-color : $red;
+        background-color : #fff;
     }
 
     #picker-chapter {
@@ -300,7 +316,7 @@ h3, .links-list h3 {
         content : '';
         display : block;
         width   : 0;
-        height  : rem-calc(5);
+        height  : rem-calc(15);
         opacity : 0;
 
     }
@@ -357,10 +373,6 @@ h2 {
 }
 
 #app .links-list {
-    h3 {
-        border : none;
-    }
-
     ul {
         margin-left : rem-calc(10);
         background  : #f8f8f8;
@@ -400,10 +412,23 @@ h2 {
     }
 }
 
+#app .media-list {
+    li {
+        margin-bottom : rem-calc(3);
+        border-left   : 3px solid $red;
+        background    : #fff;
+    }
+}
+
 .page-content {
     .first-list {
         margin-top : rem-calc(5);
     }
+}
+
+.max-width-container {
+    max-width : $global-width;
+    margin    : auto;
 }
 
 .tutorial-overlay {
@@ -797,4 +822,52 @@ h2 {
 
 .panel-open {
     padding : rem-calc(0 12);
+}
+
+// ***************************************
+// header image
+// ***************************************
+
+.header-image {
+    position : relative;
+
+    h2 {
+        z-index    : 1;
+        position   : absolute;
+        left       : rem-calc(30);
+        bottom     : 0;
+        background : none;
+        font-size  : rem-calc(65);
+    }
+
+    figure {
+        @include ratio-image-box(85%);
+        margin      : 0;
+        padding-top : rem-calc(300);
+
+        &:after {
+            content    : '';
+            position   : absolute;
+            top        : 0;
+            bottom     : 0;
+            left       : 0;
+            right      : 0;
+            display    : block;
+            background : rgba(#000, 0.7);
+        }
+    }
+
+    ~ .block {
+        margin-top : 0;
+    }
+}
+
+.header-image-subtitle {
+    z-index     : 1;
+    position    : absolute;
+    left        : rem-calc(30);
+    bottom      : rem-calc(40);
+    font-size   : rem-calc(16);
+    font-weight : 300;
+    color       : #fff;
 }

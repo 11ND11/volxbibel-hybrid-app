@@ -12,10 +12,8 @@ var stage = (function () {
 
     // bind events
     $$(document).on('page:init', '.page[data-name="detail"]', detailPageInit);
-    $$('[data-toggle-button]').on ('change', function () {
-        console.log($(this));
-    });
-
+    $$(document).on('page:init', '.page[data-name="settings"]', settingsPageInit);
+    $$(document).on('page:init', '.page[data-name="bookmarks"]', bookmarksPageInit);
 
     /**
      * @private
@@ -43,17 +41,17 @@ var stage = (function () {
             }
 
             chapterPicker = createChapterPicker($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton);
-            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
+            renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
         });
 
         $$prevButton.on('click', function (e) {
             currentChapter--;
-            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
+            renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
         $$nextButton.on('click', function (e) {
             currentChapter++;
-            updateDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
+            renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
     }
 
@@ -62,8 +60,29 @@ var stage = (function () {
      *
      * @return void
      */
-    function updateDetailView($contentContainer, book, lastChapter, chapter = '1', $$prevButton, $$nextButton) {
-        updateWikiText($contentContainer, book, chapter);
+    function settingsPageInit() {
+        $$('[data-toggle-button]').on ('change', function () {
+            console.log($(this));
+        });
+    }
+
+    /**
+     * @private
+     *
+     * @return void
+     */
+    function bookmarksPageInit() {
+        console.log('bookmarks');
+        textCollection.getTextCollectionList($$('[data-render-text-collection]'));
+    }
+
+    /**
+     * @private
+     *
+     * @return void
+     */
+    function renderDetailView($contentContainer, book, lastChapter, chapter = '1', $$prevButton, $$nextButton) {
+        renderWikiText($contentContainer, book, chapter);
 
         if (chapter > 1) {
             $$prevButton.show();
@@ -102,7 +121,7 @@ var stage = (function () {
                 closed: function () {
                     var selectedChapterString = this.value.toString();
                     var selectedChapter = selectedChapterString.replace('Kapitel ', '');
-                    updateDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, selectedChapter, $$prevButton, $$nextButton);
+                    renderDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, selectedChapter, $$prevButton, $$nextButton);
                 }
             }
         });
@@ -113,7 +132,7 @@ var stage = (function () {
      *
      * @return void
      */
-    function updateWikiText($contentContainer, book, chapter = '1') {
+    function renderWikiText($contentContainer, book, chapter = '1') {
         var volxbibelContent;
         var currentWikiUrlJson = 'https://wiki.volxbibel.com/api.php?action=query&prop=revisions&rvlimit=1&rvprop=content&format=json&titles=' + book + '_' + chapter;
         currentWikiUrl = 'https://wiki.volxbibel.com/' + book + '_' + chapter;
@@ -195,8 +214,9 @@ var stage = (function () {
 
                         setTimeout(function () {
                             $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
-                                var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
-                                startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
+                                // var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
+                                // startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
+                                textCollection.addText(verseText, currentBook, currentChapter, Number.parseInt(currentVerse));
                             });
                         }, 100);
                     }
