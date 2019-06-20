@@ -16,10 +16,9 @@ var textCollection = (function () {
      * @return void
      */
     function addText(text, book, chapter, verse) {
-        console.log('addText');
-        var creationDate = today;
-
-        var storedTextCollection = JSON.parse(storage.getItem('textCollection'));
+        var creationDate = today,
+            storedTextCollection = JSON.parse(storage.getItem('textCollection')),
+            textId = book + chapter + verse;
 
         if (storedTextCollection === null) {
             storedTextCollection = {
@@ -37,6 +36,7 @@ var textCollection = (function () {
             note: ''
         });
 
+        // storedTextCollection.text.sort();
         console.log(storedTextCollection);
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
     }
@@ -46,8 +46,21 @@ var textCollection = (function () {
      *
      * @return void
      */
-    function getText(text, book, chapter, verse) {
+    function removeText(index) {
+        var storedTextCollection = JSON.parse(storage.getItem('textCollection'));
 
+        if (storedTextCollection === null) {
+            storedTextCollection = {
+                text: []
+            };
+        }
+
+        // remove item
+        storedTextCollection.text.splice(index, 1);
+        console.log(storedTextCollection.text);
+
+        // storedTextCollection.sort();
+        storage.setItem('textCollection', JSON.stringify(storedTextCollection));
     }
 
     /**
@@ -56,14 +69,8 @@ var textCollection = (function () {
      * @return void
      */
     function getTextCollectionList($$listContainer) {
-        console.log('get collection');
         var storedTextCollection = JSON.parse(storage.getItem('textCollection')),
-            textList = '',
-            textlistItemMarkupBefore = '<a class="link item-link item-content swipeout-delete" href="/detail/" data-book="Hiob">' +
-                '<div class="item-inner swipeout-content">' +
-                '<div class="item-title-row">',
-            textlistItemMarkupAfter = '</div></div></a>';
-
+            textList = '';
 
         if (storedTextCollection === null) {
             storedTextCollection = {
@@ -73,10 +80,30 @@ var textCollection = (function () {
 
         for(var i = 0; i < storedTextCollection.text.length; i++)
         {
-            textList += '<li id="my-vers-' + i + '" class="">' + textlistItemMarkupBefore + '<div class="item-title">' + storedTextCollection.text[i].book + ' ' + storedTextCollection.text[i].chapter + ', ' + storedTextCollection.text[i].verse + '</div></div><div class="item-text">' + storedTextCollection.text[i].content + textlistItemMarkupAfter + '</li>';
+            textList += '<li id="my-vers-' + i + '" class="swipeout">' +
+                    '<a class="link item-link item-content swipeout-content" href="/detail/" data-book="' + storedTextCollection.text[i].book + '" data-chapter="' +storedTextCollection.text[i].chapter + '">' +
+                        '<div class="item-inner swipeout-content">' +
+                            '<div class="item-title-row">' +
+                                    '<div class="item-title">' +
+                                        storedTextCollection.text[i].book + ' ' + storedTextCollection.text[i].chapter + ', ' + storedTextCollection.text[i].verse +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="item-text">' + storedTextCollection.text[i].content +
+                            '</div>' +
+                        '</div>' +
+                    '</a>' +
+                    '<div class="swipeout-actions-right">' +
+                        '<a class="swipeout-delete" href="#" data-remove-text="' + i + '">weg damit!</a>' +
+                    '</div>' +
+                '</li>';
+            // console.log(storedTextCollection.text[i].book + ' index:' + i)
         }
 
         $$listContainer.html(textList);
+
+        $('[data-remove-text]').on('click', function () {
+            removeText($(this).data('remove-text'));
+        });
     }
 
     return {

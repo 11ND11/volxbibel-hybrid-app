@@ -4,16 +4,51 @@
 
 var stage = (function () {
 
-    // settings
-
-    var _defaultConfiguration = {
-
-    };
-
     // bind events
     $$(document).on('page:init', '.page[data-name="detail"]', detailPageInit);
     $$(document).on('page:init', '.page[data-name="settings"]', settingsPageInit);
     $$(document).on('page:init', '.page[data-name="bookmarks"]', bookmarksPageInit);
+
+    /**
+     * @public
+     *
+     * @return void
+     */
+    function init() {
+        if (firstStageInit) {
+            $('.ios .page-content').scrollTop(40);
+            firstStageInit = false;
+        }
+
+        $$('[data-bible-list]').find('a').on('click', function (e) {
+            currentBook = $(this).data('book');
+
+            if(typeof $(this).data('chapter') === 'undefined'){
+                currentChapter = 1;
+            } else {
+                currentChapter = $(this).data('chapter');
+            }
+        });
+
+        app.searchbar.create({
+            el: '.searchbar',
+            searchContainer: '.list',
+            searchIn: 'a',
+            on: {
+                search(sb, query, previousQuery) {
+                    // ...
+                }
+            }
+        });
+
+        $$('[data-action="textoftheday"]').on('click', function () {
+            showTextOfTheDay();
+        });
+
+        $('.text-of-the-day .button-close').on('click', function () {
+            $('.text-of-the-day').fadeOut();
+        });
+    }
 
     /**
      * @private
@@ -21,7 +56,6 @@ var stage = (function () {
      * @return void
      */
     function detailPageInit() {
-        console.log('detail init');
         var $volxbibelContentContainer = $('.volxbibel-content'),
             $$prevButton = $$('#toolbar-link-prev'),
             $$nextButton = $$('#toolbar-link-next');
@@ -40,17 +74,19 @@ var stage = (function () {
                 pickerValues.push('Kapitel ' + iterator);
                 lastChapterOfCurrentBook = iterator;
             }
-
+            console.log(currentChapter);
             chapterPicker = createChapterPicker($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton);
-            renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, 1, $$prevButton, $$nextButton);
+            renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
         $$prevButton.on('click', function (e) {
+            console.log(currentChapter);
             currentChapter--;
             renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
         $$nextButton.on('click', function (e) {
+            console.log(currentChapter);
             currentChapter++;
             renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
@@ -62,7 +98,6 @@ var stage = (function () {
      * @return void
      */
     function settingsPageInit() {
-        console.log('settings init');
         $$('[data-toggle-button]').on ('change', function () {
             console.log($(this));
         });
@@ -74,7 +109,6 @@ var stage = (function () {
      * @return void
      */
     function bookmarksPageInit() {
-        console.log('bookmarks init');
         textCollection.getTextCollectionList($$('[data-render-text-collection]'));
     }
 
@@ -172,27 +206,29 @@ var stage = (function () {
                         var verseStartNumber = verse.substring(0, hyphenIndex),
                             verseEndNumber = verse.substring(hyphenIndex + 1, verse.length);
 
-                        $(this).html('<span class="verse" data-verse-number="' + verseStartNumber + '">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
+                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + verseStartNumber + '">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
                     } else {
-                        $(this).html('<span class="verse" data-verse-number="' + verse + '">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span>');
+                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + verse + '">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
                     }
                 }
             });
+
             $contentContainer.addClass('content-is-ready');
-            $$('.volxbibel-content p').on("touchstart", function (e) {
+
+            $$('.volxbibel-content .verse-container').on("touchstart", function (e) {
                 touchTapWithoutMove = true;
             });
-            $$('.volxbibel-content .vb-text').on("touchmove", function () {
+            $$('.volxbibel-content .verse-container').on("touchmove", function () {
                 touchTapWithoutMove = false;
             });
-            $$('.volxbibel-content .vb-text').on("touchend", function () {
+            $$('.volxbibel-content .verse-container').on("touchend", function () {
                 if (touchTapWithoutMove === true) {
                     var verseText = $(this).text().substring(1, $(this).text().length),
-                        currentVerse = $(this).siblings('.verse').text();
+                        currentVerse = $(this).find('.verse').text();
 
-                    if ($(this).siblings('.verse').length > 1) {
+                    if ($(this).find('.verse').length > 1) {
                         currentVerse = '';
-                        $(this).siblings('.verse').each(function () {
+                        $(this).find('.verse').each(function () {
                             currentVerse += $(this).text() + '-'
                         });
                         currentVerse = currentVerse.substring(3, currentVerse.length - 1)
@@ -212,20 +248,24 @@ var stage = (function () {
                         renderActionButtons($(this).parent());
 
                         setTimeout(function () {
-                            $('.action-button[data-action="share"]').addClass('scale').on('click', function (e) {
+                            $('.action-button[data-action="share"]').addClass('show').on('click', function (e) {
                                 var $message = verseText + ' (' + currentBook + ' ' + currentChapter + ',' + Number.parseInt(currentVerse) + ' | Die Volxbibel)\n' + currentWikiUrl;
                                 startShareAction('Aus der Volxbibel...', $message, 'Teile diesen Vers');
                             });
-                            $('.action-button[data-action="like"]').addClass('scale').on('click', function (e) {
-                                if($(this).parents('p').hasClass('highlight')) {
-                                    $(this).parents('p').removeClass('highlight');
-                                } else {
-                                    $(this).parents('p').addClass('highlight');
-                                }
-                                $contentContainer.find('.action-button').fadeOut(function () {
+                            $('.action-button[data-action="like"]').addClass('show').on('click', function (e) {
+                                $contentContainer.find('.action-button').fadeOut('fast', function () {
                                     $(this).remove();
                                 });
+                               $(this).parents('p').addClass('highlight');
+
                                 textCollection.addText(verseText, currentBook, currentChapter, Number.parseInt(currentVerse));
+                            });
+                            $('.action-button[data-action="unlike"]').addClass('show').on('click', function (e) {
+                                $contentContainer.find('.action-button').fadeOut('fast', function () {
+                                    $(this).remove();
+                                });
+
+                                $(this).parents('p').removeClass('highlight');
                             });
                         }, 100);
                     }
@@ -252,17 +292,15 @@ var stage = (function () {
          */
         function renderActionButtons ($buttonContainer) {
             var shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>',
-                likeIcon = '<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg>',
-                likeIconActive = '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>';
+                likeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>',
+                unlikeIcon = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:none;} .st1{fill:#FFFFFF;}</style><path class="st0" d="M0,0h24v24H0V0z"/><g><path class="st1" d="M14,16.8c-0.6,0.6-1.3,1.2-1.9,1.8L12,18.7l-0.1-0.1C7.1,14.2,4,11.4,4,8.5c0-0.4,0.1-0.8,0.2-1.2L2.7,5.8C2.3,6.6,2,7.5,2,8.5c0,3.8,3.4,6.9,8.5,11.5l1.5,1.3l1.5-1.3c0.7-0.7,1.4-1.3,2-1.9L14,16.8z"/><path class="st1" d="M22,8.5C22,5.4,19.6,3,16.5,3c-1.7,0-3.4,0.8-4.5,2.1C10.9,3.8,9.2,3,7.5,3C6.9,3,6.3,3.1,5.8,3.3L3.6,1.1L2.2,2.6L4,4.3c0,0,0,0,0,0l1.4,1.4c0,0,0,0,0,0l10.1,9.7c0,0,0,0,0,0l1.4,1.4c0,0,0,0,0,0l2.6,2.5l1.4-1.4l-2.6-2.5C20.7,13,22,10.9,22,8.5z M16.9,14L7.6,5c1.5,0,2.9,1,3.5,2.4h1.9C13.5,6,15,5,16.5,5c2,0,3.5,1.5,3.5,3.5C20,10.2,18.9,12,16.9,14z"/></g></svg>';
 
-            if($(this).parents('p').hasClass('highlight')) {
-                $(this).html(likeIcon);
+            if($buttonContainer.hasClass('highlight')) {
+                $buttonContainer.prepend('<a href="" data-action="share" class="link action-button button button-circle">' + shareIcon + '</a>' +
+                    '<a href="" data-action="unlike" class="link action-button button button-circle">' + unlikeIcon + '</a>');
+            } else {
                 $buttonContainer.prepend('<a href="" data-action="share" class="link action-button button button-circle">' + shareIcon + '</a>' +
                     '<a href="" data-action="like" class="link action-button button button-circle">' + likeIcon + '</a>');
-            } else {
-                $(this).html(likeIconActive);
-                $buttonContainer.prepend('<a href="" data-action="share" class="link action-button button button-circle">' + shareIcon + '</a>' +
-                    '<a href="" data-action="like" class="link action-button button button-circle">' + likeIconActive + '</a>');
             }
 
         }
@@ -332,43 +370,6 @@ var stage = (function () {
      */
     function setNavbarTitle(book, chapter) {
         $('.navbar-book-title').text(book + ' ' + chapter);
-    }
-
-    /**
-     * @public
-     *
-     * @return void
-     */
-    function init() {
-        console.log('stage init');
-        if (firstStageInit) {
-            $('.ios .page-content').scrollTop(40);
-            firstStageInit = false;
-        }
-
-        $$('.links-list').find('a').on('click', function (e) {
-            currentBook = $(this).data('book');
-            currentChapter = 1;
-        });
-
-        app.searchbar.create({
-            el: '.searchbar',
-            searchContainer: '.list',
-            searchIn: 'a',
-            on: {
-                search(sb, query, previousQuery) {
-                    // ...
-                }
-            }
-        });
-
-        $$('[data-action="textoftheday"]').on('click', function () {
-            showTextOfTheDay();
-        });
-
-        $('.text-of-the-day .button-close').on('click', function () {
-            $('.text-of-the-day').fadeOut();
-        });
     }
 
     /**

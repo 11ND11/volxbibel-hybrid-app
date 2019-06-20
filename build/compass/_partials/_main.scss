@@ -493,21 +493,34 @@ h2 {
         }
 
         p {
-            display             : inline;
+            display             : inline-block;
             margin              : 0;
             line-height         : 2;
             -webkit-user-select : none;
             position            : relative;
             color               : $text-color;
-            background          : linear-gradient(0deg, rgba($white, 0.1) 30%, rgba($white, 0) 30%, rgba($white, 0) 100%);
-            transition          : all .3s;
+
+            .vb-text {
+                background          : linear-gradient(0deg, rgba($white, 0.1) 30%, rgba($white, 0) 30%, rgba($white, 0) 100%);
+                transition          : all .3s;
+            }
 
             &.active {
-                background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 0.3) 5%, rgba($red, 0.3) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
+                .vb-text {
+                    display    : inline;
+                    background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 0.3) 5%, rgba($red, 0.3) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
+                }
             }
 
             &.highlight {
-                background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 1) 5%, rgba($red, 1) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
+                .vb-text {
+                    display    : inline;
+                    background : linear-gradient(0deg, rgba($red, 0) 5%, rgba($red, 1) 5%, rgba($red, 1) 30%, rgba($red, 0) 30%, rgba($red, 0) 100%);
+                }
+            }
+
+            .verse-container {
+                display : inline-block;
             }
         }
 
@@ -517,12 +530,12 @@ h2 {
 
         .action-button {
             position         : absolute;
-            bottom           : rem-calc(-10);
+            top              : 50%;
             right            : rem-calc(10);
             display          : inline-block;
             width            : rem-calc(55);
             height           : rem-calc(55);
-            transform        : translateY(100%);
+            transform        : translateY(55%);
             min-width        : 0;
             margin-right     : rem-calc(5);
             padding          : 0;
@@ -538,11 +551,11 @@ h2 {
             transition       : opacity .2s ease-in-out;
             @include button-mini-shadow();
 
-            &.scale {
+            &.show {
                 opacity : 1;
 
-                & + .scale {
-                    transform : translate(#{rem-calc(-65)}, 100%);
+                & + .show {
+                    transform : translateY(-55%);
                 }
             }
 

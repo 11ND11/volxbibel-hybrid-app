@@ -15,6 +15,10 @@ var currentBook = '',
     firstStageInit = true,
     storage = window.localStorage;
 
+var settings = {
+    startWithLastText : true
+};
+
 var textCollection = new textCollection;
 var stage = new stage;
 
