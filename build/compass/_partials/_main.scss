@@ -210,7 +210,7 @@ body {
     padding-top : env(safe-area-inset-top); /* iOS 11.2 */
 }
 
-.navigation-buttons-inner {
+.navigation-buttons {
     margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
     margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
 }
@@ -516,12 +516,16 @@ h2 {
         }
 
         .action-button {
-
-        }
-
-        .action-button {
+            position         : absolute;
+            bottom           : rem-calc(-10);
+            right            : rem-calc(10);
             display          : inline-block;
+            width            : rem-calc(55);
+            height           : rem-calc(55);
+            transform        : translateY(100%);
+            min-width        : 0;
             margin-right     : rem-calc(5);
+            padding          : 0;
             line-height      : rem-calc(55);
             font-size        : rem-calc(11);
             text-align       : center;
@@ -529,29 +533,22 @@ h2 {
             color            : #fff;
             background-color : $blue;
             border-radius    : 50%;
-            position         : absolute;
-            top              : 50%;
-            right            : rem-calc(10);
-            width            : rem-calc(55);
-            height           : rem-calc(55);
-            min-width        : 0;
-            padding          : 0;
             border           : none;
-            transform        : translateY(-50%) scale(0);
-            transition       : transform .2s ease-in-out;
+            opacity          : 0;
+            transition       : opacity .2s ease-in-out;
             @include button-mini-shadow();
 
             &.scale {
-                transform : translateY(-50%) scale(1);
+                opacity : 1;
 
                 & + .scale {
-                    transform : translateY(60%) scale(1);
+                    transform : translate(#{rem-calc(-65)}, 100%);
                 }
             }
 
             svg {
                 fill   : #fff;
-                width  : rem-calc(15);
+                width  : rem-calc(20);
                 height : rem-calc(55);
             }
         }
