@@ -106,8 +106,32 @@ var textCollection = (function () {
         });
     }
 
+    /**
+     * @public
+     *
+     * @return void
+     */
+    function highlightText(book, chapter, textContainer) {
+        var storedTextCollection = JSON.parse(storage.getItem('textCollection'));
+
+        if (storedTextCollection === null) {
+            storedTextCollection = {
+                text: []
+            };
+        }
+
+        for(var i = 0; i < storedTextCollection.text.length; i++)
+        {
+            if(storedTextCollection.text[i].book === book && storedTextCollection.text[i].chapter === chapter) {
+                textContainer.find('[data-verse-number="' + storedTextCollection.text[i].verse + '"]').parents('p').addClass('highlight').attr('data-storage-index', i);
+            }
+        }
+    }
+
     return {
         addText: addText,
-        getTextCollectionList: getTextCollectionList
+        removeText: removeText,
+        getTextCollectionList: getTextCollectionList,
+        highlightText: highlightText
     }
 });

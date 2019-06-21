@@ -206,14 +206,16 @@ var stage = (function () {
                         var verseStartNumber = verse.substring(0, hyphenIndex),
                             verseEndNumber = verse.substring(hyphenIndex + 1, verse.length);
 
-                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + verseStartNumber + '">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
+                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + Number.parseInt(verseStartNumber) + '">' + verseStartNumber + '</span>- <span class="verse">' + verseEndNumber + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
                     } else {
-                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + verse + '">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
+                        $(this).html('<span class="verse-container"><span class="verse" data-verse-number="' + Number.parseInt(verse) + '">' + verse + '</span><span class="vb-text">' + paragraph.substring(index, paragraph.length) + '</span></span>');
                     }
                 }
             });
 
             $contentContainer.addClass('content-is-ready');
+
+            textCollection.highlightText (book, chapter, $contentContainer);
 
             $$('.volxbibel-content .verse-container').on("touchstart", function (e) {
                 touchTapWithoutMove = true;
@@ -265,7 +267,8 @@ var stage = (function () {
                                     $(this).remove();
                                 });
 
-                                $(this).parents('p').removeClass('highlight');
+                                $(this).parents('p').removeClass('highlight').removeClass('active');
+                                textCollection.removeText($(this).parents('p').data('storage-index'));
                             });
                         }, 100);
                     }
