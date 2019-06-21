@@ -16,6 +16,7 @@ var currentBook = '',
     storage = window.localStorage;
 
 var settings = {
+    version : '2.0.0',
     startWithLastText : true
 };
 
