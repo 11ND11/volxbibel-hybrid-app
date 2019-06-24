@@ -15,6 +15,7 @@ var currentBook = '',
     firstStageInit = true,
     storage = window.localStorage;
 
+// defaults
 var settings = {
     version : '2000', // 2.0.00
     startWithLastText : true
@@ -89,7 +90,7 @@ var mainView = app.views.create('.view-main');
 
 // notification
 var notificationAddText = app.notification.create({
-        icon: '',
+        icon: '<img src="assets/icon.png" width="20"/>',
         title: 'DIE VOLXBIBEL',
         titleRightText: 'now',
         subtitle: 'Gespeichert',
@@ -98,7 +99,7 @@ var notificationAddText = app.notification.create({
         closeTimeout: 3000
     }),
     notificationRemoveText = app.notification.create({
-        icon: '',
+        icon: '<img src="assets/icon.png" width="20"/>',
         title: 'DIE VOLXBIBEL',
         titleRightText: 'now',
         subtitle: 'Weg damit',

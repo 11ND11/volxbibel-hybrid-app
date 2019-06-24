@@ -34,6 +34,11 @@ var textCollection = (function () {
         console.log(storedTextCollection);
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
         notificationAddText.open();
+        setTimeout(function () {
+            $$('.notification').on('click', function () {
+                mainView.router.navigate('/bookmarks/');
+            });
+        }, 100);
     }
 
     /**
@@ -57,6 +62,11 @@ var textCollection = (function () {
         // storedTextCollection.sort();
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
         notificationRemoveText.open();
+        setTimeout(function () {
+            $$('.notification').on('click', function () {
+                mainView.router.navigate('/bookmarks/');
+            });
+        }, 100);
     }
 
     /**

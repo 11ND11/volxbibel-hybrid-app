@@ -90,7 +90,7 @@ img {
     .text-of-the-day .action-button {
         position  : fixed;
         top       : auto;
-        bottom    : rem-calc(20);
+        bottom    : rem-calc(30);
         right     : 50%;
         transform : translateX(115%);
 
@@ -198,12 +198,13 @@ img {
     }
 
     h1 {
-        margin-top    : 0;
-        margin-bottom : rem-calc(30);
-        color         : $red;
-        font-family   : 'Dirty Ego', sans-serif;
-        font-size     : rem-calc(61);
-        line-height   : 1;
+        display     : inline;
+        color       : $white;
+        font-family : 'Dirty Ego', sans-serif;
+        font-size   : rem-calc(61);
+        line-height : 1;
+        background  : $red;
+        background  : linear-gradient(0deg, rgba($red, 0) 10%, rgba($red, 1) 10%, rgba($red, 1) 15%, rgba($red, 0) 15%, rgba($red, 0) 100%);
     }
 
     .text-of-the-day-inner {
@@ -211,7 +212,7 @@ img {
         top         : 50%;
         left        : 50%;
         transform   : translate(-50%, -50%);
-        width       : rem-calc(300);
+        width       : 320px;
         text-align  : center;
         font-size   : rem-calc(18);
         line-height : 1.6;
@@ -226,6 +227,7 @@ img {
     }
 
     .text-of-the-day-content {
+        margin-top    : rem-calc(30);
         margin-bottom : rem-calc(30);
         font-weight   : 300;
     }
@@ -233,8 +235,8 @@ img {
     .text-of-the-day-verse {
         display        : inline-block;
         margin-top     : rem-calc(35);
-        padding        : rem-calc(2 25);
-        font-size      : rem-calc(15);
+        padding        : rem-calc(2 16 1);
+        font-size      : rem-calc(16);
         text-transform : uppercase;
         font-weight    : 600;
         background     : $red;
@@ -270,7 +272,7 @@ body {
     padding-top : env(safe-area-inset-top); /* iOS 11.2 */
 }
 
-.navigation-buttons {
+.navigation-buttons, .text-of-the-day .action-button {
     margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
     margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
 }

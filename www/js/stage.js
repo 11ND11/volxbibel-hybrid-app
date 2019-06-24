@@ -18,9 +18,13 @@ var stage = (function () {
         if (firstStageInit) {
             $('.ios .page-content').scrollTop(40);
 
-            // if(settings.startWithLastText) {
-            //     mainView.router.navigate('pages/detail.html')
-            // }
+            if(settings.startWithLastText) {
+                if(typeof storage.currentBook !== 'undefined') {
+                    currentBook = storage.currentBook;
+                    currentChapter = storage.currentChapter;
+                    mainView.router.navigate('/detail/');
+                }
+            }
 
             if(typeof storage.version === 'undefined') {
                 storage.setItem('version', '10000');
@@ -97,20 +101,20 @@ var stage = (function () {
             renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
         });
 
-        saveLastReadingPlace(currentBook, currentChapter);
+        saveCurrentBookChapter(currentBook, currentChapter);
 
         $$prevButton.on('click', function (e) {
             console.log(currentChapter);
             currentChapter--;
             renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
-            saveLastReadingPlace(currentBook, currentChapter);
+            saveCurrentBookChapter(currentBook, currentChapter);
         });
 
         $$nextButton.on('click', function (e) {
             console.log(currentChapter);
             currentChapter++;
             renderDetailView($volxbibelContentContainer, currentBook, lastChapterOfCurrentBook, currentChapter, $$prevButton, $$nextButton);
-            saveLastReadingPlace(currentBook, currentChapter);
+            saveCurrentBookChapter(currentBook, currentChapter);
         });
     }
 
@@ -121,7 +125,14 @@ var stage = (function () {
      */
     function settingsPageInit() {
         $$('[data-toggle-button]').on('change', function () {
-            console.log($(this));
+            if($$(this).data('settings') === 'startWithLastText') {
+                if($$(this).prop('checked')) {
+                    storage.setItem('SettingsStartWithLastText', true)
+                } else {
+                    storage.setItem('SettingsStartWithLastText', false)
+                }
+                console.log($(this).prop('checked'));
+            }
         });
     }
 
@@ -130,14 +141,9 @@ var stage = (function () {
      *
      * @return void
      */
-    function saveLastReadingPlace(book, chapter) {
-        var lastReadingPlace = {
-            book: book,
-            chapter: chapter
-        };
-
-        console.log(lastReadingPlace);
-        storage.setItem('lastReadingPlace', JSON.stringify(lastReadingPlace));
+    function saveCurrentBookChapter(book, chapter) {
+        storage.setItem('currentBook', book);
+        storage.setItem('currentChapter', chapter);
     }
     /**
      * @private
@@ -300,34 +306,34 @@ var stage = (function () {
                 '<span class="error-text">Die Texte konnten momentan leider nicht geladen werden.<br>Kann es sein, dass du keine Verbindung zum Internet hast?<br>Versuche es einfach noch einmal.</span>'
             );
         });
+    }
 
-        /**
-         * @private
-         *
-         * @return void
-         */
-        function startShareAction($subject, $message, $title) {
-            // this is the complete list of currently supported params you can pass to the plugin (all optional)
-            var options = {
-                message: $message, // not supported on some apps (Facebook, Instagram)
-                subject: $subject, // fi. for email
-                files: null,
-                url: null
-                // chooserTitle: $title, // Android only, you can override the default share sheet title,
-                // appPackageName: 'de.andreassteiger.volxbibel' // Android only, you can provide id of the App you want to share with
-            };
+    /**
+     * @private
+     *
+     * @return void
+     */
+    function startShareAction($subject, $message, $title) {
+        // this is the complete list of currently supported params you can pass to the plugin (all optional)
+        var options = {
+            message: $message, // not supported on some apps (Facebook, Instagram)
+            subject: $subject, // fi. for email
+            files: null,
+            url: null
+            // chooserTitle: $title, // Android only, you can override the default share sheet title,
+            // appPackageName: 'de.andreassteiger.volxbibel' // Android only, you can provide id of the App you want to share with
+        };
 
-            var onSuccess = function (result) {
-                // alert("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
-                // console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
-            };
+        var onSuccess = function (result) {
+            // alert("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+            // console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+        };
 
-            var onError = function (msg) {
-                // alert("Sharing failed with message: " + msg);
-            };
+        var onError = function (msg) {
+            // alert("Sharing failed with message: " + msg);
+        };
 
-            window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
-        }
+        window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
     }
 
     /**
@@ -390,7 +396,7 @@ var stage = (function () {
      */
     function getVerseOfCurrentDay(data) {
         var today = getTodaysDate();
-        return data[1]['dates'][today]['text'] + '<span class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'] + '</span>';
+        return '<div>' + data[1]['dates'][today]['text'] + '</div><div class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'];
     }
 
     /**
