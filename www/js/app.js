@@ -13,12 +13,15 @@ var currentBook = '',
     touchTapWithoutMove = false,
     today = new Date(),
     firstStageInit = true,
-    storage = window.localStorage;
+    storage = window.localStorage,
+    settingsOverride;
 
-// defaults
+// default settings
+// will be override by custom settings in local storage
 var settings = {
     version : '2000', // 2.0.00
-    startWithLastText : true
+    startWithLastText : true,
+    showNtFirst: true,
 };
 
 var textCollection = new textCollection;

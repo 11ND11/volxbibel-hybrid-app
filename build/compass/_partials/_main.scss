@@ -27,9 +27,7 @@ img {
 
     .navbar {
         background  : #fff;
-        font-family : 'Montserrat', sans-serif;
         font-weight : 700;
-        font-style  : italic;
 
         svg {
             fill                : $red;
@@ -203,8 +201,8 @@ img {
         font-family : 'Dirty Ego', sans-serif;
         font-size   : rem-calc(61);
         line-height : 1;
-        background  : $red;
-        background  : linear-gradient(0deg, rgba($red, 0) 10%, rgba($red, 1) 10%, rgba($red, 1) 15%, rgba($red, 0) 15%, rgba($red, 0) 100%);
+        //background  : $red;
+        //background  : linear-gradient(0deg, rgba($red, 0) 10%, rgba($red, 1) 10%, rgba($red, 1) 15%, rgba($red, 0) 15%, rgba($red, 0) 100%);
     }
 
     .text-of-the-day-inner {
@@ -216,7 +214,7 @@ img {
         text-align  : center;
         font-size   : rem-calc(18);
         line-height : 1.6;
-        font-weight : 300;
+        font-weight : 400;
 
         > svg {
             &.animate {
@@ -236,6 +234,7 @@ img {
         display        : inline-block;
         margin-top     : rem-calc(35);
         padding        : rem-calc(2 16 1);
+        font-family    : "Bebas Neue", "Open Sans", sans-serif;
         font-size      : rem-calc(16);
         text-transform : uppercase;
         font-weight    : 600;
@@ -498,6 +497,11 @@ h2 {
     height           : 100vh;
     background-color : rgba(0, 0, 0, 0.9);
     color            : #fff;
+
+    .button {
+        background : $blue;
+        color      : $white;
+    }
 }
 
 .tutorial-overlay-inner {
@@ -522,6 +526,12 @@ h2 {
 
 .tutorial-step-text {
     margin-top : rem-calc(25);
+}
+
+.video-item {
+    p {
+        margin : rem-calc(1 0 20);
+    }
 }
 
 // ***************************************
@@ -784,6 +794,10 @@ h2 {
     height     : rem-calc(40);
     text-align : center;
     animation  : sk-rotate 2.0s infinite linear;
+
+    [data-name="videos"] & {
+        top : rem-calc(200);
+    }
 }
 
 .dot1, .dot2 {

@@ -15,22 +15,30 @@ var stage = (function () {
      * @return void
      */
     function init() {
+
+        settingsOverride = JSON.parse(storage.getItem('settings'));
+
+        if (typeof settingsOverride === 'undefined' || settingsOverride === null) {
+            settingsOverride = settings;
+            storage.setItem('settings', JSON.stringify(settingsOverride));
+        }
+
         if (firstStageInit) {
             $('.ios .page-content').scrollTop(40);
 
-            if(settings.startWithLastText) {
-                if(typeof storage.currentBook !== 'undefined') {
+            if (settingsOverride.startWithLastText) {
+                if (typeof storage.currentBook !== 'undefined') {
                     currentBook = storage.currentBook;
                     currentChapter = storage.currentChapter;
                     mainView.router.navigate('/detail/');
                 }
             }
 
-            if(typeof storage.version === 'undefined') {
+            if (typeof storage.version === 'undefined') {
                 storage.setItem('version', '10000');
             }
 
-            if(settings.version > storage.version) {
+            if (settingsOverride.version > storage.version) {
                 storage.removeItem('hideTutorial');
                 storage.setItem('version', settings.version);
             }
@@ -48,6 +56,10 @@ var stage = (function () {
             }
         });
 
+        if (settingsOverride.showNtFirst) {
+            $$('.at').insertAfter('.nt');
+        }
+
         app.searchbar.create({
             el: '.searchbar',
             searchContainer: '.list',
@@ -64,10 +76,6 @@ var stage = (function () {
         });
 
         $('.text-of-the-day .button-close').on('click', function () {
-            $('.text-of-the-day').fadeOut();
-        });
-
-        $('.text-of-the-day .action-button').on('click', function () {
             $('.text-of-the-day').fadeOut();
         });
     }
@@ -124,15 +132,32 @@ var stage = (function () {
      * @return void
      */
     function settingsPageInit() {
+        if (settingsOverride.startWithLastText) {
+            $('[data-settings="startWithLastText"]').attr('checked', '');
+        }
+
+        if (settingsOverride.showNtFirst) {
+            $('[data-settings="showNtFirst"]').attr('checked', '');
+        }
+
         $$('[data-toggle-button]').on('change', function () {
-            if($$(this).data('settings') === 'startWithLastText') {
-                if($$(this).prop('checked')) {
-                    storage.setItem('SettingsStartWithLastText', true)
+            if ($$(this).data('settings') === 'startWithLastText') {
+                if ($$(this).prop('checked')) {
+                    settingsOverride.startWithLastText = true;
                 } else {
-                    storage.setItem('SettingsStartWithLastText', false)
+                    settingsOverride.startWithLastText = false;
                 }
-                console.log($(this).prop('checked'));
             }
+
+            if ($$(this).data('settings') === 'showNtFirst') {
+                if ($$(this).prop('checked')) {
+                    settingsOverride.showNtFirst = true;
+                } else {
+                    settingsOverride.showNtFirst = false;
+                }
+            }
+            console.log('settings before save to storage: ' + settingsOverride);
+            storage.setItem('settings', JSON.stringify(settingsOverride));
         });
     }
 
@@ -145,13 +170,14 @@ var stage = (function () {
         storage.setItem('currentBook', book);
         storage.setItem('currentChapter', chapter);
     }
+
     /**
      * @private
      *
      * @return void
      */
     function bookmarksPageInit() {
-        textCollection.getTextCollectionList($$('[data-render-text-collection]'));
+        textCollection.renderBookmarkList($$('[data-render-text-collection]'));
     }
 
     /**
@@ -436,7 +462,7 @@ var stage = (function () {
 
             renderActionButtons($('.text-of-the-day'), requestData[1]['dates'][today]['text'], book, chapter, verse, wikiUrl);
 
-            $('.text-of-the-day [data-action]').on('click', function () {
+            $('.text-of-the-day [data-action="like"]').on('click', function () {
                 $('.text-of-the-day').fadeOut();
             });
         });

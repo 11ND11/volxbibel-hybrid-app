@@ -74,7 +74,7 @@ var textCollection = (function () {
      *
      * @return void
      */
-    function getTextCollectionList($$listContainer) {
+    function renderBookmarkList($$listContainer) {
         var storedTextCollection = JSON.parse(storage.getItem('textCollection')),
             textList = '';
 
@@ -84,7 +84,7 @@ var textCollection = (function () {
             };
         }
 
-        for(var i = 0; i < storedTextCollection.text.length; i++)
+        for(var i = storedTextCollection.text.length - 1; i > 0; i--)
         {
             textList += '<li id="my-vers-' + i + '" class="swipeout">' +
                     '<a class="link item-link item-content swipeout-content" href="/detail/" data-book="' + storedTextCollection.text[i].book + '" data-chapter="' +storedTextCollection.text[i].chapter + '">' +
@@ -137,7 +137,7 @@ var textCollection = (function () {
     return {
         addText: addText,
         removeText: removeText,
-        getTextCollectionList: getTextCollectionList,
+        renderBookmarkList: renderBookmarkList,
         highlightText: highlightText
     }
 });
