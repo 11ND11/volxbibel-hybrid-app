@@ -16,7 +16,7 @@ var currentBook = '',
     storage = window.localStorage;
 
 var settings = {
-    version : '2.0.0',
+    version : '2000', // 2.0.00
     startWithLastText : true
 };
 
@@ -72,6 +72,11 @@ var app = new Framework7({
             path: '/bookmarks/',
             url: 'pages/bookmarks.html',
         },
+        {
+            name: 'support',
+            path: '/support/',
+            url: 'pages/support.html',
+        },
     ],
     on: {
         // each object key means same name event handler
@@ -81,6 +86,26 @@ var app = new Framework7({
 
 // create view
 var mainView = app.views.create('.view-main');
+
+// notification
+var notificationAddText = app.notification.create({
+        icon: '',
+        title: 'DIE VOLXBIBEL',
+        titleRightText: 'now',
+        subtitle: 'Gespeichert',
+        text: 'Zu "Meine Sprüche" hinzugefügt.',
+        closeOnClick: true,
+        closeTimeout: 3000
+    }),
+    notificationRemoveText = app.notification.create({
+        icon: '',
+        title: 'DIE VOLXBIBEL',
+        titleRightText: 'now',
+        subtitle: 'Weg damit',
+        text: 'von "Meine Sprüche" entfernt.',
+        closeOnClick: true,
+        closeTimeout: 3000
+    });
 
 // handle Cordova device ready event
 $$(document).on('deviceready', function () {

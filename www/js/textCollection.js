@@ -4,12 +4,6 @@
 
 var textCollection = (function () {
 
-    // settings
-
-    var _defaultConfiguration = {};
-
-    // bind events
-
     /**
      * @public
      *
@@ -39,6 +33,7 @@ var textCollection = (function () {
         // storedTextCollection.text.sort();
         console.log(storedTextCollection);
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
+        notificationAddText.open();
     }
 
     /**
@@ -61,6 +56,7 @@ var textCollection = (function () {
 
         // storedTextCollection.sort();
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
+        notificationRemoveText.open();
     }
 
     /**

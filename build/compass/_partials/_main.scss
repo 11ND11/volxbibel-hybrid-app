@@ -48,6 +48,58 @@ img {
             color : $black;
         }
     }
+
+    .action-button {
+        position         : absolute;
+        top              : 50%;
+        right            : rem-calc(10);
+        display          : inline-block;
+        width            : rem-calc(55);
+        height           : rem-calc(55);
+        transform        : translateY(55%);
+        min-width        : 0;
+        margin-right     : rem-calc(5);
+        padding          : 0;
+        line-height      : rem-calc(55);
+        font-size        : rem-calc(11);
+        text-align       : center;
+        font-weight      : 700;
+        color            : #fff;
+        background-color : $blue;
+        border-radius    : 50%;
+        border           : none;
+        opacity          : 0;
+        transition       : opacity .2s ease-in-out;
+        @include button-mini-shadow();
+
+        &.show {
+            opacity : 1;
+
+            & + .show {
+                transform : translateY(-55%);
+            }
+        }
+
+        svg {
+            fill   : #fff;
+            width  : rem-calc(20);
+            height : rem-calc(55);
+        }
+    }
+
+    .text-of-the-day .action-button {
+        position  : fixed;
+        top       : auto;
+        bottom    : rem-calc(20);
+        right     : 50%;
+        transform : translateX(115%);
+
+        &.show {
+            & + .show {
+                transform : translateX(-15%);
+            }
+        }
+    }
 }
 
 .navigation-buttons {
@@ -96,7 +148,7 @@ img {
         &[data-action="textoftheday"] {
             position    : absolute;
             right       : rem-calc(20);
-            bottom      : 0;
+            bottom      : rem-calc(20);
             width       : rem-calc(55);
             height      : rem-calc(55);
             background  : $blue;
@@ -130,12 +182,12 @@ img {
     position   : absolute;
     width      : 100vw;
     height     : 100vh;
-    background : $black;
+    background : #000;
 
     .bg-gradient {
         width      : 100%;
         height     : 100%;
-        background : $black;
+        background : #000;
         color      : #fff;
     }
 
@@ -146,9 +198,12 @@ img {
     }
 
     h1 {
-        color       : $red;
-        font-family : 'Dirty Ego', sans-serif;
-        font-size   : rem-calc(51);
+        margin-top    : 0;
+        margin-bottom : rem-calc(30);
+        color         : $red;
+        font-family   : 'Dirty Ego', sans-serif;
+        font-size     : rem-calc(61);
+        line-height   : 1;
     }
 
     .text-of-the-day-inner {
@@ -158,9 +213,9 @@ img {
         transform   : translate(-50%, -50%);
         width       : rem-calc(300);
         text-align  : center;
-        font-family : 'Montserrat', sans-serif;
         font-size   : rem-calc(18);
-        font-weight : 700;
+        line-height : 1.6;
+        font-weight : 300;
 
         > svg {
             &.animate {
@@ -172,14 +227,19 @@ img {
 
     .text-of-the-day-content {
         margin-bottom : rem-calc(30);
+        font-weight   : 300;
     }
 
     .text-of-the-day-verse {
-        display        : block;
-        margin-top     : rem-calc(20);
+        display        : inline-block;
+        margin-top     : rem-calc(35);
+        padding        : rem-calc(2 25);
         font-size      : rem-calc(15);
         text-transform : uppercase;
-        letter-spacing : 1px;
+        font-weight    : 600;
+        background     : $red;
+        color          : $white;
+        transform      : rotate(-4deg);
     }
 
     .button-close {
@@ -299,9 +359,7 @@ h3, .links-list h3 {
     background     : linear-gradient(0deg, rgba($red, 1) 22%, rgba($red, 0) 22%, rgba($red, 0) 100%);
 
     @media (min-width : 1024px) {
-        padding     : rem-calc(30);
-        font-size   : rem-calc(20);
-        line-height : rem-calc(25);
+        font-size : rem-calc(50);
     }
 
     &:before {
@@ -332,37 +390,37 @@ h3, .links-list h3 {
 
 h2 {
     display          : inline-block;
-    margin-left      : rem-calc(-15);
-    padding          : rem-calc(5 15 5 15);
-    background-color : $black;
-    font-size        : rem-calc(34);
+    margin-left      : rem-calc(-20);
+    margin-bottom    : rem-calc(5);
+    padding          : rem-calc(1 9 1 20);
+    background-color : $black2;
+    font-size        : rem-calc(38);
     font-family      : 'Dirty Ego', sans-serif;
     color            : #fff;
     text-transform   : uppercase;
+    transform        : rotate(-1.5deg);
 
-    //&:before {
-    //    content      : '';
-    //position: absolute;
-    //display: block;
-    //    width        : 0;
-    //    height       : 0;
-    //    transform    : rotate(360deg);
-    //    border-style : solid;
-    //    border-width : 10px 100px 0 0;
-    //    border-color : $black transparent transparent transparent;
-    //}
-    //
-    //&:after {
-    //    content      : '';
-    //position: absolute;
-    //display: block;
-    //    width        : 0;
-    //    height       : 0;
-    //    transform    : rotate(360deg);
-    //    border-style : solid;
-    //    border-width : 10px 100px 0 0;
-    //    border-color : $black transparent transparent transparent;
-    //}
+    > span {
+        position    : relative;
+        display     : inline-block;
+        margin-left : rem-calc(-20);
+        padding     : rem-calc(1 9 1 20);
+        transform   : rotate(1.5deg);
+    }
+
+    &:after {
+        content      : '';
+        position     : absolute;
+        top          : 0;
+        right        : rem-calc(-5);
+        display      : block;
+        width        : rem-calc(1);
+        height       : 0;
+        transform    : rotate(360deg);
+        border-style : solid;
+        border-width : rem-calc(57 5 0 0);
+        border-color : $black2 transparent transparent transparent;
+    }
 }
 
 .list-headline {
@@ -493,7 +551,7 @@ h2 {
         }
 
         p {
-            display             : inline-block;
+            display             : inline;
             margin              : 0;
             line-height         : 2;
             -webkit-user-select : none;
@@ -501,8 +559,8 @@ h2 {
             color               : $text-color;
 
             .vb-text {
-                background          : linear-gradient(0deg, rgba($white, 0.1) 30%, rgba($white, 0) 30%, rgba($white, 0) 100%);
-                transition          : all .3s;
+                background : linear-gradient(0deg, rgba($white, 0.1) 30%, rgba($white, 0) 30%, rgba($white, 0) 100%);
+                transition : all .3s;
             }
 
             &.active {
@@ -520,50 +578,13 @@ h2 {
             }
 
             .verse-container {
-                display : inline-block;
+                display : inline;
+                padding : rem-calc(8 0);
             }
         }
 
         a, .verse {
             color : $red;
-        }
-
-        .action-button {
-            position         : absolute;
-            top              : 50%;
-            right            : rem-calc(10);
-            display          : inline-block;
-            width            : rem-calc(55);
-            height           : rem-calc(55);
-            transform        : translateY(55%);
-            min-width        : 0;
-            margin-right     : rem-calc(5);
-            padding          : 0;
-            line-height      : rem-calc(55);
-            font-size        : rem-calc(11);
-            text-align       : center;
-            font-weight      : 700;
-            color            : #fff;
-            background-color : $blue;
-            border-radius    : 50%;
-            border           : none;
-            opacity          : 0;
-            transition       : opacity .2s ease-in-out;
-            @include button-mini-shadow();
-
-            &.show {
-                opacity : 1;
-
-                & + .show {
-                    transform : translateY(-55%);
-                }
-            }
-
-            svg {
-                fill   : #fff;
-                width  : rem-calc(20);
-                height : rem-calc(55);
-            }
         }
     }
 
@@ -847,12 +868,18 @@ h2 {
     position : relative;
 
     h2 {
-        z-index    : 1;
-        position   : absolute;
-        left       : rem-calc(30);
-        bottom     : 0;
-        background : none;
-        font-size  : rem-calc(65);
+        z-index       : 1;
+        position      : absolute;
+        left          : rem-calc(30);
+        bottom        : 0;
+        margin-bottom : rem-calc(60);
+        background    : none;
+        font-size     : rem-calc(65);
+        transform     : none;
+
+        &:after {
+            content : none;
+        }
     }
 
     figure {
