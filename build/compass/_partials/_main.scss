@@ -278,7 +278,9 @@ body {
     padding-top : env(safe-area-inset-top); /* iOS 11.2 */
 }
 
-.navigation-buttons, .text-of-the-day .action-button, .panel .social-media {
+.navigation-buttons,
+.text-of-the-day .action-button,
+.panel .social-media {
     margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
     margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
 }
@@ -910,7 +912,7 @@ h2 {
 
     .social-media {
         position : absolute;
-        bottom   : rem-calc(30);
+        bottom   : rem-calc(35);
         right    : rem-calc(20);
 
         a {
@@ -948,6 +950,12 @@ h2 {
                 height     : rem-calc(2);
                 width      : rem-calc(36);
                 background : $white;
+            }
+        }
+
+        .social-media-fb {
+            svg {
+                left : rem-calc(1);
             }
         }
     }
