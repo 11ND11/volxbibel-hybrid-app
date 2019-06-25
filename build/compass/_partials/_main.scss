@@ -5,6 +5,7 @@
 iframe {
     z-index   : 10;
     position  : relative;
+    display   : block;
     max-width : 100%;
 }
 
@@ -23,6 +24,10 @@ img {
     .statusbar {
         background : #fff;
         transition : 400ms;
+
+        &.dark {
+            background : #000;
+        }
     }
 
     .navbar {
@@ -242,12 +247,14 @@ img {
         color          : $white;
         transform      : rotate(-4deg);
     }
+}
 
+.fullscreen {
     .button-close {
         z-index  : 1000;
         position : absolute;
         right    : rem-calc(30);
-        top      : rem-calc(70);
+        top      : rem-calc(30);
         width    : rem-calc(40);
         height   : rem-calc(40);
 
@@ -271,7 +278,7 @@ body {
     padding-top : env(safe-area-inset-top); /* iOS 11.2 */
 }
 
-.navigation-buttons, .text-of-the-day .action-button {
+.navigation-buttons, .text-of-the-day .action-button, .panel .social-media {
     margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
     margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
 }
@@ -312,6 +319,13 @@ body {
     background-image : url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'12'%20height%3D'20'%20viewBox%3D'0%200%2012%2020'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M11.51840604%2010.5648622c-.0352203.05148305-.07573462.10050698-.1215468.14631917L2.5584348%2019.5496058c-.5830904.58309038-1.52656832.5849888-2.11643872-.00488163-.5857864-.58578644-.591222-1.53009836-.0048816-2.11643873L7.87507783%209.9903221.4431923%202.5584366C-.1398981%201.9753462-.1417965%201.0318683.448074.4419979c.5857864-.5857865%201.5300983-.591222%202.11643868-.0048816l8.83842442%208.8384244c.3526746.3526746.3939974.89699.11546894%201.2893215z'%20fill%3D'%23282828'%20fill-rule%3D'evenodd'%2F%3E%3C%2Fsvg%3E");
 }
 
+.ios .button.button-fill,
+.ios .button.button-fill-ios {
+    height     : rem-calc(40);
+    padding    : rem-calc(5 10);
+    background : $blue;
+}
+
 // ***************************************
 // material design / android
 // ***************************************
@@ -333,6 +347,15 @@ body {
         &.popover.modal-in, &.popover.modal-out {
             transform : scale(1) translateX(-50%);
         }
+    }
+
+    .button.button-fill,
+    .button.button-fill-md,
+    .button.button-active,
+    .button.tab-link-active {
+        height     : rem-calc(40);
+        padding    : rem-calc(3 10);
+        background : $blue;
     }
 }
 
@@ -532,6 +555,11 @@ h2 {
     p {
         margin : rem-calc(1 0 20);
     }
+}
+
+.video-container {
+    max-width : rem-calc(400);
+    margin    : auto;
 }
 
 // ***************************************
@@ -796,7 +824,7 @@ h2 {
     animation  : sk-rotate 2.0s infinite linear;
 
     [data-name="videos"] & {
-        top : rem-calc(200);
+        top : rem-calc(220);
     }
 }
 
@@ -869,6 +897,31 @@ h2 {
         top          : rem-calc(6);
         width        : rem-calc(22);
         margin-right : rem-calc(20);
+    }
+
+    .social-media {
+        position : absolute;
+        bottom   : rem-calc(30);
+
+        a {
+            background    : #454545;
+            border-radius : 50%;
+            width         : 40px;
+            height        : 40px;
+            display       : inline-block;
+
+            svg {
+                left        : rem-calc(5);
+                width       : rem-calc(17);
+                margin-left : rem-calc(10);
+                fill        : $white;
+            }
+        }
+
+        .label {
+            display : block;
+            color   : $white;
+        }
     }
 }
 

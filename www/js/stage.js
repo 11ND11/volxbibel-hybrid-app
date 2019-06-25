@@ -74,10 +74,6 @@ var stage = (function () {
         $$('[data-action="textoftheday"]').on('click', function () {
             showTextOfTheDay();
         });
-
-        $('.text-of-the-day .button-close').on('click', function () {
-            $('.text-of-the-day').fadeOut();
-        });
     }
 
     /**
@@ -159,6 +155,17 @@ var stage = (function () {
             console.log('settings before save to storage: ' + settingsOverride);
             storage.setItem('settings', JSON.stringify(settingsOverride));
         });
+
+        $$('[data-button]').on('click', function () {
+            storage.removeItem('hideTutorial');
+            if (typeof storage.currentBook !== 'undefined') {
+                currentBook = storage.currentBook;
+                currentChapter = storage.currentChapter;
+            } else {
+                currentBook = '1.Mose';
+            }
+            mainView.router.navigate('/detail/');
+        })
     }
 
     /**
@@ -226,6 +233,7 @@ var stage = (function () {
                     var selectedChapterString = this.value.toString();
                     var selectedChapter = selectedChapterString.replace('Kapitel ', '');
                     renderDetailView($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, selectedChapter, $$prevButton, $$nextButton);
+                    saveCurrentBookChapter(currentBook, selectedChapter);
                 }
             }
         });
@@ -458,12 +466,22 @@ var stage = (function () {
 
             $('.text-of-the-day-content').html(getVerseOfCurrentDay(requestData));
             $('.text-of-the-day').fadeIn();
+            app.navbar.hide('.navbar');
+            $$('.statusbar').addClass('dark');
             $('.text-of-the-day svg').addClass('animate');
 
             renderActionButtons($('.text-of-the-day'), requestData[1]['dates'][today]['text'], book, chapter, verse, wikiUrl);
 
             $('.text-of-the-day [data-action="like"]').on('click', function () {
                 $('.text-of-the-day').fadeOut();
+                app.navbar.show('.navbar');
+                $$('.statusbar').removeClass('dark');
+            });
+
+            $('.text-of-the-day .button-close').on('click', function () {
+                $('.text-of-the-day').fadeOut();
+                app.navbar.show('.navbar');
+                $$('.statusbar').removeClass('dark');
             });
         });
     }
@@ -475,8 +493,14 @@ var stage = (function () {
      */
     function showTutorial() {
         $('.tutorial-overlay').fadeIn();
-        $('.tutorial-overlay .button').on('click', function () {
+        setTimeout(function () {
+            app.navbar.hide('.navbar');
+            $$('.statusbar').addClass('dark');
+        }, 100);
+        $('.tutorial-overlay .button, .tutorial-overlay .button-close').on('click', function () {
             $('.tutorial-overlay').fadeOut();
+            app.navbar.show('.navbar');
+            $$('.statusbar').removeClass('dark');
         });
     }
 
