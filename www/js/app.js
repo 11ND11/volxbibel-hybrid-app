@@ -38,8 +38,6 @@ var app = new Framework7({
         hideOnPageScroll: true,
     },
     statusbar: {
-        iosBackgroundColor: '#ffffff',
-        iosTextColor: 'black',
     },
     picker: {
         rotateEffect: true,
@@ -113,8 +111,9 @@ var notificationAddText = app.notification.create({
 
 // handle Cordova device ready event
 $$(document).on('deviceready', function () {
-    StatusBar.overlaysWebView(true);
-    StatusBar.backgroundColorByHexString('#ffffff');
+    StatusBar.overlaysWebView(false);
+    StatusBar.styleDefault();
+    StatusBar.backgroundColorByHexString("#FFFFFF");
 
     if (storage.lastAppRun != getTodaysDate()) {
         stage.showTextOfTheDay();

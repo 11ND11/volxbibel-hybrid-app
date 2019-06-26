@@ -206,8 +206,6 @@ img {
         font-family : 'Dirty Ego', sans-serif;
         font-size   : rem-calc(61);
         line-height : 1;
-        //background  : $red;
-        //background  : linear-gradient(0deg, rgba($red, 0) 10%, rgba($red, 1) 10%, rgba($red, 1) 15%, rgba($red, 0) 15%, rgba($red, 0) 100%);
     }
 
     .text-of-the-day-inner {
@@ -273,17 +271,12 @@ img {
 // ios
 // ***************************************
 
-body {
-    padding-top : constant(safe-area-inset-top); /* iOS 11.0 */
-    padding-top : env(safe-area-inset-top); /* iOS 11.2 */
-}
-
-.navigation-buttons,
-.text-of-the-day .action-button,
-.panel .social-media {
-    margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
-    margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
-}
+//.navigation-buttons,
+//.text-of-the-day .action-button,
+//.panel .social-media {
+//    margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
+//    margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
+//}
 
 .ios .page {
     background : #fff;
@@ -358,6 +351,10 @@ body {
         height     : rem-calc(40);
         padding    : rem-calc(3 10);
         background : $blue;
+    }
+
+    .icon-back {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23282828'%2F%3E%3C%2Fsvg%3E");
     }
 }
 
@@ -505,7 +502,8 @@ h2 {
 }
 
 .page-content {
-    .first-list {
+    .first-list,
+    .main-book-list-container > .list:first-child {
         margin-top : rem-calc(5);
     }
 }
@@ -595,7 +593,7 @@ h2 {
         p {
             display             : inline;
             margin              : 0;
-            line-height         : 2;
+            line-height         : 1.8;
             -webkit-user-select : none;
             position            : relative;
             color               : $text-color;
@@ -636,6 +634,10 @@ h2 {
 
         a, .verse {
             color : $red;
+        }
+
+        .verse {
+            font-size : rem-calc(12);
         }
     }
 
