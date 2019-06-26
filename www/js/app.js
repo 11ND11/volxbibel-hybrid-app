@@ -120,6 +120,9 @@ $$(document).on('deviceready', function () {
         stage.showTextOfTheDay();
     }
     storage.setItem('lastAppRun', getTodaysDate());
+
+    // Register the event listener
+    document.addEventListener("backbutton", onBackKeyDown, false);
 });
 
 function getTodaysDate() {
@@ -134,4 +137,10 @@ function getTodaysDate() {
         mm = '0' + mm
     }
     return yyyy + '-' + mm + '-' + dd;
+}
+
+// Handle the back button
+//
+function onBackKeyDown() {
+    mainView.router.back();
 }
