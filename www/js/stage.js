@@ -427,7 +427,10 @@ var stage = (function () {
             text = data[1]['dates'][today]['text'],
             maxLength = 280,
             text = text.substring(0, maxLength);
+
+        if(data[1]['dates'][today]['text'].length > maxLength) {
             text += '...';
+        }
 
         return '<div>' + text + '</div><div class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'];
     }
