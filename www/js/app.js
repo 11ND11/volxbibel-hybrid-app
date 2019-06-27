@@ -39,6 +39,8 @@ var app = new Framework7({
         hideOnPageScroll: true,
     },
     statusbar: {
+        iosOverlaysWebView: false,
+        androidOverlaysWebView: false
     },
     picker: {
         rotateEffect: true,
@@ -112,7 +114,10 @@ var notificationAddText = app.notification.create({
 
 // handle Cordova device ready event
 $$(document).on('deviceready', function () {
-    StatusBar.overlaysWebView(false);
+    if(device.platform === 'iOS') {
+        iOSDevice = true;
+        StatusBar.overlaysWebView(true);
+    }
     StatusBar.styleDefault();
     StatusBar.backgroundColorByHexString("#FFFFFF");
 
@@ -120,10 +125,6 @@ $$(document).on('deviceready', function () {
         stage.showTextOfTheDay();
     }
     storage.setItem('lastAppRun', getTodaysDate());
-
-    if (device.platform === 'iOS') {
-        iOSDevice = true;
-    }
 
     // Register the event listener
     document.addEventListener("backbutton", onBackKeyDown, false);

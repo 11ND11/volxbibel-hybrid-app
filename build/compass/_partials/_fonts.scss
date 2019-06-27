@@ -7,7 +7,7 @@
     font-family : 'Bebas Neue';
     font-style  : normal;
     font-weight : 400;
-    src         : local('Bebas Neue'), local('Bebas Neue'),
+    src         : local('Bebas Neue'),
     url('../fonts/BebasNeue-Regular.woff2') format('woff2'), /* Super Modern Browsers */
     url('../fonts/BebasNeue-Regular.woff') format('woff'), /* Modern Browsers */
     url('../fonts/BebasNeue-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
@@ -16,9 +16,10 @@
 // Dirty Ego
 @font-face {
     font-family: 'Dirty Ego';
-    src: url('../fonts/dirtyego.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    src: local('Dirty Ego'),
+    url('../fonts/dirtyego.woff') format('woff'); /* Modern Browsers */
 }
 
 /* open-sans-300 - latin */

@@ -106,5 +106,6 @@
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
+    <plugin name="cordova-plugin-device" spec="2.0.2" />
 
 </widget>

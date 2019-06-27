@@ -15,7 +15,6 @@ var stage = (function () {
      * @return void
      */
     function init() {
-
         settingsOverride = JSON.parse(storage.getItem('settings'));
 
         if (typeof settingsOverride === 'undefined' || settingsOverride === null) {
@@ -424,8 +423,13 @@ var stage = (function () {
      * @return string
      */
     function getVerseOfCurrentDay(data) {
-        var today = getTodaysDate();
-        return '<div>' + data[1]['dates'][today]['text'] + '</div><div class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'];
+        var today = getTodaysDate(),
+            text = data[1]['dates'][today]['text'],
+            maxLength = 280,
+            text = text.substring(0, maxLength);
+            text += '...';
+
+        return '<div>' + text + '</div><div class="text-of-the-day-verse">' + data[1]['dates'][today]['bibleverses'];
     }
 
     /**
@@ -454,10 +458,10 @@ var stage = (function () {
     function setDarkStatusbar() {
         app.navbar.hide('.navbar');
 
-        if (iOSDevice) {
-            StatusBar.styleLightContent();
-            StatusBar.backgroundColorByHexString("#000");
-        }
+        // if (iOSDevice) {
+        //     StatusBar.styleLightContent();
+        //     StatusBar.backgroundColorByHexString("#000");
+        // }
     }
 
     /**
@@ -468,10 +472,10 @@ var stage = (function () {
     function setLightStatusbar() {
         app.navbar.show('.navbar');
 
-        if (iOSDevice) {
-            StatusBar.styleDefault();
-            StatusBar.backgroundColorByHexString("#fff");
-        }
+        // if (iOSDevice) {
+        //     StatusBar.styleDefault();
+        //     StatusBar.backgroundColorByHexString("#fff");
+        // }
     }
 
     /**

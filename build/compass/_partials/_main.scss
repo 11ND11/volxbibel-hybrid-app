@@ -250,8 +250,8 @@ img {
     .button-close {
         z-index  : 1000;
         position : absolute;
-        right    : rem-calc(30);
-        top      : rem-calc(30);
+        right    : rem-calc(15);
+        top      : rem-calc(15);
         width    : rem-calc(40);
         height   : rem-calc(40);
 
@@ -270,12 +270,17 @@ img {
 // ios
 // ***************************************
 
-//.navigation-buttons,
-//.text-of-the-day .action-button,
-//.panel .social-media {
-//    margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
-//    margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
-//}
+.ios {
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+    padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+}
+
+.navigation-buttons,
+.text-of-the-day .action-button,
+.panel .social-media {
+    margin-bottom : constant(safe-area-inset-bottom); /* iOS 11.0 */
+    margin-bottom : env(safe-area-inset-bottom); /* iOS 11.2 */
+}
 
 .ios .page {
     background : #fff;
