@@ -61,7 +61,6 @@ img {
         height           : rem-calc(55);
         transform        : translateY(55%);
         min-width        : 0;
-        margin-right     : rem-calc(5);
         padding          : 0;
         line-height      : rem-calc(55);
         font-size        : rem-calc(11);
@@ -151,7 +150,7 @@ img {
         &[data-action="textoftheday"] {
             position    : absolute;
             right       : rem-calc(20);
-            bottom      : rem-calc(20);
+            bottom      : 0;
             width       : rem-calc(55);
             height      : rem-calc(55);
             background  : $blue;
@@ -354,7 +353,11 @@ img {
     }
 
     .icon-back {
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23282828'%2F%3E%3C%2Fsvg%3E");
+        background-image : url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23282828'%2F%3E%3C%2Fsvg%3E");
+    }
+
+    .if-not-md {
+        display : none;
     }
 }
 

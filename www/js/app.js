@@ -14,7 +14,8 @@ var currentBook = '',
     today = new Date(),
     firstStageInit = true,
     storage = window.localStorage,
-    settingsOverride;
+    settingsOverride,
+    iOSDevice = false;
 
 // default settings
 // will be override by custom settings in local storage
@@ -119,6 +120,10 @@ $$(document).on('deviceready', function () {
         stage.showTextOfTheDay();
     }
     storage.setItem('lastAppRun', getTodaysDate());
+
+    if (device.platform === 'iOS') {
+        iOSDevice = true;
+    }
 
     // Register the event listener
     document.addEventListener("backbutton", onBackKeyDown, false);

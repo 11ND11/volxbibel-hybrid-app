@@ -447,6 +447,34 @@ var stage = (function () {
     }
 
     /**
+     * @private
+     *
+     * @return void
+     */
+    function setDarkStatusbar() {
+        app.navbar.hide('.navbar');
+
+        if (iOSDevice) {
+            StatusBar.styleLightContent();
+            StatusBar.backgroundColorByHexString("#000");
+        }
+    }
+
+    /**
+     * @private
+     *
+     * @return void
+     */
+    function setLightStatusbar() {
+        app.navbar.show('.navbar');
+
+        if (iOSDevice) {
+            StatusBar.styleDefault();
+            StatusBar.backgroundColorByHexString("#fff");
+        }
+    }
+
+    /**
      * @public
      *
      * @return void
@@ -461,25 +489,20 @@ var stage = (function () {
 
             $('.text-of-the-day-content').html(getVerseOfCurrentDay(requestData));
             $('.text-of-the-day').fadeIn();
-            app.navbar.hide('.navbar');
-            StatusBar.styleLightContent();
-            StatusBar.backgroundColorByHexString("#000");
-            $('.text-of-the-day svg').addClass('animate');
+            setDarkStatusbar();
 
             renderActionButtons($('.text-of-the-day'), requestData[1]['dates'][today]['text'], book, chapter, verse, wikiUrl);
 
             $('.text-of-the-day [data-action="like"]').on('click', function () {
                 $('.text-of-the-day').fadeOut();
-                app.navbar.show('.navbar');
-                StatusBar.styleDefault();
-                StatusBar.backgroundColorByHexString("#FFF");
+                setLightStatusbar();
+                $$('.text-of-the-day [data-action]').remove();
             });
 
             $('.text-of-the-day .button-close').on('click', function () {
                 $('.text-of-the-day').fadeOut();
-                app.navbar.show('.navbar');
-                StatusBar.styleDefault();
-                StatusBar.backgroundColorByHexString("#FFF");
+                setLightStatusbar();
+                $$('.text-of-the-day [data-action]').remove();
             });
         });
     }
@@ -492,15 +515,11 @@ var stage = (function () {
     function showTutorial() {
         $('.tutorial-overlay').fadeIn();
         setTimeout(function () {
-            app.navbar.hide('.navbar');
-            StatusBar.styleLightContent();
-            StatusBar.backgroundColorByHexString("#000");
+            setDarkStatusbar();
         }, 100);
         $('.tutorial-overlay .button, .tutorial-overlay .button-close').on('click', function () {
             $('.tutorial-overlay').fadeOut();
-            app.navbar.show('.navbar');
-            StatusBar.styleDefault();
-            StatusBar.backgroundColorByHexString("#FFF");
+            setLightStatusbar();
         });
     }
 

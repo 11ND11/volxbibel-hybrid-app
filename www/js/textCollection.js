@@ -22,16 +22,14 @@ var textCollection = (function () {
 
         storedTextCollection.text.push({
             content: text,
-            book: book,
-            chapter: chapter,
+            book: book.replace(" ", ""),
+            chapter: Number.parseInt(chapter),
             verse: verse,
             creationDate: creationDate,
             highlightColor: '',
             note: ''
         });
 
-        // storedTextCollection.text.sort();
-        console.log(storedTextCollection);
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
         notificationAddText.open();
         setTimeout(function () {
@@ -57,9 +55,7 @@ var textCollection = (function () {
 
         // remove item
         storedTextCollection.text.splice(index, 1);
-        console.log(storedTextCollection.text);
 
-        // storedTextCollection.sort();
         storage.setItem('textCollection', JSON.stringify(storedTextCollection));
         notificationRemoveText.open();
         setTimeout(function () {
@@ -83,8 +79,7 @@ var textCollection = (function () {
                 text: []
             };
         }
-
-        for(var i = storedTextCollection.text.length - 1; i > 0; i--)
+        for(var i = storedTextCollection.text.length - 1; i >= 0; i--)
         {
             textList += '<li id="my-vers-' + i + '" class="swipeout">' +
                     '<a class="link item-link item-content swipeout-content" href="/detail/" data-book="' + storedTextCollection.text[i].book + '" data-chapter="' +storedTextCollection.text[i].chapter + '">' +
@@ -102,9 +97,7 @@ var textCollection = (function () {
                         '<a class="swipeout-delete" href="#" data-remove-text="' + i + '">weg damit!</a>' +
                     '</div>' +
                 '</li>';
-            // console.log(storedTextCollection.text[i].book + ' index:' + i)
         }
-
         $$listContainer.html(textList);
 
         $('[data-remove-text]').on('click', function () {
