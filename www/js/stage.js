@@ -70,6 +70,7 @@ var stage = (function () {
             }
         });
 
+        $$('[data-action="textoftheday"]').off('click');
         $$('[data-action="textoftheday"]').on('click', function () {
             showTextOfTheDay();
         });
@@ -217,6 +218,7 @@ var stage = (function () {
     function createChapterPicker($voxbibelContentContainer, currentBook, lastChapterOfCurrentBook, $$prevButton, $$nextButton) {
         return app.picker.create({
             inputEl: '#picker-chapter',
+            toolbarCloseText: 'Fertig',
             cols: [
                 {
                     textAlign: 'center',
@@ -503,13 +505,13 @@ var stage = (function () {
             $('.text-of-the-day [data-action="like"]').on('click', function () {
                 $('.text-of-the-day').fadeOut();
                 setLightStatusbar();
-                $$('.text-of-the-day [data-action]').remove();
+                $$('.text-of-the-day [data-action]').off('click').remove();
             });
 
             $('.text-of-the-day .button-close').on('click', function () {
                 $('.text-of-the-day').fadeOut();
                 setLightStatusbar();
-                $$('.text-of-the-day [data-action]').remove();
+                $$('.text-of-the-day [data-action]').off('click').remove();
             });
         });
     }
