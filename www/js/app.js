@@ -20,7 +20,7 @@ var currentBook = '',
 // default settings
 // will be override by custom settings in local storage
 var settings = {
-    version : '2004', // 2.0.04
+    version : '2005', // 2.0.05
     startWithLastText : true,
     showNtFirst: true,
 };
