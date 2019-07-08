@@ -1,0 +1,49 @@
+@mixin button-mini-shadow() {
+    box-shadow : 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        box-shadow : 0 4px 11px 0 rgba(0, 0, 0, 0.375);
+    }
+}
+
+@mixin button-long-shadow() {
+    box-shadow : 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+
+    &:hover {
+        box-shadow : 0 4px 10px 0 rgba(0, 0, 0, 0.225);
+    }
+}
+
+@mixin button-long-shadow-light() {
+    box-shadow : 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        box-shadow : 2px 4px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+@mixin ratio-box($ratio) {
+    // e.g. 100 / 16*9 = 56.25%
+    height      : 0;
+    overflow    : hidden;
+    padding-top : $ratio;
+    position    : relative;
+}
+
+@mixin ratio-image-box($ratio) {
+    @include ratio-box($ratio);
+
+    img {
+        position   : absolute;
+        left       : -10000%;
+        right      : -10000%;
+        top        : -10000%;
+        bottom     : -10000%;
+        margin     : auto auto;
+        min-width  : 1000%;
+        min-height : 1000%;
+        transform  : scale(0.1);
+        max-width  : none;
+        width      : auto;
+    }
+}

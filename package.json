@@ -1,0 +1,18 @@
+{
+  "name": "volxbibel-app",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/11ND11/volxbibel-hybrid-app"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.3",
+    "cssnano": "^4.1.10",
+    "grunt": "^1.0.3",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-node-sass": "^1.0.1",
+    "grunt-postcss": "^0.9.0"
+  }
+}

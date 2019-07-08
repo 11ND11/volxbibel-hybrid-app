@@ -1,46 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
-    <!-- Your app title -->
+    <meta name="theme-color" content="#ffffff">
     <title>Volxbibel</title>
-    <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="lib/framework7/css/framework7.css">
-    <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="cordova.js"></script>
 </head>
 <body>
-<!-- App root element -->
+
 <div id="app">
     <!-- Statusbar overlay -->
     <div class="statusbar"></div>
 
+    <div class="panel panel-right panel-reveal">
+        <div class="content-block">
+            <ul>
+                <li>
+                    <a href="/" class="panel-close link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="book" class="svg-inline--fa fa-book fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
+                        </svg>
+                        Los gehts!
+                    </a>
+                </li>
+                <li>
+                    <a href="/bookmarks/" class="panel-close link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentColor" d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+                        Meine Sprüche
+                    </a>
+                </li>
+                <li>
+                    <a href="/videos/" class="panel-close link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="film" class="svg-inline--fa fa-film fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M488 64h-8v20c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12V64H96v20c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12V64h-8C10.7 64 0 74.7 0 88v336c0 13.3 10.7 24 24 24h8v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h320v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h8c13.3 0 24-10.7 24-24V88c0-13.3-10.7-24-24-24zM96 372c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm288 224c0 6.6-5.4 12-12 12H140c-6.6 0-12-5.4-12-12V284c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v120zm0-176c0 6.6-5.4 12-12 12H140c-6.6 0-12-5.4-12-12V108c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v120zm96 144c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40z"></path>
+                        </svg>
+                        Videos
+                    </a>
+                </li>
+                <li>
+                    <a href="/podcasts/" class="panel-close link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="podcast" class="svg-inline--fa fa-podcast fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M326.011 313.366a81.658 81.658 0 0 0-11.127-16.147c-1.855-2.1-1.913-5.215-.264-7.481C328.06 271.264 336 248.543 336 224c0-63.221-52.653-114.375-116.41-111.915-57.732 2.228-104.69 48.724-107.458 106.433-1.278 26.636 6.812 51.377 21.248 71.22 1.648 2.266 1.592 5.381-.263 7.481a81.609 81.609 0 0 0-11.126 16.145c-2.003 3.816-7.25 4.422-9.961 1.072C92.009 289.7 80 258.228 80 224c0-79.795 65.238-144.638 145.178-143.995 77.583.624 141.19 63.4 142.79 140.969.73 35.358-11.362 67.926-31.928 93.377-2.738 3.388-8.004 2.873-10.029-.985zM224 0C100.206 0 0 100.185 0 224c0 82.003 43.765 152.553 107.599 191.485 4.324 2.637 9.775-.93 9.078-5.945-1.244-8.944-2.312-17.741-3.111-26.038a6.025 6.025 0 0 0-2.461-4.291c-48.212-35.164-79.495-92.212-79.101-156.409.636-103.637 84.348-188.625 187.964-190.76C327.674 29.822 416 116.79 416 224c0 63.708-31.192 120.265-79.104 155.21a6.027 6.027 0 0 0-2.462 4.292c-.799 8.297-1.866 17.092-3.11 26.035-.698 5.015 4.753 8.584 9.075 5.947C403.607 376.922 448 306.75 448 224 448 100.204 347.814 0 224 0zm64 355.75c0 32.949-12.871 104.179-20.571 132.813C262.286 507.573 242.858 512 224 512c-18.857 0-38.286-4.427-43.428-23.438C172.927 460.134 160 388.898 160 355.75c0-35.156 31.142-43.75 64-43.75 32.858 0 64 8.594 64 43.75zm-32 0c0-16.317-64-16.3-64 0 0 27.677 11.48 93.805 19.01 122.747 6.038 2.017 19.948 2.016 25.981 0C244.513 449.601 256 383.437 256 355.75zM288 224c0 35.346-28.654 64-64 64s-64-28.654-64-64 28.654-64 64-64 64 28.654 64 64zm-32 0c0-17.645-14.355-32-32-32s-32 14.355-32 32 14.355 32 32 32 32-14.355 32-32z"></path>
+                        </svg>
+                        Podcasts
+                    </a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="/support/" class="panel-close link">-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg>-->
+<!--                        Mitmachen-->
+<!--                    </a>-->
+<!--                </li>-->
+                <li>
+                    <a href="/settings/" class="panel-close link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="sliders-h" class="svg-inline--fa fa-sliders-h fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M504 384H192v-40c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h88v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h312c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-344 64h-32v-96h32v96zM504 96H256V56c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h152v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h248c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-280 64h-32V64h32v96zm280 80h-88v-40c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h312v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h88c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-120 64h-32v-96h32v96z"></path>
+                        </svg>
+                        Einstellungen
+                    </a>
+                </li>
+            </ul>
+            <div class="social-media">
+                <span class="label">FOLGE UNS NACH</span>
+                <a class="social-media-fb" href="#" onclick="window.open('https://www.facebook.com/volxbibelATundNT/', '_system')">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>facebook</title>
+                        <path fill="#FFFFFF" d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z"></path>
+                    </svg>
+                </a>
+                <a class="social-media-insta" href="#" onclick="window.open('https://www.instagram.com/volxbibel/', '_system')">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>instagram</title>
+                        <path fill="#FFFFFF" d="M16 2.881c4.275 0 4.781 0.019 6.462 0.094 1.563 0.069 2.406 0.331 2.969 0.55 0.744 0.288 1.281 0.638 1.837 1.194 0.563 0.563 0.906 1.094 1.2 1.838 0.219 0.563 0.481 1.412 0.55 2.969 0.075 1.688 0.094 2.194 0.094 6.463s-0.019 4.781-0.094 6.463c-0.069 1.563-0.331 2.406-0.55 2.969-0.288 0.744-0.637 1.281-1.194 1.837-0.563 0.563-1.094 0.906-1.837 1.2-0.563 0.219-1.413 0.481-2.969 0.55-1.688 0.075-2.194 0.094-6.463 0.094s-4.781-0.019-6.463-0.094c-1.563-0.069-2.406-0.331-2.969-0.55-0.744-0.288-1.281-0.637-1.838-1.194-0.563-0.563-0.906-1.094-1.2-1.837-0.219-0.563-0.481-1.413-0.55-2.969-0.075-1.688-0.094-2.194-0.094-6.463s0.019-4.781 0.094-6.463c0.069-1.563 0.331-2.406 0.55-2.969 0.288-0.744 0.638-1.281 1.194-1.838 0.563-0.563 1.094-0.906 1.838-1.2 0.563-0.219 1.412-0.481 2.969-0.55 1.681-0.075 2.188-0.094 6.463-0.094zM16 0c-4.344 0-4.887 0.019-6.594 0.094-1.7 0.075-2.869 0.35-3.881 0.744-1.056 0.412-1.95 0.956-2.837 1.85-0.894 0.888-1.438 1.781-1.85 2.831-0.394 1.019-0.669 2.181-0.744 3.881-0.075 1.713-0.094 2.256-0.094 6.6s0.019 4.887 0.094 6.594c0.075 1.7 0.35 2.869 0.744 3.881 0.413 1.056 0.956 1.95 1.85 2.837 0.887 0.887 1.781 1.438 2.831 1.844 1.019 0.394 2.181 0.669 3.881 0.744 1.706 0.075 2.25 0.094 6.594 0.094s4.888-0.019 6.594-0.094c1.7-0.075 2.869-0.35 3.881-0.744 1.050-0.406 1.944-0.956 2.831-1.844s1.438-1.781 1.844-2.831c0.394-1.019 0.669-2.181 0.744-3.881 0.075-1.706 0.094-2.25 0.094-6.594s-0.019-4.887-0.094-6.594c-0.075-1.7-0.35-2.869-0.744-3.881-0.394-1.063-0.938-1.956-1.831-2.844-0.887-0.887-1.781-1.438-2.831-1.844-1.019-0.394-2.181-0.669-3.881-0.744-1.712-0.081-2.256-0.1-6.6-0.1v0z"></path>
+                        <path fill="#FFFFFF" d="M16 7.781c-4.537 0-8.219 3.681-8.219 8.219s3.681 8.219 8.219 8.219 8.219-3.681 8.219-8.219c0-4.537-3.681-8.219-8.219-8.219zM16 21.331c-2.944 0-5.331-2.387-5.331-5.331s2.387-5.331 5.331-5.331c2.944 0 5.331 2.387 5.331 5.331s-2.387 5.331-5.331 5.331z"></path>
+                        <path fill="#FFFFFF" d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z"></path>
+                    </svg>
+                </a>
+                <a class="social-media-twitter" href="#" onclick="window.open('https://twitter.com/volxbibel', '_system')">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>twitter</title>
+                        <path fill="#FFFFFF" d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Your main view, should have "view-main" class -->
     <div class="view view-main">
+
         <!-- Initial Page, "data-name" contains page name -->
         <div data-name="home" class="page">
 
             <!-- Top Navbar -->
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div class="title">Die Volxbibel</div>
-                    <a class="link icon-only right" href="/about/">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-36 344h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z"/>
-                        </svg>
-                        <!-- Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
-                    </a>
+                    <div class="right">
+                        <a href="#" class="panel-open link">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Text of the Day -->
-            <div class="text-of-the-day" style="display: none">
+            <div class="text-of-the-day fullscreen" style="display: none">
                 <div class="bg-gradient">
                     <a class="button-close" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -52,12 +124,6 @@
                         -->
                     </a>
                     <div class="text-of-the-day-inner">
-                        <?xml version="1.0" encoding="utf-8"?>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 496 512" style="enable-background:new 0 0 496 512;" xml:space="preserve"><path style="display:none;" d="M248,8C111,8,0,119,0,256s111,248,248,248s248-111,248-248S385,8,248,8z M371.5,280.3L260.9,394.5c-7.1,7.4-18.7,7.4-25.9,0L124.5,280.3c-32.1-33.2-30.2-88.2,5.7-118.8c31.3-26.7,77.9-21.9,106.6,7.7l11.3,11.6l11.3-11.6c28.7-29.6,75.3-34.4,106.6-7.7C401.8,192.1,403.7,247.1,371.5,280.3z"/><path d="M206.567,320.407c0-3.179,0.652-6.195,1.729-8.996l48.064,14.508c-2.527,11.261-12.564,19.71-24.571,19.71C217.88,345.63,206.567,334.316,206.567,320.407z M496.479,255.125C496.479,392.023,385.502,503,248.604,503S0.729,392.023,0.729,255.125S111.707,7.25,248.604,7.25S496.479,118.227,496.479,255.125z M349.493,152.259l-221.446,66.849c-2.979-4.698-7.982-7.998-13.962-7.998c-9.285,0-16.815,7.53-16.815,16.815v50.444c0,9.285,7.53,16.815,16.815,16.815c5.98,0,10.982-3.3,13.962-7.998l56.219,16.972c-1.76,5.129-2.922,10.53-2.922,16.247c0,27.818,22.626,50.444,50.444,50.444c23.378,0,42.909-16.063,48.605-37.676l69.098,20.861V152.259z M399.938,143.852c0-4.645-3.762-8.407-8.407-8.407h-16.815c-4.645,0-8.407,3.762-8.407,8.407v218.593c0,4.645,3.762,8.407,8.407,8.407h16.815c4.645,0,8.407-3.762,8.407-8.407V143.852z"/></svg>
-                        <!--
-                        Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com
-                        License - https://fontawesome.com/license (Commercial License)
-                        -->
                         <h1>Spruch des Tages</h1>
                         <div class="text-of-the-day-content"></div>
                     </div>
@@ -70,7 +136,7 @@
                 <form class="searchbar">
                     <div class="searchbar-inner">
                         <div class="searchbar-input-wrap">
-                            <input type="search" placeholder="Suchen">
+                            <input type="search" placeholder="Buchliste filtern">
                             <i class="searchbar-icon"></i>
                             <span class="input-clear-button"></span>
                         </div>
@@ -78,84 +144,90 @@
                     </div>
                 </form>
 
-                <div id="first-link-list" class="list links-list first-list searchbar-found">
-                    <h3 class="list-headline">Altes Testament</h3>
+                <div class="block">
+                    <h2><span>Die Volxbibel</span></h2>
 
-                    <ul>
-                        <li><a href="/detail/" data-book="1.Mose">1. Buch Mose</a></li>
-                        <li><a href="/detail/" data-book="2.Mose">2. Buch Mose</a></li>
-                        <li><a href="/detail/" data-book="3.Mose">3. Buch Mose</a></li>
-                        <li><a href="/detail/" data-book="4.Mose">4. Buch Mose</a></li>
-                        <li><a href="/detail/" data-book="5.Mose">5. Buch Mose</a></li>
-                        <li><a href="/detail/" data-book="Josua">Das Buch Josua</a></li>
-                        <li><a href="/detail/" data-book="Richter">Das Buch der Richter</a></li>
-                        <li><a href="/detail/" data-book="Rut">Das Buch Rut</a></li>
-                        <li><a href="/detail/" data-book="1.Samuel">1. Buch Samuel</a></li>
-                        <li><a href="/detail/" data-book="2.Samuel">2. Buch Samuel</a></li>
-                        <li><a href="/detail/" data-book="1.Könige">1. Buch über die Könige</a></li>
-                        <li><a href="/detail/" data-book="2.Könige">2. Buch über die Könige</a></li>
-                        <li><a href="/detail/" data-book="1.Chronik">1. Buch der Chronik</a></li>
-                        <li><a href="/detail/" data-book="2.Chronik">2. Buch der Chronik</a></li>
-                        <li><a href="/detail/" data-book="Esra">Das Buch Esra</a></li>
-                        <li><a href="/detail/" data-book="Nehemia">Das Buch Nehemia</a></li>
-                        <li><a href="/detail/" data-book="Esther">Das Buch Esther</a></li>
-                        <li><a href="/detail/" data-book="Hiob">Das Buch Hiob</a></li>
-                        <li><a href="/detail/" data-book="Psalmen">Das Buch der Psalmen</a></li>
-                        <li><a href="/detail/" data-book="Sprüche">Das Buch der Sprüche</a></li>
-                        <li><a href="/detail/" data-book="Prediger">Das Buch Prediger</a></li>
-                        <li><a href="/detail/" data-book="Hoheslied">Das Hohelied</a></li>
-                        <li><a href="/detail/" data-book="Jesaja">Der Prophet Jesaja</a></li>
-                        <li><a href="/detail/" data-book="Jeremia">Der Prophet Jeremia</a></li>
-                        <li><a href="/detail/" data-book="Klagelieder">Das Buch der Klagelieder</a></li>
-                        <li><a href="/detail/" data-book="Hesekiel">Der Prophet Hesekiel</a></li>
-                        <li><a href="/detail/" data-book="Daniel">Der Prophet Daniel</a></li>
-                        <li><a href="/detail/" data-book="Hosea">Der Prophet Hosea</a></li>
-                        <li><a href="/detail/" data-book="Joel">Der Prophet Joel</a></li>
-                        <li><a href="/detail/" data-book="Amos">Der Prophet Amos</a></li>
-                        <li><a href="/detail/" data-book="Obadja">Der Prophet Obadja</a></li>
-                        <li><a href="/detail/" data-book="Jona">Der Prophet Jona</a></li>
-                        <li><a href="/detail/" data-book="Micha">Der Prophet Micha</a></li>
-                        <li><a href="/detail/" data-book="Nahum">Der Prophet Nahum</a></li>
-                        <li><a href="/detail/" data-book="Habakuk">Der Prophet Habakuk</a></li>
-                        <li><a href="/detail/" data-book="Zefanja">Der Prophet Zefanja</a></li>
-                        <li><a href="/detail/" data-book="Haggai">Der Prophet Haggai</a></li>
-                        <li><a href="/detail/" data-book="Sacharja">Der Prophet Sacharja</a></li>
-                        <li><a href="/detail/" data-book="Maleachi">Der Prophet Maleachi</a></li>
-                    </ul>
-                </div>
+                    <div class="main-book-list-container">
+                        <div class="list links-list at searchbar-found" data-bible-list>
+                            <h3 class="list-headline">Altes Testament</h3>
 
-                <div class="list links-list searchbar-found">
-                    <h3 class="list-headline">Neues Testament</h3>
+                            <ul>
+                                <li><a href="/detail/" data-book="1.Mose">1. Buch Mose</a></li>
+                                <li><a href="/detail/" data-book="2.Mose">2. Buch Mose</a></li>
+                                <li><a href="/detail/" data-book="3.Mose">3. Buch Mose</a></li>
+                                <li><a href="/detail/" data-book="4.Mose">4. Buch Mose</a></li>
+                                <li><a href="/detail/" data-book="5.Mose">5. Buch Mose</a></li>
+                                <li><a href="/detail/" data-book="Josua">Das Buch Josua</a></li>
+                                <li><a href="/detail/" data-book="Richter">Das Buch der Richter</a></li>
+                                <li><a href="/detail/" data-book="Rut">Das Buch Rut</a></li>
+                                <li><a href="/detail/" data-book="1.Samuel">1. Buch Samuel</a></li>
+                                <li><a href="/detail/" data-book="2.Samuel">2. Buch Samuel</a></li>
+                                <li><a href="/detail/" data-book="1.Könige">1. Buch über die Könige</a></li>
+                                <li><a href="/detail/" data-book="2.Könige">2. Buch über die Könige</a></li>
+                                <li><a href="/detail/" data-book="1.Chronik">1. Buch der Chronik</a></li>
+                                <li><a href="/detail/" data-book="2.Chronik">2. Buch der Chronik</a></li>
+                                <li><a href="/detail/" data-book="Esra">Das Buch Esra</a></li>
+                                <li><a href="/detail/" data-book="Nehemia">Das Buch Nehemia</a></li>
+                                <li><a href="/detail/" data-book="Esther">Das Buch Esther</a></li>
+                                <li><a href="/detail/" data-book="Hiob">Das Buch Hiob</a></li>
+                                <li><a href="/detail/" data-book="Psalmen">Das Buch der Psalmen</a></li>
+                                <li><a href="/detail/" data-book="Sprüche">Das Buch der Sprüche</a></li>
+                                <li><a href="/detail/" data-book="Prediger">Das Buch Prediger</a></li>
+                                <li><a href="/detail/" data-book="Hoheslied">Das Hohelied</a></li>
+                                <li><a href="/detail/" data-book="Jesaja">Der Prophet Jesaja</a></li>
+                                <li><a href="/detail/" data-book="Jeremia">Der Prophet Jeremia</a></li>
+                                <li><a href="/detail/" data-book="Klagelieder">Das Buch der Klagelieder</a></li>
+                                <li><a href="/detail/" data-book="Hesekiel">Der Prophet Hesekiel</a></li>
+                                <li><a href="/detail/" data-book="Daniel">Der Prophet Daniel</a></li>
+                                <li><a href="/detail/" data-book="Hosea">Der Prophet Hosea</a></li>
+                                <li><a href="/detail/" data-book="Joel">Der Prophet Joel</a></li>
+                                <li><a href="/detail/" data-book="Amos">Der Prophet Amos</a></li>
+                                <li><a href="/detail/" data-book="Obadja">Der Prophet Obadja</a></li>
+                                <li><a href="/detail/" data-book="Jona">Der Prophet Jona</a></li>
+                                <li><a href="/detail/" data-book="Micha">Der Prophet Micha</a></li>
+                                <li><a href="/detail/" data-book="Nahum">Der Prophet Nahum</a></li>
+                                <li><a href="/detail/" data-book="Habakuk">Der Prophet Habakuk</a></li>
+                                <li><a href="/detail/" data-book="Zefanja">Der Prophet Zefanja</a></li>
+                                <li><a href="/detail/" data-book="Haggai">Der Prophet Haggai</a></li>
+                                <li><a href="/detail/" data-book="Sacharja">Der Prophet Sacharja</a></li>
+                                <li><a href="/detail/" data-book="Maleachi">Der Prophet Maleachi</a></li>
+                            </ul>
+                        </div>
 
-                    <ul>
-                        <li><a href="/detail/" data-book="Matthäus">Der Bericht von Matthäus</a></li>
-                        <li><a href="/detail/" data-book="Markus">Der Bericht von Markus</a></li>
-                        <li><a href="/detail/" data-book="Lukas">Der Bericht von Lukas</a></li>
-                        <li><a href="/detail/" data-book="Johannes">Der Bericht von Johannes</a></li>
-                        <li><a href="/detail/" data-book="Apostelgeschichte">Die Geschichte der Apostel</a></li>
-                        <li><a href="/detail/" data-book="Römer">Brief an die Römer</a></li>
-                        <li><a href="/detail/" data-book="1.Korinther">1. Brief an die Korinther</a></li>
-                        <li><a href="/detail/" data-book="2.Korinther">2. Brief an die Korinther</a></li>
-                        <li><a href="/detail/" data-book="Galater">Brief an die Galater</a></li>
-                        <li><a href="/detail/" data-book="Epheser">Brief an die Epheser</a></li>
-                        <li><a href="/detail/" data-book="Philipper">Brief an die Philipper</a></li>
-                        <li><a href="/detail/" data-book="Kolosser">Brief an die Kolosser</a></li>
-                        <li><a href="/detail/" data-book="1.Thessalonicher">1. Brief an die Thessalonicher</a></li>
-                        <li><a href="/detail/" data-book="2.Thessalonicher">2. Brief an die Thessalonicher</a></li>
-                        <li><a href="/detail/" data-book="1.Timotheus">1. Brief an die Timotheus</a></li>
-                        <li><a href="/detail/" data-book="2.Timotheus">2. Brief an die Timotheus</a></li>
-                        <li><a href="/detail/" data-book="Titus">Brief an Titus</a></li>
-                        <li><a href="/detail/" data-book="Philemon">E-Mail an Philemon</a></li>
-                        <li><a href="/detail/" data-book="Hebräer">Brief an die Hebräer</a></li>
-                        <li><a href="/detail/" data-book="Jakobus">Brief von Jakobus</a></li>
-                        <li><a href="/detail/" data-book="1.Petrus">1. Brief von Petrus</a></li>
-                        <li><a href="/detail/" data-book="2.Petrus">2. Brief von Petrus</a></li>
-                        <li><a href="/detail/" data-book="1.Johannes">1. Brief von Johannes</a></li>
-                        <li><a href="/detail/" data-book="2.Johannes">2. Brief von Johannes</a></li>
-                        <li><a href="/detail/" data-book="3.Johannes">3. Brief von Johannes</a></li>
-                        <li><a href="/detail/" data-book="Judas">Judas</a></li>
-                        <li><a href="/detail/" data-book="Offenbarung">Offenbarung</a></li>
-                    </ul>
+                        <div class="list links-list last-list nt searchbar-found" data-bible-list>
+                            <h3 class="list-headline">Neues Testament</h3>
+
+                            <ul>
+                                <li><a href="/detail/" data-book="Matthäus">Der Bericht von Matthäus</a></li>
+                                <li><a href="/detail/" data-book="Markus">Der Bericht von Markus</a></li>
+                                <li><a href="/detail/" data-book="Lukas">Der Bericht von Lukas</a></li>
+                                <li><a href="/detail/" data-book="Johannes">Der Bericht von Johannes</a></li>
+                                <li><a href="/detail/" data-book="Apostelgeschichte">Die Geschichte der Apostel</a></li>
+                                <li><a href="/detail/" data-book="Römer">Brief an die Römer</a></li>
+                                <li><a href="/detail/" data-book="1.Korinther">1. Brief an die Korinther</a></li>
+                                <li><a href="/detail/" data-book="2.Korinther">2. Brief an die Korinther</a></li>
+                                <li><a href="/detail/" data-book="Galater">Brief an die Galater</a></li>
+                                <li><a href="/detail/" data-book="Epheser">Brief an die Epheser</a></li>
+                                <li><a href="/detail/" data-book="Philipper">Brief an die Philipper</a></li>
+                                <li><a href="/detail/" data-book="Kolosser">Brief an die Kolosser</a></li>
+                                <li><a href="/detail/" data-book="1.Thessalonicher">1. Brief an die Thessalonicher</a></li>
+                                <li><a href="/detail/" data-book="2.Thessalonicher">2. Brief an die Thessalonicher</a></li>
+                                <li><a href="/detail/" data-book="1.Timotheus">1. Brief an die Timotheus</a></li>
+                                <li><a href="/detail/" data-book="2.Timotheus">2. Brief an die Timotheus</a></li>
+                                <li><a href="/detail/" data-book="Titus">Brief an Titus</a></li>
+                                <li><a href="/detail/" data-book="Philemon">E-Mail an Philemon</a></li>
+                                <li><a href="/detail/" data-book="Hebräer">Brief an die Hebräer</a></li>
+                                <li><a href="/detail/" data-book="Jakobus">Brief von Jakobus</a></li>
+                                <li><a href="/detail/" data-book="1.Petrus">1. Brief von Petrus</a></li>
+                                <li><a href="/detail/" data-book="2.Petrus">2. Brief von Petrus</a></li>
+                                <li><a href="/detail/" data-book="1.Johannes">1. Brief von Johannes</a></li>
+                                <li><a href="/detail/" data-book="2.Johannes">2. Brief von Johannes</a></li>
+                                <li><a href="/detail/" data-book="3.Johannes">3. Brief von Johannes</a></li>
+                                <li><a href="/detail/" data-book="Judas">Judas</a></li>
+                                <li><a href="/detail/" data-book="Offenbarung">Offenbarung</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -170,7 +242,9 @@
                 <div class="navigation-buttons-inner">
                     <!-- Toolbar links -->
                     <a class="link icon-only right" data-action="textoftheday" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M32 176c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32 11.38 0 20.9-6.28 26.57-15.22l106.99 32.3c-3.35 9.76-5.56 20.04-5.56 30.92 0 52.94 43.06 96 96 96 44.49 0 81.66-30.57 92.5-71.7L480 448V64L58.57 191.22C52.9 182.28 43.38 176 32 176zm179.29 190.88l91.47 27.61C297.95 415.92 278.85 432 256 432c-26.47 0-48-21.53-48-48 0-6.05 1.24-11.79 3.29-17.12zM560 32h-32c-8.84 0-16 7.16-16 16v416c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M32 176c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32 11.38 0 20.9-6.28 26.57-15.22l106.99 32.3c-3.35 9.76-5.56 20.04-5.56 30.92 0 52.94 43.06 96 96 96 44.49 0 81.66-30.57 92.5-71.7L480 448V64L58.57 191.22C52.9 182.28 43.38 176 32 176zm179.29 190.88l91.47 27.61C297.95 415.92 278.85 432 256 432c-26.47 0-48-21.53-48-48 0-6.05 1.24-11.79 3.29-17.12zM560 32h-32c-8.84 0-16 7.16-16 16v416c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16z"/>
+                        </svg>
                         <!-- Font Awesome Pro 5.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
                     </a>
                 </div>
@@ -178,11 +252,14 @@
         </div>
     </div>
 </div>
-<!-- Path to Framework7 Library JS-->
+
 <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
 <script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="lib/jquery-wikitext-0.3.js"></script>
-<!-- Path to your app js-->
+
+<script type="text/javascript" src="js/stage.js"></script>
+<script type="text/javascript" src="js/bibleNavigation.js"></script>
+<script type="text/javascript" src="js/textCollection.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
