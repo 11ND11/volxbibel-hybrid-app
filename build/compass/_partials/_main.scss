@@ -212,7 +212,7 @@ img {
         top         : 50%;
         left        : 50%;
         transform   : translate(-50%, -50%);
-        width       : 320px;
+        width       : rem-calc(310);
         text-align  : center;
         font-size   : rem-calc(18);
         line-height : 1.6;
@@ -893,7 +893,7 @@ h2 {
 // ***************************************
 
 .panel {
-    padding-top : rem-calc(50);
+    padding-top : rem-calc(20);
     background  : $black;
 
     ul, li {
@@ -996,6 +996,10 @@ h2 {
         font-size     : rem-calc(65);
         transform     : none;
 
+        @media (max-width : 350px) {
+            font-size : rem-calc(55);
+        }
+
         &:after {
             content : none;
         }
@@ -1005,6 +1009,10 @@ h2 {
         @include ratio-image-box(85%);
         margin      : 0;
         padding-top : rem-calc(300);
+
+        @media (max-width : 350px) {
+            padding-top : rem-calc(200);
+        }
 
         &:after {
             content    : '';
