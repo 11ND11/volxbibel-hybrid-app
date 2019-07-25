@@ -8,7 +8,9 @@
     
   All Bible verses of the app are loaded from the current version of [Volxbibel-Wiki](https://wiki.volxbibel.de/).
   
-  **Version: 2.0.5**   
+  **Version: 2.0.5**  
+  **Developer:** Andreas Steiger  
+  **Designer:** Tobias Westphal & Marcus Persing      
 
 
 ## Features
@@ -24,19 +26,15 @@
 
 ![logo of browserstack](https://d98b8t1nnulk5.cloudfront.net/production/images/static/header/header-logo.svg)
 
-Many kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.
-
+Many kudos to the team of [Browserstack](https://www.browserstack.com/) for supporting this project with cross app testing services.  
 With their amazing support we can test this hybrid app on many different mobile devices to increase the UX and compatibility.  
 
 ## Licence
 ![badge of CC licence](www/assets/somerights20.png)
 
-The Volxbibel content is licensed under the Creative Commons license (cc-by-nc-sa-2.0).
-
-Copyright Martin Dreyer (NT)
-
-Copyright 2009 Pattloch Verlag GmbH & Co. KG, München.(AT)
-
+The Volxbibel content is licensed under the Creative Commons license (cc-by-nc-sa-2.0).  
+Copyright Martin Dreyer (NT)  
+Copyright 2009 Pattloch Verlag GmbH & Co. KG, München.(AT)  
 The terms of the license are summarized here:
 http://creativecommons.org/licenses/by-nc-sa/2.0/de/
 
@@ -44,8 +42,5 @@ And complete terms are here: http://creativecommons.org/licenses/by-nc-sa/2.0/de
 
 ## CSS Grunt Build
 
-run 
-
-_npm install_
-
+_npm install_  
 _grunt watcher_
